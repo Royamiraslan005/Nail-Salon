@@ -1,0 +1,233 @@
+﻿@model NailSalon.Core.ViewModels.ProfileVm
+@{
+    string zodiacClass = Model.Zodiac.ToLower() switch
+    {
+        "qoç" => "zodiac-qoc",
+        "buğa" => "zodiac-buga",
+        "əkizlər" => "zodiac-ekizler",
+        "xərçəng" => "zodiac-xerceng",
+        "şir" => "zodiac-sir",
+        "qız" => "zodiac-qiz",
+        "tərəzi" => "zodiac-terezi",
+        "əqrəb" => "zodiac-eqreb",
+        "oxatan" => "zodiac-oxatan",
+        "oğlaq" => "zodiac-oglaq",
+        "dolça" => "zodiac-dolca",
+        "balıq" => "zodiac-baliq",
+        _ => ""
+    };
+}
+
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Profilim – Zodiac Nails</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #fdf1f6;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.2);
+            padding: 30px;
+        }
+
+        .profile-header {
+            text-align: center;
+        }
+
+        .zodiac-symbol {
+            font-size: 60px;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #d63384;
+            margin: 10px 0;
+        }
+
+        .info-box p {
+            font-size: 16px;
+            margin: 6px 0;
+        }
+
+        .design-box {
+            background: #ffeef4;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+            .orders-table th, .orders-table td {
+                border: 1px solid #ffb6c1;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .orders-table th {
+                background-color: #ffe4ec;
+            }
+
+        .menu-section {
+            margin-top: 30px;
+        }
+
+            .menu-section h3 {
+                color: #d63384;
+                margin-bottom: 10px;
+            }
+
+        .menu-list {
+            padding-left: 20px;
+            list-style: disc;
+            color: #555;
+        }
+
+        .trait-box {
+            font-size: 14px;
+            background-color: #fdf6fb;
+            padding: 10px;
+            border-left: 4px solid #ff69b4;
+            border-radius: 6px;
+            color: #444;
+            margin-top: 8px;
+        }
+    </style>
+    <style>
+        .zodiac-qoc {
+            background-color: #fff3f3;
+        }
+
+        .zodiac-buga {
+            background-color: #f4fff4;
+        }
+
+        .zodiac-ekizler {
+            background-color: #f0f9ff;
+        }
+
+        .zodiac-xerceng {
+            background-color: #fff5f9;
+        }
+
+        .zodiac-sir {
+            background-color: #fff7e6;
+        }
+
+        .zodiac-qiz {
+            background-color: #f4fff9;
+        }
+
+        .zodiac-terezi {
+            background-color: #fdf6ff;
+        }
+
+        .zodiac-eqreb {
+            background-color: #fceef5;
+        }
+
+        .zodiac-oxatan {
+            background-color: #fefde5;
+        }
+
+        .zodiac-oglaq {
+            background-color: #f0f0f0;
+        }
+
+        .zodiac-dolca {
+            background-color: #e8f7ff;
+        }
+
+        .zodiac-baliq {
+            background-color: #edf4ff;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="profile-container @zodiacClass">
+        <div class="profile-header">
+            <div class="zodiac-symbol">@Model.ZodiacSymbol</div>
+            <h2>Salam, @Model.FullName!</h2>
+            <p>Zodiac Nails-də profiliniz</p>
+        </div>
+
+        <div class="info-box">
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Bürcünüz:</strong> @Model.Zodiac (@Model.ZodiacSymbol)</p>
+            <div class="trait-box">
+                <strong>Xasiyyət:</strong> @Model.ZodiacTrait
+            </div>
+        </div>
+
+        <div class="design-box">
+            <p><strong>Tövsiyə olunan dırnaq dizaynı:</strong> @Model.SuggestedDesign</p>
+        </div>
+
+        <h3>💅 Əvvəlki Sifarişlər</h3>
+        @if (Model.Orders?.Any() == true)
+        {
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Tarix</th>
+                        <th>Usta</th>
+                        <th>Dizayn</th>
+                        <th>Qiymət</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.Orders)
+                    {
+                        <tr>
+                            <td>@order.Date.ToShortDateString()</td>
+                            <td>@order.MasterName</td>
+                            <td>@order.DesignName</td>
+                            <td>@order.Price ₼</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">Sifariş tapılmadı.</p>
+        }
+
+        <div class="menu-section">
+            <h3>☕ Sizin menyu seçimləriniz</h3>
+            @if (Model.MenuItems?.Any() == true)
+            {
+                <ul class="menu-list">
+                    @foreach (var item in Model.MenuItems)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>Seçim edilməyib.</p>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

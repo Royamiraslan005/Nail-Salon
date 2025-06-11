@@ -151,3 +151,4 @@ C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\refint\NailSalon.d
 C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\NailSalon.pdb
 C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\NailSalon.genruntimeconfig.cache
 C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\ref\NailSalon.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\NailSalon.sourcelink.json

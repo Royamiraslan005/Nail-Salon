@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NailSalon.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace NailSalon.BL.Services.Abstractions
     public interface IZodiacService
     {
         string Calculate(DateTime birthDate);
+        ZodiacInfo GetZodiacInfo(DateTime birthDate);
     }
 }

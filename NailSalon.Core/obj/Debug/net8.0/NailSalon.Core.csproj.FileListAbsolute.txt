@@ -10,3 +10,4 @@ C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Cor
 C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\refint\NailSalon.Core.dll
 C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.pdb
 C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\ref\NailSalon.Core.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.sourcelink.json

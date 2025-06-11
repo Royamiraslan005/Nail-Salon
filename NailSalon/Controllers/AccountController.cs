@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
-using NailSalon.BL.Services.Abstractions; // ← zodiac servis üçün əlavə et
+using NailSalon.BL.Services.Abstractions; 
 
 namespace NailSalon.Controllers
 {
@@ -50,7 +50,7 @@ namespace NailSalon.Controllers
             foreach (var error in result.Errors)
                 ModelState.AddModelError("", error.Description);
 
-            return View(model);
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -61,12 +61,46 @@ namespace NailSalon.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Email və ya şifrə yalnışdır.");
+                return View(model);
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, false);
+
             if (result.Succeeded)
-                return RedirectToAction("Index", "Home");
+            {
+                return RedirectToAction("Profile", "Account"); 
+            }
+
 
             ModelState.AddModelError("", "Email və ya şifrə yalnışdır.");
             return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login");
+
+            var zodiacInfo = _zodiacService.GetZodiacInfo(user.BirthDate);
+
+            var vm = new ProfileVm
+            {
+                FullName = user.FullName,
+                Email = user.Email,
+                BirthDate = user.BirthDate,
+                Zodiac = zodiacInfo.Name,
+                ZodiacSymbol = zodiacInfo.Symbol,
+                ZodiacTrait = zodiacInfo.Trait,
+                SuggestedDesign = zodiacInfo.SuggestedDesign,
+
+               
+            };
+
+            return View(vm);
         }
 
         public async Task<IActionResult> Logout()

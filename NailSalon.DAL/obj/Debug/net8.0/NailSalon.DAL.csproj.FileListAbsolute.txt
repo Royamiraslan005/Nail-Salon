@@ -13,3 +13,4 @@ C:\Users\hp\source\repos\NailSalon\NailSalon.DAL\obj\Debug\net8.0\NailSalon.DAL.
 C:\Users\hp\source\repos\NailSalon\NailSalon.DAL\obj\Debug\net8.0\refint\NailSalon.DAL.dll
 C:\Users\hp\source\repos\NailSalon\NailSalon.DAL\obj\Debug\net8.0\NailSalon.DAL.pdb
 C:\Users\hp\source\repos\NailSalon\NailSalon.DAL\obj\Debug\net8.0\ref\NailSalon.DAL.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon.DAL\obj\Debug\net8.0\NailSalon.DAL.sourcelink.json
