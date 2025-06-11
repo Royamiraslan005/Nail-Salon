@@ -1,0 +1,12 @@
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\bin\Debug\net8.0\NailSalon.Core.deps.json
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\bin\Debug\net8.0\NailSalon.Core.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\bin\Debug\net8.0\NailSalon.Core.pdb
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.AssemblyInfo.cs
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\refint\NailSalon.Core.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\NailSalon.Core.pdb
+C:\Users\hp\source\repos\NailSalon\NailSalon.Core\obj\Debug\net8.0\ref\NailSalon.Core.dll
