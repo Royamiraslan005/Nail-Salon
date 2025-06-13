@@ -10,19 +10,20 @@ namespace NailSalon.Core.Models
     public class Reservation
     {
         public int Id { get; set; }
-        public string AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
 
-        public int UstaId { get; set; }
+        public int MasterId { get; set; } 
         public Master Master { get; set; }
 
         public int ServiceId { get; set; }
         public Service Service { get; set; }
 
+        public string UserId { get; set; }  
+        public AppUser User { get; set; }
+
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
 
-        public ICollection<ReservationMenuItem> ReservationMenuItems { get; set; }
+        public ICollection<ReservationMenu> ReservationMenu { get; set; }
     }
 
 }

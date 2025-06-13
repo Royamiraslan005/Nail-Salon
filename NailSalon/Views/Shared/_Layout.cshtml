@@ -197,11 +197,11 @@
                <div class="offcanvas-body align-items-center justify-content-end">
     <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold active p-0" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link fw-semibold active p-0" aria-current="page" asp-action="Index" asp-controller="Home">Home</a>
         </li>
 
         <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" href="about.html">About</a>
+            <a class="nav-link fw-semibold p-0" asp-action="About" asp-controller="Home" >About</a>
         </li>
 
         <li class="nav-item dropdown px-3 py-2 py-lg-0">
@@ -223,42 +223,44 @@
         </li>
 
         <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" href="team.html">Our Team</a>
+            <a class="nav-link fw-semibold p-0" asp-action="Master" asp-controller="Master" >Our Team</a>
         </li>
 
         <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" href="register.html">Register</a>
+            <a class="nav-link fw-semibold p-0" asp-action="Register" asp-controller="Account">Register</a>
         </li>
 
-        <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" href="login.html">Login</a>
-        </li>
+                            <li class="nav-item px-3 py-2 py-lg-0">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Profile">
+                                        @User.Identity.Name
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link fw-semibold p-0" asp-action="Login" asp-controller="Account">
+                                        Login
+                                    </a>
+                                }
+                            </li>
+
 
         <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" href="profile.html">Profile</a>
+                                <a class="nav-link fw-semibold p-0" asp-action="Profile" asp-controller="Account">Profile</a>
         </li>
 
         <li class="nav-item px-3 py-2 py-lg-0">
             <a class="nav-link fw-semibold p-0" href="rezervation.html">Rezervation</a>
         </li>
 
-        <li class="nav-item search-dropdown py-2 py-lg-0 ms-3 ms-lg-5 dropdown">
-            <a class="nav-link p-0 search dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                <svg class="search text-primary" width="24" height="24">
-                    <use xlink:href="#search"></use>
-                </svg>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end animate slide mt-3 border-0 p-3 shadow">
-                <li class="position-relative d-flex align-items-center p-0">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary position-absolute end-0" type="submit">
-                        <svg class="search" width="24" height="24">
-                            <use xlink:href="#search"></use>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-        </li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item search-dropdown px-3 py-2 py-lg-0 dropdown" >
+                                    <a class="nav-link fw-semibold p-0" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Panel</a>
+                                </li>
+                            }
+
     </ul>
 </div>
 

@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
-using NailSalon.BL.Services.Abstractions; 
+using NailSalon.BL.Services.Abstractions;
+using NailSalon.Core.Enums;
 
 namespace NailSalon.Controllers
 {
@@ -11,14 +12,15 @@ namespace NailSalon.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IZodiacService _zodiacService;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<AppUser> userManager,
-                                 SignInManager<AppUser> signInManager,
-                                 IZodiacService zodiacService)
+
+        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,IZodiacService zodiacService, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _zodiacService = zodiacService;
+            _roleManager = roleManager;
         }
 
         [HttpGet]
@@ -43,8 +45,9 @@ namespace NailSalon.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user,"Admin");
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Account");
             }
 
             foreach (var error in result.Errors)
@@ -56,8 +59,21 @@ namespace NailSalon.Controllers
         [HttpGet]
         public IActionResult Login() => View();
 
+
+
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return RedirectToAction("Login");
+        }
+
+
+
+
+
+
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVm model)
+        public async Task<IActionResult> Login(LoginVm model,string? returnUrl)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -72,36 +88,49 @@ namespace NailSalon.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Profile", "Account"); 
+                return RedirectToAction("Index", "Home"); 
             }
 
 
             ModelState.AddModelError("", "Email və ya şifrə yalnışdır.");
             return View(model);
         }
-        [HttpGet]
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> CreateRole()
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null) return RedirectToAction("Login");
-
-            var zodiacInfo = _zodiacService.GetZodiacInfo(user.BirthDate);
-
-            var vm = new ProfileVm
+            foreach (var item in Enum.GetValues(typeof(UserRoles)))
             {
-                FullName = user.FullName,
-                Email = user.Email,
-                BirthDate = user.BirthDate,
-                Zodiac = zodiacInfo.Name,
-                ZodiacSymbol = zodiacInfo.Symbol,
-                ZodiacTrait = zodiacInfo.Trait,
-                SuggestedDesign = zodiacInfo.SuggestedDesign,
+                await _roleManager.CreateAsync(new IdentityRole()
+                {
+                    Name = item.ToString()
+                });
+            }
 
-               
-            };
-
-            return View(vm);
+            return RedirectToAction("Index", "Home");
         }
+            [HttpGet]
+            public async Task<IActionResult> Profile()
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null) return RedirectToAction("Login");
+
+                var zodiacInfo = _zodiacService.GetZodiacInfo(user.BirthDate);
+
+                var vm = new ProfileVm
+                {
+                    FullName = user.FullName,
+                    Email = user.Email,
+                    BirthDate = user.BirthDate,
+                    Zodiac = zodiacInfo.Name,
+                    ZodiacSymbol = zodiacInfo.Symbol,
+                    ZodiacTrait = zodiacInfo.Trait,
+                    SuggestedDesign = zodiacInfo.SuggestedDesign,
+
+
+                };
+
+                return View(vm);
+            }
+    
 
         public async Task<IActionResult> Logout()
         {

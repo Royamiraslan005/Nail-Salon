@@ -1,16 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
+using NailSalon.DAL.Contexts;
 
 namespace NailSalon.Controllers
 {
     public class ReservationController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public ReservationController(UserManager<AppUser> userManager, ApplicationDbContext context)
+        public ReservationController(UserManager<AppUser> userManager, AppDbContext context)
         {
             _userManager = userManager;
             _context = context;
@@ -22,9 +24,9 @@ namespace NailSalon.Controllers
             var vm = new ReservationVm
             {
                 Masters = _context.Masters.ToList(),
-                Services = _context.Services.ToList()
+                Services = _context.Services.ToList(),
+                Menu = _context.Menu.ToList()
             };
-
             return View(vm);
         }
 
@@ -35,6 +37,7 @@ namespace NailSalon.Controllers
             {
                 model.Masters = _context.Masters.ToList();
                 model.Services = _context.Services.ToList();
+                model.Menu = _context.Menu.ToList(); // Menü listi yenidən yüklənir
                 return View(model);
             }
 
@@ -50,11 +53,28 @@ namespace NailSalon.Controllers
             };
 
             _context.Reservations.Add(reservation);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Əvvəl rezervasiyanı save edirik ki, Id gəlsin
+
+            // Menü seçimlərini əlavə et
+            if (model.SelectedMenuIds != null && model.SelectedMenuIds.Any())
+            {
+                foreach (var menuId in model.SelectedMenuIds)
+                {
+                    var reservationMenu = new ReservationMenu
+                    {
+                        ReservationId = reservation.Id,
+                        MenuId = menuId
+                    };
+                    _context.ReservationMenus.Add(reservationMenu);
+                }
+
+                await _context.SaveChangesAsync(); // Menü məlumatlarını da yadda saxlayırıq
+            }
 
             TempData["message"] = "Rezervasiya uğurla yaradıldı!";
             return RedirectToAction("MyReservations");
         }
+
 
         public async Task<IActionResult> MyReservations()
         {

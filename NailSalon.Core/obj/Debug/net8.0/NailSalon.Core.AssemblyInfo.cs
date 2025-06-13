@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NailSalon.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99bc4d8b1bbe43a6f01636a919903f6cb12a0078")]
 [assembly: System.Reflection.AssemblyProductAttribute("NailSalon.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NailSalon.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

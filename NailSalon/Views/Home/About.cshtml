@@ -1,0 +1,95 @@
+﻿@model NailSalon.Core.ViewModels.AboutVm
+
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>@Model.Title - ZodiNails</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff6fb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .about-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .about-section h2 {
+            font-family: 'Marck Script', cursive;
+            font-size: 42px;
+            color: #d06db9;
+            margin-bottom: 10px;
+        }
+
+        .about-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .feature-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            width: 220px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: #ec70b5;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="about-section">
+        <h2>@Model.Title</h2>
+        <p>@Model.Description</p>
+
+        <div class="features">
+            @foreach (var item in Model.Features)
+            {
+                <div class="feature-box">
+                    <div class="feature-icon">@item.Icon</div>
+                    <div class="feature-title">@item.Title</div>
+                    <div class="feature-desc">@item.Description</div>
+                </div>
+            }
+        </div>
+    </section>
+
+</body>
+</html>
+

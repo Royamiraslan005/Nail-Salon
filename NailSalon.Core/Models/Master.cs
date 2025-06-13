@@ -10,7 +10,11 @@ namespace NailSalon.Core.Models
     {
         public int Id { get; set; }
         public string FullName { get; set; }
+        public string Experience { get; set; }
+        public string Zodiac { get; set; }
+        public string Specialty { get; set; }
         public string ImageUrl { get; set; }
+
 
         public ICollection<Reservation> Reservations { get; set; }
     }

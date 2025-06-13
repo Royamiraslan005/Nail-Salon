@@ -13,8 +13,11 @@ namespace NailSalon.Core.ViewModels
         public int ServiceId { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
-
+        public List<int>? SelectedMenuIds { get; set; }
         public List<Master>? Masters { get; set; }
         public List<Service>? Services { get; set; }
+        public List<Menu>? Menu { get; set; }
+        public bool WantsMenu { get; set; }
+
     }
 }

@@ -1,0 +1,135 @@
+﻿@model NailSalon.Core.ViewModels.ReservationVm
+
+@{
+    ViewData["Title"] = "Rezervasiya – Zodiac Nails";
+}
+
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background: #fff0f5;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 40px;
+        }
+
+        .reservation-box {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: 600;
+            color: #d63384;
+        }
+
+        select, input[type="date"], input[type="time"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ffc1d9;
+            border-radius: 10px;
+            margin-top: 5px;
+            background-color: #fff8fb;
+            font-size: 14px;
+        }
+
+        .radio-group {
+            margin-top: 10px;
+        }
+
+            .radio-group input {
+                margin-right: 8px;
+            }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: #ff69b4;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background: #e754a3;
+            }
+    </style>
+</head>
+<body>
+
+    @{
+        ViewData["Title"] = "Rezervasiya et";
+    }
+
+    <h2 class="text-danger">Rezarvasiya et</h2>
+
+    <form method="post" action="/Reservation/Create">
+        <!-- Usta seçimi -->
+        <label for="master">Usta seçin:</label>
+        <select id="master" name="MasterName" required>
+            <option disabled selected>Seçin...</option>
+            <option value="Aygün Əliyeva">Aygün Əliyeva</option>
+            <option value="Nigar Məmmədova">Nigar Məmmədova</option>
+            <option value="Lalə Həsənli">Lalə Həsənli</option>
+            <option value="Günel Rzayeva">Günel Rzayeva</option>
+        </select>
+
+        <br /><br />
+
+        <!-- Dizayn seçimi -->
+        <label for="design">Dizayn seçin:</label>
+        <select id="design" name="DesignName" required>
+            <option disabled selected>Seçin...</option>
+            <option value="Gel Dırnaqlar">Gel Dırnaqlar</option>
+            <option value="French Manikür">French Manikür</option>
+            <option value="Akrelik Dırnaqlar">Akrelik Dırnaqlar</option>
+            <option value="Ombre Dırnaqlar">Ombre Dırnaqlar</option>
+            <option value="Mat Dırnaqlar">Mat Dırnaqlar</option>
+            <option value="Parıltılı Dırnaqlar">Parıltılı Dırnaqlar</option>
+            <option value="Stiletto Forması">Stiletto Forması</option>
+            <option value="Badam Forması">Badam Forması</option>
+        </select>
+
+        <br /><br />
+
+        <label for="date">Tarix seçin:</label>
+        <input type="date" id="date" name="Date" required />
+
+        <br /><br />
+
+        <label for="time">Saat seçin:</label>
+        <input type="time" id="time" name="Time" required />
+
+        <br /><br />
+
+        <label>Yemək/İçki istəyirsiniz?</label><br />
+        <input type="radio" name="WantsMenu" value="true" /> Bəli
+        <input type="radio" name="WantsMenu" value="false" /> Xeyr
+
+        <br /><br />
+        <button type="submit">Rezervasiya et</button>
+    </form>
+
+
+</body>
+</html>

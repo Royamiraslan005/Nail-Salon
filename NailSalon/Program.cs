@@ -4,6 +4,8 @@ using NailSalon.BL.Services.Abstractions;
 using NailSalon.BL.Services.Concretes;
 using NailSalon.Core.Models;
 using NailSalon.DAL.Contexts;
+using NailSalon.DAL.Repositories.Abstractions;
+using NailSalon.DAL.Repositories.Concretes;
 using System;
 
 namespace NailSalon
@@ -28,22 +30,24 @@ namespace NailSalon
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             builder.Services.AddScoped<IZodiacService, ZodiacService>();
+            builder.Services.AddScoped<IMasterService, MasterService>();
+            builder.Services.AddScoped<IMasterRepository, MasterRepository>();
 
             var app = builder.Build();
             app.UseStaticFiles();
             app.UseRouting();
-            app.UseAuthentication(); 
-            app.UseAuthorization();
+       
 
             app.MapControllerRoute(
             name: "areas",
-            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            pattern: "{area:exists}/{controller=DashBoard}/{action=Index}/{id?}"
           );
             app.MapControllerRoute(
                 name:"Default",
                 pattern:"{controller=Home}/{action=Index}"
                 );
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.Run();
         }
     }
