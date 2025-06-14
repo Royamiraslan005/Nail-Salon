@@ -15,7 +15,7 @@ namespace NailSalon.Core.Models
         public Master Master { get; set; }
 
         public int ServiceId { get; set; }
-        public Service Service { get; set; }
+        public Services Service { get; set; }
 
         public string UserId { get; set; }  
         public AppUser User { get; set; }

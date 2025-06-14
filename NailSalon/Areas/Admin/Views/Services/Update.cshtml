@@ -1,0 +1,39 @@
+﻿@model NailSalon.Core.ViewModels.ServicesVm
+
+@{
+    ViewData["Title"] = "Xidməti Redaktə Et";
+}
+
+<div class="container py-5">
+    <h2 class="text-center mb-4" style="color: #d63384;">Xidməti Redaktə Et</h2>
+
+    <form asp-action="Update" enctype="multipart/form-data" method="post" class="row g-3 needs-validation" novalidate>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="col-md-6">
+            <label asp-for="Title" class="form-label">Title</label>
+            <input asp-for="Title" class="form-control" required />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            @* Əgər şəkil varsa, onu göstər *@
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <div class="mb-2">
+                    <label class="form-label">Hazırda mövcud olan şəkil:</label><br />
+                    <img src="~/IMAGE/@Model.ImageUrl" alt="Şəkil" class="img-thumbnail" style="max-height: 150px;" />
+                </div>
+            }
+
+            <label asp-for="FormFile" class="form-label">Yeni şəkil (əgər dəyişmək istəyirsinizsə)</label>
+            <input asp-for="FormFile" type="file" class="form-control" />
+            <span asp-validation-for="FormFile" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn btn-success">Yadda Saxla</button>
+        </div>
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>

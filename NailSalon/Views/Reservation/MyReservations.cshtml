@@ -4,7 +4,7 @@
 @foreach (var item in Model)
 {
     <div class="card p-3 mb-3 shadow-sm">
-        <h4>@item.Service.Name</h4>
+        <h4>@item.Service.Title</h4>
         <p><strong>Usta:</strong> @item.Master.FullName</p>
         <p><strong>Tarix:</strong> @item.Date.ToShortDateString()</p>
         <p><strong>Saat:</strong> @item.Time</p>

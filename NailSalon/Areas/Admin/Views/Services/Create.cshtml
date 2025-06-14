@@ -1,0 +1,27 @@
+﻿@model NailSalon.Core.ViewModels.ServicesVm
+
+@{
+    ViewData["Title"] = "Yeni Xidmət Əlavə Et";
+}
+
+<div class="container py-5">
+    <h2 class="text-center mb-4" style="color: #d63384;">Yeni Xidmət Əlavə Et</h2>
+
+    <form asp-action="Create" enctype="multipart/form-data" method="post" class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+            <label asp-for="Title" class="form-label">Title</label>
+            <input asp-for="Title" class="form-control" required />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="FormFile" class="form-label">Image</label>
+            <input asp-for="FormFile" type="file" class="form-control" required />
+            <span asp-validation-for="FormFile" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>

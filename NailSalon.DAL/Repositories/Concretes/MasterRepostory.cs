@@ -17,16 +17,9 @@ namespace NailSalon.DAL.Repositories.Concretes
             _context = context;
         }
 
-        public async Task<List<MasterVm>> GetAllAsync()
+        public async Task<List<Master>> GetAllAsync()
         {
-            return await _context.Masters
-                .Select(m => new MasterVm
-                {
-                    Id = m.Id,
-                    FullName = m.FullName,
-
-                    ImageUrl = m.ImageUrl
-                }).ToListAsync();
+            return  _context.Masters.ToList();
 
         }
         public async Task<string> Create(Master master)
@@ -44,18 +37,11 @@ namespace NailSalon.DAL.Repositories.Concretes
             _context.SaveChanges();
         }
 
-        public async Task<MasterVm> GetByIdAsync(int id)
+        public async Task<Master> GetByIdAsync(int id)
         {
             var master = _context.Masters.Find(id);
-            return new MasterVm()
-            {
-                FullName = master.FullName,
-                Experience=master.Experience,
-                Zodiac=master.Zodiac,
-                Specialty=master.Specialty,
-                ImageUrl=master.ImageUrl,
-                Id=master.Id
-            };
+            return master;
+            
         }
 
         public async Task DeleteAsync(int id)
@@ -66,8 +52,12 @@ namespace NailSalon.DAL.Repositories.Concretes
                 _context.Masters.Remove(master);
             }
         }
+        public async Task UpdateAsync(Master master)
+        {
+            _context.Masters.Update(master);
+            await _context.SaveChangesAsync();
+        }
 
-      
     }
 }
 

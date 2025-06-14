@@ -5,6 +5,7 @@ using NailSalon.BL.Services.Concretes;
 using NailSalon.Core.Models;
 using NailSalon.DAL.Contexts;
 using NailSalon.DAL.Repositories.Abstractions;
+using NailSalon.DAL.Repositories.Abstracts;
 using NailSalon.DAL.Repositories.Concretes;
 using System;
 
@@ -32,19 +33,22 @@ namespace NailSalon
             builder.Services.AddScoped<IZodiacService, ZodiacService>();
             builder.Services.AddScoped<IMasterService, MasterService>();
             builder.Services.AddScoped<IMasterRepository, MasterRepository>();
+            builder.Services.AddScoped<IServicesService, ServicesService>();
+            builder.Services.AddScoped<IServicesRepository, ServicesRepository>();
+
 
             var app = builder.Build();
             app.UseStaticFiles();
             app.UseRouting();
-       
+
 
             app.MapControllerRoute(
             name: "areas",
             pattern: "{area:exists}/{controller=DashBoard}/{action=Index}/{id?}"
           );
             app.MapControllerRoute(
-                name:"Default",
-                pattern:"{controller=Home}/{action=Index}"
+                name: "Default",
+                pattern: "{controller=Home}/{action=Index}"
                 );
             app.UseAuthentication();
             app.UseAuthorization();

@@ -339,7 +339,7 @@ namespace NailSalon.DAL.Migrations
                     b.ToTable("ReservationMenus");
                 });
 
-            modelBuilder.Entity("NailSalon.Core.Models.Service", b =>
+            modelBuilder.Entity("NailSalon.Core.Models.Services", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -347,12 +347,14 @@ namespace NailSalon.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -418,7 +420,7 @@ namespace NailSalon.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NailSalon.Core.Models.Service", "Service")
+                    b.HasOne("NailSalon.Core.Models.Services", "Service")
                         .WithMany("Reservations")
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -471,7 +473,7 @@ namespace NailSalon.DAL.Migrations
                     b.Navigation("ReservationMenu");
                 });
 
-            modelBuilder.Entity("NailSalon.Core.Models.Service", b =>
+            modelBuilder.Entity("NailSalon.Core.Models.Services", b =>
                 {
                     b.Navigation("Reservations");
                 });

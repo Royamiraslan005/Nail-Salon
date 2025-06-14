@@ -88,7 +88,7 @@ namespace NailSalon.BL.Services.Concretes
         {
             var master = await _masterRepository.GetByIdAsync(masterVm.Id);
             if (master == null) return;
-
+            
             master.FullName = masterVm.FullName;
             master.Experience = masterVm.Experience;
             master.Zodiac = masterVm.Zodiac;
@@ -114,7 +114,7 @@ namespace NailSalon.BL.Services.Concretes
                 master.ImageUrl = fileName;
             }
 
-            //_masterRepository.Update(master);
+          await _masterRepository.UpdateAsync(master);
             _masterRepository.SaveAllChange();
         }
 

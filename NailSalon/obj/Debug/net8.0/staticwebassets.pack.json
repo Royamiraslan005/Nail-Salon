@@ -365,10 +365,6 @@
       "PackagePath": "staticwebassets\\IMAGE\\68313c8c-60a4-4cd3-bdeb-563cbd403d95.jpg"
     },
     {
-      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\6d18b4ae-a0df-4a12-b011-d7ed0d2ffeb3.jpg",
-      "PackagePath": "staticwebassets\\IMAGE\\6d18b4ae-a0df-4a12-b011-d7ed0d2ffeb3.jpg"
-    },
-    {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\8425abc6-31e4-4675-a708-96cb50f40480.jpg",
       "PackagePath": "staticwebassets\\IMAGE\\8425abc6-31e4-4675-a708-96cb50f40480.jpg"
     },
@@ -393,16 +389,32 @@
       "PackagePath": "staticwebassets\\IMAGE\\b1d4e6fa-3059-42d2-acea-414823efcf1f.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\b4184884-5dd1-4ef5-98f2-b14d96e0e37a.jpeg",
+      "PackagePath": "staticwebassets\\IMAGE\\b4184884-5dd1-4ef5-98f2-b14d96e0e37a.jpeg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\b7760fd6-6f39-40b8-9306-5cddbf3f6cd5.jpg",
       "PackagePath": "staticwebassets\\IMAGE\\b7760fd6-6f39-40b8-9306-5cddbf3f6cd5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\bf3c8e4f-7243-460b-b826-99c441f83bf3.jpg",
+      "PackagePath": "staticwebassets\\IMAGE\\bf3c8e4f-7243-460b-b826-99c441f83bf3.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\db867ab9-29c8-4497-830a-a9f8653c8c20.jpg",
       "PackagePath": "staticwebassets\\IMAGE\\db867ab9-29c8-4497-830a-a9f8653c8c20.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\dd8d446f-8ce1-4fdc-affd-48315ead06b8.jpg",
+      "PackagePath": "staticwebassets\\IMAGE\\dd8d446f-8ce1-4fdc-affd-48315ead06b8.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\e62ed45d-146d-4420-af78-654c0769021d.jpg",
       "PackagePath": "staticwebassets\\IMAGE\\e62ed45d-146d-4420-af78-654c0769021d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\e68b1a48-f11a-4a05-8104-f29817c724e4.jpg",
+      "PackagePath": "staticwebassets\\IMAGE\\e68b1a48-f11a-4a05-8104-f29817c724e4.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\IMAGE\\f0e36ba3-893d-4528-b1be-6701835a15ec.jpg",
@@ -7831,6 +7843,18 @@
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\Manage\\vendor\\jquery\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\Manage\\vendor\\jquery\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\308cd111-1f9a-4992-92e3-a552710ce5b7.jpeg",
+      "PackagePath": "staticwebassets\\images\\308cd111-1f9a-4992-92e3-a552710ce5b7.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\3176294b-0594-49ed-9a59-0c831ebf1e4d.png",
+      "PackagePath": "staticwebassets\\images\\3176294b-0594-49ed-9a59-0c831ebf1e4d.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\a44f4518-8e7c-4b44-a882-0fe822c5ec97.jpeg",
+      "PackagePath": "staticwebassets\\images\\a44f4518-8e7c-4b44-a882-0fe822c5ec97.jpeg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NailSalon.Microsoft.AspNetCore.StaticWebAssets.props",

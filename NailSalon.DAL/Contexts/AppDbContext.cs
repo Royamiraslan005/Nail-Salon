@@ -16,7 +16,7 @@ namespace NailSalon.DAL.Contexts
 
         }
         public DbSet<Master> Masters { get; set; }
-        public DbSet<Service> Services { get; set; }
+        public DbSet<Services> Services { get; set; }
         public DbSet<Menu> Menu { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<ReservationMenu> ReservationMenus { get; set; }

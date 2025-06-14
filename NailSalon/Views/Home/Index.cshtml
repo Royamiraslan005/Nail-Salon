@@ -1,4 +1,5 @@
-﻿
+﻿@using NailSalon.Core.ViewModels
+@model List<MasterVm>
 
 <section id="slider">
     <div class="swiper slider">
@@ -18,17 +19,17 @@
 
         </div>
     </div>
-        </div>
-        <div class="position-absolute top-0 bottom-0 end-0 m-auto me-0 me-md-5 main-slider-button-next">
-            <svg class="arrow-right light-color" width="60" height="60">
-                <use xlink:href="#arrow-right"></use>
-            </svg>
-        </div>
-        <div class="position-absolute top-0 bottom-0 start-0 m-auto ms-0 ms-md-5 main-slider-button-prev">
-            <svg class="arrow-left light-color" width="60" height="60">
-                <use xlink:href="#arrow-left"></use>
-            </svg>
-        </div>
+    </div>
+    <div class="position-absolute top-0 bottom-0 end-0 m-auto me-0 me-md-5 main-slider-button-next">
+        <svg class="arrow-right light-color" width="60" height="60">
+            <use xlink:href="#arrow-right"></use>
+        </svg>
+    </div>
+    <div class="position-absolute top-0 bottom-0 start-0 m-auto ms-0 ms-md-5 main-slider-button-prev">
+        <svg class="arrow-left light-color" width="60" height="60">
+            <use xlink:href="#arrow-left"></use>
+        </svg>
+    </div>
     </div>
 </section>
 <section id="about" class="py-5" style="background-color: #fff6fb;">
@@ -82,7 +83,7 @@
 
 
 <section id="services" class="jarallax"
-         style="background-image: url(images/background-1.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
+style="background-image: url(images/background-1.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container-lg padding-medium">
         <div class="section-title text-center mb-5">
             <h2 class="display-4 fw-normal">Services we Offer</h2>
@@ -181,53 +182,21 @@
     <h2 class="text-center mb-5" style="color: #d63384;">👩‍🎨 Peşəkar Ustalarımız</h2>
     <div class="row g-4">
 
-        <!-- Usta 1 -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 shadow-sm text-center">
-                <img src="~/Assets/images/usta7.jpg" class="card-img-top" alt="Usta Aygün">
-                <div class="card-body">
-                    <h5 class="card-title">Aygün Əliyeva</h5>
-                    <p class="card-text">💎 6 il təcrübə <br> ✨ Bürc: Tərəzi <br> 🔸 Gel dizayn, fransız klassikləri</p>
-                    <a href="booking.html" class="btn btn-sm btn-outline-primary">Rezervasiya et</a>
+        @foreach(var item in Model)
+        {
+            <!-- Usta 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm text-center">
+                    <img height="300" src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt=@item.FullName>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.FullName</h5>
+                        <p class="card-text">@item.Experience <br> @item.Zodiac <br> @item.Specialty</p>
+                        <a href="booking.html" class="btn btn-sm btn-outline-primary">Rezervasiya et</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
 
-        <!-- Usta 2 -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 shadow-sm text-center">
-                <img src="~/Assets/images/usta2.jpg" class="card-img-top" alt="Usta Nigar">
-                <div class="card-body">
-                    <h5 class="card-title">Nigar Məmmədova</h5>
-                    <p class="card-text">💎 4 il təcrübə <br> ✨ Bürc: Əkizlər <br> 🔸 Nail Art, bürc dizaynları</p>
-                    <a href="booking.html" class="btn btn-sm btn-outline-primary">Rezervasiya et</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Usta 3 -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 shadow-sm text-center">
-                <img src="~/Assets/images/usta3.jpg" class="card-img-top" alt="Usta Lala">
-                <div class="card-body">
-                    <h5 class="card-title">Lalə Həsənli</h5>
-                    <p class="card-text">💎 8 il təcrübə <br> ✨ Bürc: Qız <br> 🔸 Minimal dizayn, pastel rənglər</p>
-                    <a href="booking.html" class="btn btn-sm btn-outline-primary">Rezervasiya et</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Usta 4 -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 shadow-sm text-center">
-                <img src="~/Assets/images/usta6.jpg" class="card-img-top" alt="Usta Günel">
-                <div class="card-body">
-                    <h5 class="card-title">Günel Rzayeva</h5>
-                    <p class="card-text">💎 5 il təcrübə <br> ✨ Bürc: Dolça <br> 🔸 Metalik, qlitter dizaynlar</p>
-                    <a href="booking.html" class="btn btn-sm btn-outline-primary">Rezervasiya et</a>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>

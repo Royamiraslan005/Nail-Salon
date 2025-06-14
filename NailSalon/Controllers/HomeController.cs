@@ -1,14 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NailSalon.BL.Services.Abstractions;
+using NailSalon.BL.Services.Concretes;
 using NailSalon.Core.ViewModels;
+using NailSalon.DAL.Contexts;
+using System.Threading.Tasks;
 
 namespace NailSalon.Controllers
 {
     public class HomeController : Controller
     {
+        IMasterService _masterService;
 
-        public IActionResult Index()
+        public HomeController(IMasterService masterService)
         {
-            return View();
+            _masterService = masterService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            List<MasterVm> masterVms =await _masterService.GetAllAsync();
+            return View(masterVms);
+
         }
         public IActionResult About()
         {
