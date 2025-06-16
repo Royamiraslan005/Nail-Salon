@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using NailSalon.BL.Services.Abstractions;
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
 using NailSalon.DAL.Contexts;
@@ -9,83 +11,64 @@ namespace NailSalon.Controllers
 {
     public class ReservationController : Controller
     {
+        private readonly IReservationService _reservationService;
         private readonly UserManager<AppUser> _userManager;
-        private readonly AppDbContext _context;
 
-        public ReservationController(UserManager<AppUser> userManager, AppDbContext context)
+        public ReservationController(IReservationService reservationService, UserManager<AppUser> userManager)
         {
+            _reservationService = reservationService;
             _userManager = userManager;
-            _context = context;
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             var vm = new ReservationVm
             {
-                Masters = _context.Masters.ToList(),
-                Services = _context.Services.ToList(),
-                Menu = _context.Menu.ToList()
+                Date = DateTime.Today,
+                Time = TimeSpan.FromHours(12),
+                //Masters = await GetMastersAsync(),
+                //NailTypes = await GetDesignsAsync()
             };
             return View(vm);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ReservationVm model)
+        public async Task<IActionResult> Create(ReservationVm vm)
         {
             if (!ModelState.IsValid)
             {
-                model.Masters = _context.Masters.ToList();
-                model.Services = _context.Services.ToList();
-                model.Menu = _context.Menu.ToList(); // Menü listi yenidən yüklənir
-                return View(model);
+                //vm.Masters = await GetMastersAsync();     
+                //vm.NailTypes = await GetDesignsAsync();   
+                return View(vm);
             }
+
 
             var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login", "Account");
 
-            var reservation = new Reservation
-            {
-                MasterId = model.MasterId,
-                ServiceId = model.ServiceId,
-                Date = model.Date,
-                Time = model.Time,
-                UserId = user.Id
-            };
+            await _reservationService.CreateAsync(vm, user.Id);
 
-            _context.Reservations.Add(reservation);
-            await _context.SaveChangesAsync(); // Əvvəl rezervasiyanı save edirik ki, Id gəlsin
-
-            // Menü seçimlərini əlavə et
-            if (model.SelectedMenuIds != null && model.SelectedMenuIds.Any())
-            {
-                foreach (var menuId in model.SelectedMenuIds)
-                {
-                    var reservationMenu = new ReservationMenu
-                    {
-                        ReservationId = reservation.Id,
-                        MenuId = menuId
-                    };
-                    _context.ReservationMenus.Add(reservationMenu);
-                }
-
-                await _context.SaveChangesAsync(); // Menü məlumatlarını da yadda saxlayırıq
-            }
-
-            TempData["message"] = "Rezervasiya uğurla yaradıldı!";
-            return RedirectToAction("MyReservations");
+            if (vm.WantsMenu)
+                return RedirectToAction("Menu", "Order");
+            else
+                return RedirectToAction("Index", "Home");
         }
 
-
-        public async Task<IActionResult> MyReservations()
+        private async Task<List<SelectListItem>> GetMastersAsync()
         {
-            var user = await _userManager.GetUserAsync(User);
-            var reservations = _context.Reservations
-                .Include(r => r.Master)
-                .Include(r => r.Service)
-                .Where(r => r.UserId == user.Id)
-                .ToList();
+            return new List<SelectListItem> {
+            new("Aygün", "1"), new("Nigar", "2")
+        };
+        }
 
-            return View(reservations);
+        private async Task<List<SelectListItem>> GetDesignsAsync()
+        {
+            return new List<SelectListItem> {
+            new("French Qızılı", "1"), new("Glitter Pastel", "2")
+        };
         }
     }
 }
+
+

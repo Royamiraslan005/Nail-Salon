@@ -17,18 +17,23 @@
         </div>
 
         <div class="col-md-6">
-            @* Əgər şəkil varsa, onu göstər *@
+            <label asp-for="FormFile" class="form-label">New Image</label>
+            <input asp-for="FormFile" class="form-control" type="file" />
+            <span asp-validation-for="FormFile" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            @* Show current image if exists *@
             @if (!string.IsNullOrEmpty(Model.ImageUrl))
             {
                 <div class="mb-2">
-                    <label class="form-label">Hazırda mövcud olan şəkil:</label><br />
-                    <img src="~/IMAGE/@Model.ImageUrl" alt="Şəkil" class="img-thumbnail" style="max-height: 150px;" />
+                    <label class="form-label">Hazırki şəkil:</label><br />
+                    <div class="card" style="width: 180px;">
+                        <img src="/images/@Model.ImageUrl" class="card-img-top" alt="Şəkil" style="height: 180px; object-fit: cover;" />
+                    </div>
                 </div>
             }
 
-            <label asp-for="FormFile" class="form-label">Yeni şəkil (əgər dəyişmək istəyirsinizsə)</label>
-            <input asp-for="FormFile" type="file" class="form-control" />
-            <span asp-validation-for="FormFile" class="text-danger"></span>
         </div>
 
         <div class="col-12 text-center mt-3">

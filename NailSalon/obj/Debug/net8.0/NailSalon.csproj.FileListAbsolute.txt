@@ -152,3 +152,10 @@ C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\NailSalon.pdb
 C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\NailSalon.genruntimeconfig.cache
 C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\ref\NailSalon.dll
 C:\Users\hp\source\repos\NailSalon\NailSalon\obj\Debug\net8.0\NailSalon.sourcelink.json
+C:\Users\hp\source\repos\NailSalon\NailSalon\bin\Debug\net8.0\System.Web.Mvc.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon\bin\Debug\net8.0\System.Web.Razor.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon\bin\Debug\net8.0\System.Web.Helpers.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon\bin\Debug\net8.0\System.Web.WebPages.Deployment.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon\bin\Debug\net8.0\System.Web.WebPages.Razor.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon\bin\Debug\net8.0\System.Web.WebPages.dll
+C:\Users\hp\source\repos\NailSalon\NailSalon\bin\Debug\net8.0\Microsoft.Web.Infrastructure.dll

@@ -281,6 +281,29 @@ namespace NailSalon.DAL.Migrations
                     b.ToTable("Menu");
                 });
 
+            modelBuilder.Entity("NailSalon.Core.Models.NailType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NailTypes");
+                });
+
             modelBuilder.Entity("NailSalon.Core.Models.Reservation", b =>
                 {
                     b.Property<int>("Id")

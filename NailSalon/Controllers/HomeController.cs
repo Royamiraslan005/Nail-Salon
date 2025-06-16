@@ -10,10 +10,14 @@ namespace NailSalon.Controllers
     public class HomeController : Controller
     {
         IMasterService _masterService;
+        INailTypeService _nailTypeService;
 
-        public HomeController(IMasterService masterService)
+     
+
+        public HomeController(IMasterService masterService,INailTypeService nailTypeService)
         {
             _masterService = masterService;
+            _nailTypeService = nailTypeService;
         }
 
         public async Task<IActionResult> Index()
@@ -22,6 +26,11 @@ namespace NailSalon.Controllers
             return View(masterVms);
 
         }
+        //public async Task<IActionResult> Indexx()
+        //{
+        //    List<NailTypeVm> nailTypeVms = await _nailTypeService.GetAllAsync();
+        //    return View(nailTypeVms);
+        //}
         public IActionResult About()
         {
             var vm = new AboutVm

@@ -35,7 +35,8 @@ namespace NailSalon
             builder.Services.AddScoped<IMasterRepository, MasterRepository>();
             builder.Services.AddScoped<IServicesService, ServicesService>();
             builder.Services.AddScoped<IServicesRepository, ServicesRepository>();
-
+            builder.Services.AddScoped<INailTypeService, NailTypeService>();
+            builder.Services.AddScoped<INailTypeRepository, NailTypeRepository>();
 
             var app = builder.Build();
             app.UseStaticFiles();
