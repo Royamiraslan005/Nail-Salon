@@ -36,13 +36,19 @@ namespace NailSalon.BL.Services.Concretes
         public async Task<ServicesVm> GetByIdAsync(int id)
         {
             var service = await _repo.GetByIdAsync(id);
+
+            if (service == null)
+                return null; 
+
             return new ServicesVm
             {
                 Id = service.Id,
                 Title = service.Title,
+                ImageUrl = service.ImageUrl,
                 Description = service.Description
             };
         }
+
 
         public async Task CreateAsync(ServicesVm vm, string wwwroot)
         {

@@ -19,20 +19,23 @@ namespace NailSalon.BL.Services.Concretes
             _reservationRepository = reservationRepository;
         }
 
-        public async Task CreateAsync(ReservationVm vm, string userId)
+        public async Task CreateAsync(ReservationVm vm)
         {
             var reservation = new Reservation
             {
-                MasterId = vm.MasterId,
-                NailTypeId = vm.NailTypeId,
-                Date = vm.Date,
-                Time = vm.Time,
+                
+                MasterId = (int)vm.MasterId,
+                NailTypeId = (int)vm.NailTypeId,
+                Date = (DateTime)vm.Date,
+                Time = null,
                 Price = vm.Price,
                 WantsMenu = vm.WantsMenu,
-                AppUserId = userId
+                AppUserId = vm.UserId
+                
             };
 
             await _reservationRepository.CreateAsync(reservation);
+             _reservationRepository.SaveAllChanges();
         }
 
         public async Task<List<ReservationVm>> GetUserReservationsAsync(string userId)
@@ -45,7 +48,7 @@ namespace NailSalon.BL.Services.Concretes
                 Date = r.Date,
                 Time = r.Time,
                 Price = r.Price,
-                WantsMenu = r.WantsMenu,
+                WantsMenu = (bool)r.WantsMenu,
                 MasterId = r.MasterId,
                 NailTypeId = r.NailTypeId
             }).ToList();

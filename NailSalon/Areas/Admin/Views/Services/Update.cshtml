@@ -7,38 +7,45 @@
 <div class="container py-5">
     <h2 class="text-center mb-4" style="color: #d63384;">Xidməti Redaktə Et</h2>
 
-    <form asp-action="Update" enctype="multipart/form-data" method="post" class="row g-3 needs-validation" novalidate>
+    <form asp-action="Update" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
         <input type="hidden" asp-for="Id" />
 
-        <div class="col-md-6">
-            <label asp-for="Title" class="form-label">Title</label>
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label fw-semibold">Başlıq</label>
             <input asp-for="Title" class="form-control" required />
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
-        <div class="col-md-6">
-            <label asp-for="FormFile" class="form-label">New Image</label>
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label fw-semibold">Açıqlama</label>
+            <textarea asp-for="Description" class="form-control" rows="4" required></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            @* Hazırki şəkli göstər *@
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <div class="mb-2">
+                    <label class="form-label fw-semibold">Hazırki şəkil:</label>
+                    <div class="card shadow-sm" style="width: 200px;">
+                        <img src="/images/@Model.ImageUrl" class="card-img-top" alt="Şəkil" style="height: 200px; object-fit: cover;" />
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FormFile" class="form-label fw-semibold">Yeni Şəkil Yüklə</label>
             <input asp-for="FormFile" class="form-control" type="file" />
             <span asp-validation-for="FormFile" class="text-danger"></span>
         </div>
 
-        <div class="col-md-6">
-            @* Show current image if exists *@
-            @if (!string.IsNullOrEmpty(Model.ImageUrl))
-            {
-                <div class="mb-2">
-                    <label class="form-label">Hazırki şəkil:</label><br />
-                    <div class="card" style="width: 180px;">
-                        <img src="/images/@Model.ImageUrl" class="card-img-top" alt="Şəkil" style="height: 180px; object-fit: cover;" />
-                    </div>
-                </div>
-            }
-
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-5 py-2">💾 Yadda Saxla</button>
         </div>
 
-        <div class="col-12 text-center mt-3">
-            <button type="submit" class="btn btn-success">Yadda Saxla</button>
-        </div>
-        <div asp-validation-summary="All"></div>
+        <div asp-validation-summary="All" class="text-danger mt-3"></div>
     </form>
+
 </div>

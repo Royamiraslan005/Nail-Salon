@@ -11,6 +11,8 @@ namespace NailSalon.DAL.Repositories.Abstracts
     {
         Task CreateAsync(Reservation reservation);
         Task<List<Reservation>> GetUserReservationsAsync(string userId);
+
+        void SaveAllChanges();
     }
 
 }

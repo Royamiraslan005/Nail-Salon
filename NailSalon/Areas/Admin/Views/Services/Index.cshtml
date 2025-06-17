@@ -16,7 +16,9 @@
                         <img src="~/images/@service.ImageUrl" class="img-fluid" alt="@service.Title">
                     </div>
                     <h4 class="mt-3">@service.Title</h4>
-                   
+
+               
+                    <p class="card-text mt-2">@service.Description</p>
 
                     <div class="mt-3">
                         <a asp-action="Update" asp-route-id="@service.Id" class="btn btn-sm btn-warning me-2">Update</a>
@@ -58,4 +60,3 @@
         color: #6c757d;
     }
 </style>
-

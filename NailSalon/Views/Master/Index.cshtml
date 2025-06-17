@@ -1,0 +1,21 @@
+﻿@using NailSalon.Core.ViewModels
+@model List<MasterVm>
+<div class="container py-5">
+    <h2 class="text-center mb-5" style="color: #d63384;">👩‍🎨 Peşəkar Ustalarımız</h2>
+    <div class="row g-4">
+        @foreach(var item in Model)
+        {
+
+            <!-- Usta 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm text-center">
+                    <img height="440px"width="334px" src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt="@item.FullName">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.FullName</h5>
+                        <p class="card-text"> @item.Experience <br> @item.Zodiac <br> @item.Specialty</p>
+                        <a href="booking.html" class="btn btn-sm btn-outline-primary">Rezervasiya et</a>
+                    </div>
+                </div>
+            </div>
+        }
+

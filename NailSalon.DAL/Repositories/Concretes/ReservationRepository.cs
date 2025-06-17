@@ -32,6 +32,11 @@ namespace NailSalon.DAL.Repositories.Concretes
                 .Where(r => r.AppUserId == userId)
                 .ToListAsync();
         }
+
+        public void SaveAllChanges()
+        {
+            _context.SaveChanges();
+        }
     }
 
 

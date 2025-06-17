@@ -1,0 +1,234 @@
+﻿@using NailSalon.Core.ViewModels
+@model ServicesVm
+
+<div class="container py-5 service-detail-container">
+    <div class="row align-items-center">
+        <!-- Şəkil -->
+        <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="@Url.Content("~/images/" + Model.ImageUrl)" alt="@Model.Title" class="img-fluid rounded cute-img" />
+        </div>
+
+        <!-- Məzmun -->
+        <div class="col-md-6">
+            <h2 class="cute-title">💅 @Model.Title</h2>
+            <p class="cute-desc">@Model.Description</p>
+
+            <div class="why-choose mt-4">
+                <h5>🌟 Niyə bizi seçməlisiniz?</h5>
+                <ul>
+                    <li>💖 Sevgi ilə görülən işlər</li>
+                    <li>🌈 Zərif və rəngarəng dizaynlar</li>
+                    <li>🧼 Təmiz və rahat mühit</li>
+                    <li>🎨 Peşəkar ustalardan fərqli effektlər</li>
+                </ul>
+            </div>
+
+            <!-- Rating (ulduzlar) -->
+            <div class="rating mt-3">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <!-- Sosial şəbəkə -->
+            <div class="social-section mt-4">
+                <a href="#" class="btn social-btn fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#" class="btn social-btn ig"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="btn social-btn tw"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+
+            <!-- Geri düyməsi -->
+            <div class="mt-4">
+                <a href="@Url.Action("Index", "Services")" class="btn btn-back">⬅ Xidmətlərə geri dön</a>
+            </div>
+
+            <!-- Əlaqə düyməsi -->
+            <div class="text-center mt-4">
+                <a href="/contact" class="btn btn-lg btn-contact">📩 Bizimlə Əlaqə</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Müştəri rəyləri -->
+    <div class="mt-5 review-section">
+        <h4 class="text-center mb-4">💬 Müştəri Rəyləri</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="review-card">
+                    <p>"Çox məmnun qaldım, işlər çox zərif və gözəldi!"</p>
+                    <strong>- Aysel</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="review-card">
+                    <p>"Ustalar çox peşəkar və mehribandılar 💕"</p>
+                    <strong>- Nigar</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="review-card">
+                    <p>"Ən sevdiyim salon, hər dəfə təzə dizaynlarla çıxıram!"</p>
+                    <strong>- Zəhra</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FontAwesome CDN for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: #fff0f5;
+        font-family: 'Quicksand', 'Segoe UI', sans-serif;
+    }
+
+    .service-detail-container {
+        background: linear-gradient(to bottom right, #fff, #fff0f5);
+        border: 2px dashed #f7c8e0;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+        padding: 40px;
+    }
+
+    .cute-title {
+        color: #d63384;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .cute-desc {
+        font-size: 1.25rem;
+        color: #5c5c5c;
+        line-height: 1.8;
+    }
+
+    .cute-img {
+        max-height: 420px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px rgba(214, 51, 132, 0.2);
+        transition: transform 0.4s ease-in-out;
+    }
+
+        .cute-img:hover {
+            transform: scale(1.05);
+        }
+
+    .why-choose h5 {
+        font-weight: 600;
+        color: #b03060;
+        margin-bottom: 10px;
+    }
+
+    .why-choose ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .why-choose li {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+        color: #444;
+    }
+
+    .rating {
+        font-size: 1.5rem;
+        color: #f5b400;
+    }
+
+    .social-section .btn {
+        border-radius: 20px;
+        padding: 6px 14px;
+        font-size: 1rem;
+        margin-right: 10px;
+        font-weight: 500;
+        transition: transform 0.3s;
+    }
+
+    .social-btn:hover {
+        transform: translateY(-3px);
+    }
+
+    .social-btn.fb {
+        background-color: #e8f0ff;
+        color: #1877f2;
+        border: 1px solid #1877f2;
+    }
+
+    .social-btn.ig {
+        background-color: #ffe8f3;
+        color: #e1306c;
+        border: 1px solid #e1306c;
+    }
+
+    .social-btn.tw {
+        background-color: #e8faff;
+        color: #1da1f2;
+        border: 1px solid #1da1f2;
+    }
+
+    .social-btn.fb:hover {
+        background-color: #1877f2;
+        color: white;
+    }
+
+    .social-btn.ig:hover {
+        background-color: #e1306c;
+        color: white;
+    }
+
+    .social-btn.tw:hover {
+        background-color: #1da1f2;
+        color: white;
+    }
+
+    .btn-back {
+        background-color: #f8d7e6;
+        color: #d63384;
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: 0.3s;
+        border: none;
+    }
+
+        .btn-back:hover {
+            background-color: #d63384;
+            color: white;
+        }
+
+    .btn-contact {
+        background-color: #d63384;
+        color: white;
+        padding: 10px 30px;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+        .btn-contact:hover {
+            background-color: #a72566;
+        }
+
+    .review-section {
+        margin-top: 60px;
+    }
+
+    .review-card {
+        background-color: #ffeaf3;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(214, 51, 132, 0.1);
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 20px;
+    }
+
+        .review-card strong {
+            display: block;
+            margin-top: 10px;
+            color: #d63384;
+        }
+</style>

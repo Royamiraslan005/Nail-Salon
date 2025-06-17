@@ -11,21 +11,23 @@ namespace NailSalon.Core.ViewModels
 {
     public class ReservationVm
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Required]
-        public int MasterId { get; set; }
+        public int? MasterId { get; set; }
+
+        public string? UserId { get; set; }
 
         [Required]
-        public int NailTypeId { get; set; }
+        public int? NailTypeId { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [Required]
-        public TimeSpan Time { get; set; }
+        public TimeSpan? Time { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         public bool WantsMenu { get; set; }
 

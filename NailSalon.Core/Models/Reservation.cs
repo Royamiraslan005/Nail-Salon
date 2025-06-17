@@ -12,22 +12,22 @@ namespace NailSalon.Core.Models
 {
             public int Id { get; set; }
 
-            public string AppUserId { get; set; }
-            public AppUser AppUser { get; set; }
+            public string? AppUserId { get; set; }
+            public AppUser? AppUser { get; set; }
 
-            public int MasterId { get; set; }
-            public Master Master { get; set; }
+            public int? MasterId { get; set; }
+            public Master? Master { get; set; }
 
-            public int NailTypeId { get; set; }
-            public NailType NailType { get; set; }
+            public int? NailTypeId { get; set; }
+            public NailType? NailType { get; set; }
 
-            public DateTime Date { get; set; }
-            public TimeSpan Time { get; set; }
+            public DateTime? Date { get; set; }
+            public TimeSpan? Time { get; set; }
 
-            public decimal Price { get; set; }
+            public decimal? Price { get; set; }
 
-            public bool WantsMenu { get; set; }
-            //public Order? Order { get; set; }
+            public bool? WantsMenu { get; set; }
+   
         }
 
     }
