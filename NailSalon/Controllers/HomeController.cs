@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NailSalon.BL.Services.Abstractions;
 using NailSalon.BL.Services.Concretes;
+using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
 using NailSalon.DAL.Contexts;
 using System.Threading.Tasks;
@@ -10,17 +11,19 @@ namespace NailSalon.Controllers
     public class HomeController : Controller
     {
         IMasterService _masterService;
+        IReviewService _reviewService;
 
-
-        public HomeController(IMasterService masterService)
+        public HomeController(IMasterService masterService, IReviewService reviewService)
         {
             _masterService = masterService;
+            _reviewService = reviewService;
         }
 
         public async Task<IActionResult> Index()
         {
             List<MasterVm> masterVms =await _masterService.GetAllAsync();
-            return View(masterVms);
+            ViewBag.MasterVms = masterVms;
+            return View();
 
         }
         public IActionResult About()
@@ -39,6 +42,17 @@ namespace NailSalon.Controllers
             };
 
             return View(vm);
+        }
+
+ 
+
+        [HttpPost]
+        public async Task<IActionResult> CreateReview(ReviewVm vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+
+            await _reviewService.CreateAsync(vm);
+            return RedirectToAction("Index");
         }
     }
 }

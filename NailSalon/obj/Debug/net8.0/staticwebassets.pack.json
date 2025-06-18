@@ -7873,12 +7873,20 @@
       "PackagePath": "staticwebassets\\images\\0ce160bf-8dc9-4021-b689-2e2e284e34d0.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\0ddeec44-5dcd-4d88-a36d-caebb2451590.jpg",
+      "PackagePath": "staticwebassets\\images\\0ddeec44-5dcd-4d88-a36d-caebb2451590.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\10870cc2-715f-43cd-b83e-ac978265a95b.jpeg",
       "PackagePath": "staticwebassets\\images\\10870cc2-715f-43cd-b83e-ac978265a95b.jpeg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\1de079d6-6c65-4e29-ba56-f46b2a5bd029.jpg",
       "PackagePath": "staticwebassets\\images\\1de079d6-6c65-4e29-ba56-f46b2a5bd029.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\220042f5-2c50-4843-a27a-887bed449a4e.jpg",
+      "PackagePath": "staticwebassets\\images\\220042f5-2c50-4843-a27a-887bed449a4e.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\26c33754-c9c1-40cb-87f9-2eda8421fcd5.jpeg",
@@ -7897,12 +7905,20 @@
       "PackagePath": "staticwebassets\\images\\40a95758-01f5-4c04-9f15-1ab093993c60.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\431c4463-5a09-4dbc-9a84-98c2c10283be.jpg",
+      "PackagePath": "staticwebassets\\images\\431c4463-5a09-4dbc-9a84-98c2c10283be.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\44e20e03-1e63-486c-9f05-80528ca9fa89.jpg",
       "PackagePath": "staticwebassets\\images\\44e20e03-1e63-486c-9f05-80528ca9fa89.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\4a979c49-ef33-4972-8526-1dff7ea30ff0.jpg",
       "PackagePath": "staticwebassets\\images\\4a979c49-ef33-4972-8526-1dff7ea30ff0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\4fa157dc-6441-4cf9-83dc-31b807deb562.jpg",
+      "PackagePath": "staticwebassets\\images\\4fa157dc-6441-4cf9-83dc-31b807deb562.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\50d1441b-3315-4705-b74f-6ff821b78274.jpeg",
@@ -7937,8 +7953,20 @@
       "PackagePath": "staticwebassets\\images\\71c61086-0ea8-4ae2-a4bd-53ba522f3785.jpeg"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\791e65fb-aa18-4377-ae08-21d6a2b16016.jpg",
+      "PackagePath": "staticwebassets\\images\\791e65fb-aa18-4377-ae08-21d6a2b16016.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\7a351388-6631-4b5f-adee-e2ea0104beea.jpg",
+      "PackagePath": "staticwebassets\\images\\7a351388-6631-4b5f-adee-e2ea0104beea.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\7df6d986-9603-4bd6-aad8-e35053b21e68.jpeg",
       "PackagePath": "staticwebassets\\images\\7df6d986-9603-4bd6-aad8-e35053b21e68.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\826167dd-06aa-4c1e-bbdd-e23ece7b3b88.jpg",
+      "PackagePath": "staticwebassets\\images\\826167dd-06aa-4c1e-bbdd-e23ece7b3b88.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\843c9476-ff71-4712-b524-cbb82c697b27.jpg",
@@ -7955,6 +7983,14 @@
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\a44f4518-8e7c-4b44-a882-0fe822c5ec97.jpeg",
       "PackagePath": "staticwebassets\\images\\a44f4518-8e7c-4b44-a882-0fe822c5ec97.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\a640d156-1e39-4f8a-b532-3f9da5b23a5d.jpg",
+      "PackagePath": "staticwebassets\\images\\a640d156-1e39-4f8a-b532-3f9da5b23a5d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\abc252a0-aab4-4dd1-afe0-c4c13d525744.jpg",
+      "PackagePath": "staticwebassets\\images\\abc252a0-aab4-4dd1-afe0-c4c13d525744.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\ba67f3ec-b701-4b95-9ab3-d247b4e83261.jpeg",
@@ -7981,8 +8017,20 @@
       "PackagePath": "staticwebassets\\images\\cd634656-9c45-447c-8270-4972d7ee748e.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\cf3b5f4f-4183-4d6c-ada5-b7c988f3c5f0.jpeg",
+      "PackagePath": "staticwebassets\\images\\cf3b5f4f-4183-4d6c-ada5-b7c988f3c5f0.jpeg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\cf7efa43-2068-4cae-9bd6-a4b29de17955.jpg",
       "PackagePath": "staticwebassets\\images\\cf7efa43-2068-4cae-9bd6-a4b29de17955.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\d006eaf1-edf8-47a6-977a-7b9ff4e9de47.jpeg",
+      "PackagePath": "staticwebassets\\images\\d006eaf1-edf8-47a6-977a-7b9ff4e9de47.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\dcc11e40-cee8-47b9-b5df-0b57dcc17ffb.jpg",
+      "PackagePath": "staticwebassets\\images\\dcc11e40-cee8-47b9-b5df-0b57dcc17ffb.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\df1f01b8-d656-4c0d-baf0-353fa03e0fa6.jpeg",
@@ -8007,6 +8055,10 @@
     {
       "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\f908a152-24e1-482a-9052-ccb79919f622.jpeg",
       "PackagePath": "staticwebassets\\images\\f908a152-24e1-482a-9052-ccb79919f622.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\NailSalon\\NailSalon\\wwwroot\\images\\fc0c8cbe-61d7-42f5-b622-40a112f126d6.jpg",
+      "PackagePath": "staticwebassets\\images\\fc0c8cbe-61d7-42f5-b622-40a112f126d6.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NailSalon.Microsoft.AspNetCore.StaticWebAssets.props",

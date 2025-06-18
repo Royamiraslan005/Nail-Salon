@@ -264,7 +264,7 @@ namespace NailSalon.DAL.Migrations
                     b.ToTable("Masters");
                 });
 
-            modelBuilder.Entity("NailSalon.Core.Models.Menu", b =>
+            modelBuilder.Entity("NailSalon.Core.Models.MenuItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -272,13 +272,19 @@ namespace NailSalon.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsSelected")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Menu");
+                    b.ToTable("MenuItems");
                 });
 
             modelBuilder.Entity("NailSalon.Core.Models.NailType", b =>
@@ -313,28 +319,27 @@ namespace NailSalon.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime?>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MasterId")
+                    b.Property<int?>("MasterId")
                         .HasColumnType("int");
 
-                    b.Property<int>("NailTypeId")
+                    b.Property<int?>("NailTypeId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("ServicesId")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan>("Time")
+                    b.Property<TimeSpan?>("Time")
                         .HasColumnType("time");
 
-                    b.Property<bool>("WantsMenu")
+                    b.Property<bool?>("WantsMenu")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
@@ -350,7 +355,7 @@ namespace NailSalon.DAL.Migrations
                     b.ToTable("Reservations");
                 });
 
-            modelBuilder.Entity("NailSalon.Core.Models.ReservationMenu", b =>
+            modelBuilder.Entity("NailSalon.Core.Models.Review", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -358,19 +363,20 @@ namespace NailSalon.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("MenuId")
-                        .HasColumnType("int");
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReservationId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MenuId");
-
-                    b.HasIndex("ReservationId");
-
-                    b.ToTable("ReservationMenus");
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("NailSalon.Core.Models.Services", b =>
@@ -450,21 +456,15 @@ namespace NailSalon.DAL.Migrations
                 {
                     b.HasOne("NailSalon.Core.Models.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("NailSalon.Core.Models.Master", "Master")
                         .WithMany("Reservations")
-                        .HasForeignKey("MasterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MasterId");
 
                     b.HasOne("NailSalon.Core.Models.NailType", "NailType")
                         .WithMany()
-                        .HasForeignKey("NailTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("NailTypeId");
 
                     b.HasOne("NailSalon.Core.Models.Services", null)
                         .WithMany("Reservations")
@@ -477,33 +477,9 @@ namespace NailSalon.DAL.Migrations
                     b.Navigation("NailType");
                 });
 
-            modelBuilder.Entity("NailSalon.Core.Models.ReservationMenu", b =>
-                {
-                    b.HasOne("NailSalon.Core.Models.Menu", "Menu")
-                        .WithMany("ReservationMenus")
-                        .HasForeignKey("MenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NailSalon.Core.Models.Reservation", "Reservation")
-                        .WithMany()
-                        .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Menu");
-
-                    b.Navigation("Reservation");
-                });
-
             modelBuilder.Entity("NailSalon.Core.Models.Master", b =>
                 {
                     b.Navigation("Reservations");
-                });
-
-            modelBuilder.Entity("NailSalon.Core.Models.Menu", b =>
-                {
-                    b.Navigation("ReservationMenus");
                 });
 
             modelBuilder.Entity("NailSalon.Core.Models.Services", b =>

@@ -1,5 +1,5 @@
 ﻿@using NailSalon.Core.ViewModels
-@model List<MasterVm>
+@model ReviewVm
 
 <section id="slider">
     <div class="swiper slider">
@@ -188,7 +188,7 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
     <h2 class="text-center mb-5" style="color: #d63384;">👩‍🎨 Peşəkar Ustalarımız</h2>
     <div class="row g-4">
 
-        @foreach(var item in Model)
+        @foreach (var item in ViewBag.MasterVms as List<MasterVm>)
         {
             <!-- Usta 1 -->
             <div class="col-md-6 col-lg-3">
@@ -303,6 +303,63 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
     </div>
 </section>
 
+<section id="rey">
+    
 
+@{
+    ViewData["Title"] = "Rəy Yaz";
+}
+
+<div class="container py-5">
+    <h2 class="text-center mb-4 text-pink">💬 Bizimlə təəssüratını paylaş!</h2>
+
+    <div class="card shadow-sm p-4 rounded-4 bg-white-pink mx-auto" style="max-width: 600px;">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="FullName" class="form-label text-muted">Adınız</label>
+                <input asp-for="FullName" class="form-control rounded-3" placeholder="Adınızı daxil edin" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Comment" class="form-label text-muted">Rəyiniz</label>
+                <textarea asp-for="Comment" class="form-control rounded-3" rows="4" placeholder="Təcrübənizi bizimlə bölüşün 💕"></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+
+            <div class="text-center mt-4">
+                <button asp-action="CreateReview" type="submit" class="btn btn-pink px-4 py-2 rounded-pill">Göndər 💖</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #fff0f6;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .text-pink {
+        color: #d63384;
+        font-family: 'Marck Script', cursive;
+    }
+
+    .bg-white-pink {
+        background-color: #fff8fc;
+    }
+
+    .btn-pink {
+        background-color: #d63384;
+        color: white;
+        border: none;
+    }
+
+        .btn-pink:hover {
+            background-color: #b03060;
+        }
+</style>
+
+</section>
 
 

@@ -45,13 +45,18 @@ namespace NailSalon.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user,"Admin");
-                await _signInManager.SignInAsync(user, isPersistent: false);
+                await _userManager.AddToRoleAsync(user,"Member");
+          
                 return RedirectToAction("Login", "Account");
             }
+            else
+            {
+                foreach (var error in result.Errors)
+                    ModelState.AddModelError("", error.Description);
+                return View();
+            }
 
-            foreach (var error in result.Errors)
-                ModelState.AddModelError("", error.Description);
+            
 
             return RedirectToAction("Index", "Home");
         }

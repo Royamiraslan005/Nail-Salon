@@ -225,30 +225,44 @@
         <li class="nav-item px-3 py-2 py-lg-0">
             <a class="nav-link fw-semibold p-0" asp-action="Index" asp-controller="Master" >Our Team</a>
         </li>
+                            <li class="nav-item px-3 py-2 py-lg-0">
+                                <a class="nav-link fw-semibold p-0" asp-action="Index" asp-controller="Review" >Comment</a>
+                            </li>
 
-        <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" asp-action="Register" asp-controller="Account">Register</a>
-        </li>
+        
 
                             <li class="nav-item px-3 py-2 py-lg-0">
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Profile">
-                                        @User.Identity.Name
-                                    </a>
+                                    <div class="d-flex gap-3 align-items-center">
+                                        <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Logout">
+                                            Logout
+                                        </a>
+                                        <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Profile">
+                                            Profile
+                                        </a>
+                                    </div>
+                                    
                                 }
                                 else
                                 {
-                                    <a class="nav-link fw-semibold p-0" asp-action="Login" asp-controller="Account">
-                                        Login
-                                    </a>
+                                    <div class="d-flex gap-3 align-items-center">
+                                        <a class="nav-link fw-semibold p-0" asp-action="Register" asp-controller="Account">Register</a>
+                                        <a class="nav-link fw-semibold p-0" asp-action="Login" asp-controller="Account">
+                                            Login
+                                        </a>
+                                    </div>
+                                    
                                 }
                             </li>
 
-
-        <li class="nav-item px-3 py-2 py-lg-0">
-                                <a class="nav-link fw-semibold p-0" asp-action="Profile" asp-controller="Account">Profile</a>
-        </li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item px-3 py-2 py-lg-0">
+                                    <a class="nav-link fw-semibold p-0" href="/Admin/Dashboard">Admin Panel</a>
+                                </li>
+                            }
+      
 
         <li class="nav-item px-3 py-2 py-lg-0">
             <a class="nav-link fw-semibold p-0" href="rezervation.html">Rezervation</a>

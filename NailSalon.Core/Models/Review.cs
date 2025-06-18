@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace NailSalon.Core.Models
 {
-    public class Menu
+    public class Review
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public ICollection<ReservationMenu> ReservationMenus { get; set; }
+        public string FullName { get; set; }
+        public string Comment { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
+
 }
