@@ -256,16 +256,11 @@
                                 }
                             </li>
 
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item px-3 py-2 py-lg-0">
-                                    <a class="nav-link fw-semibold p-0" href="/Admin/Dashboard">Admin Panel</a>
-                                </li>
-                            }
+                      
       
 
         <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" href="rezervation.html">Rezervation</a>
+            <a class="nav-link fw-semibold p-0" asp-action="Create" asp-controller="Reservation" >Reservation</a>
         </li>
 
                             @if (User.IsInRole("Admin"))
@@ -276,6 +271,9 @@
                             }
 
     </ul>
+
+                        <a class="nav-link fw-semibold p-0" asp-controller="Contact" asp-action="Index" >Contact</a>
+
 </div>
 
                                     </li>

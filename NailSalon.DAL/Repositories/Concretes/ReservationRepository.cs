@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NailSalon.Core.Models;
+using NailSalon.Core.ViewModels;
 using NailSalon.DAL.Contexts;
 using NailSalon.DAL.Repositories.Abstracts;
 using System;
@@ -13,29 +14,27 @@ namespace NailSalon.DAL.Repositories.Concretes
     public class ReservationRepository : IReservationRepository
     {
         private readonly AppDbContext _context;
+
         public ReservationRepository(AppDbContext context)
         {
             _context = context;
         }
 
-        public async Task CreateAsync(Reservation reservation)
+        public bool IsSlotAvailable(int masterId, DateTime date)
         {
-            await _context.Reservations.AddAsync(reservation);
-            await _context.SaveChangesAsync();
+            return !_context.Reservations.Any(r => r.MasterId == masterId && r.Date == date);
         }
 
-        public async Task<List<Reservation>> GetUserReservationsAsync(string userId)
-        {
-            return await _context.Reservations
-                .Include(r => r.Master)
-                .Include(r => r.NailType)
-                .Where(r => r.AppUserId == userId)
-                .ToListAsync();
-        }
 
-        public void SaveAllChanges()
+        public void CreateReservation(Reservation reservation)
         {
+            _context.Reservations.Add(reservation);
             _context.SaveChanges();
+        }
+
+        public async Task<List<Reservation>> GetAll(string id)
+        {
+            return await  _context.Reservations.Include(x=>x.Master).Include(x=>x.NailType).Where(x=>x.UserId == id).ToListAsync();
         }
     }
 

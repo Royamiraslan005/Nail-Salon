@@ -10,7 +10,10 @@ namespace NailSalon.BL.Services.Abstractions
 {
     public interface IReservationService
     {
-        Task CreateAsync(ReservationVm vm);
-        Task<List<ReservationVm>> GetUserReservationsAsync(string userId);
+        Task<bool> MakeReservationAsync(ReservationVm reservation);
+        List<Design> GetDesignsByZodiac(string zodiacSign);
+
+        Task<List<ReservationInfoVm>> GetAll(string id);
     }
 }
+

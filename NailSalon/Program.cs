@@ -43,6 +43,10 @@ namespace NailSalon
             builder.Services.AddScoped<IMenuRepository, MenuRepository>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IContactService, ContactService>();
+            builder.Services.AddScoped<IContactRepository, ContactRepository>();
 
 
             var app = builder.Build();

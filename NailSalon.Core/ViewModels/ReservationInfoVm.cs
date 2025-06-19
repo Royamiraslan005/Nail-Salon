@@ -10,10 +10,10 @@ namespace NailSalon.Core.ViewModels
     public class ReservationInfoVm
     {
         public DateTime Date { get; set; }
-        public TimeSpan Time { get; set; }
+    
         public string MasterName { get; set; }
-        public NailType NailType { get; set; }
-        public decimal Price { get; set; }
+        public string DesignName { get; set; }
+   
         public bool WantsMenu { get; set; }
     }
 }

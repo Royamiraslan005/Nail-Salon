@@ -40,7 +40,7 @@ namespace NailSalon.Controllers
         [HttpPost]
         public async Task<IActionResult> SendReservation(ReservationVm reservationVm)
         {
-            await _reservationService.CreateAsync(reservationVm);
+            await _reservationService.MakeReservationAsync(reservationVm);
             return View("Index", "Home");
 
         }

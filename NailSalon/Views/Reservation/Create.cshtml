@@ -1,8 +1,8 @@
-﻿@model NailSalon.Core.ViewModels.ReservationVm
+﻿@using NailSalon.Core.Models
+@using NailSalon.Core.ViewModels
+@model NailSalon.Core.ViewModels.ReservationVm
 
-@{
-    ViewData["Title"] = "Rezervasiya – Zodiac Nails";
-}
+
 
 <!DOCTYPE html>
 <html lang="az">
@@ -77,54 +77,54 @@
 </head>
 <body>
 
-    @{
-        ViewData["Title"] = "Rezervasiya et";
-    }
+   
 
     <h2 class="text-danger">Rezarvasiya et</h2>
 
     <form method="post" action="/Reservation/Create">
         <!-- Usta seçimi -->
-        <label for="master">Usta seçin:</label>
-        <select id="master" name="MasterName" required>
+        <label asp-for="MasterId">Usta seçin:</label>
+        <select asp-for="MasterId" required>
             <option disabled selected>Seçin...</option>
-            <option value="Aygün Əliyeva">Aygün Əliyeva</option>
-            <option value="Nigar Məmmədova">Nigar Məmmədova</option>
-            <option value="Lalə Həsənli">Lalə Həsənli</option>
-            <option value="Günel Rzayeva">Günel Rzayeva</option>
+            @{
+                foreach (var item in ViewBag.Masters as List<MasterVm>)
+                {
+                    <option value=@item.Id>@item.FullName</option>
+                }
+            }
+
         </select>
 
         <br /><br />
 
         <!-- Dizayn seçimi -->
-        <label for="design">Dizayn seçin:</label>
-        <select id="design" name="DesignName" required>
+        <label asp-for="DesignId">Dizayn seçin:</label>
+        <select asp-for="DesignId" required>
             <option disabled selected>Seçin...</option>
-            <option value="Gel Dırnaqlar">Gel Dırnaqlar</option>
-            <option value="French Manikür">French Manikür</option>
-            <option value="Akrelik Dırnaqlar">Akrelik Dırnaqlar</option>
-            <option value="Ombre Dırnaqlar">Ombre Dırnaqlar</option>
-            <option value="Mat Dırnaqlar">Mat Dırnaqlar</option>
-            <option value="Parıltılı Dırnaqlar">Parıltılı Dırnaqlar</option>
-            <option value="Stiletto Forması">Stiletto Forması</option>
-            <option value="Badam Forması">Badam Forması</option>
+            @{
+                foreach (var item in ViewBag.Designs as List<NailType>)
+                {
+                    <option value=@item.Id>@item.Title</option>
+                }
+            }
+
         </select>
 
         <br /><br />
 
-        <label for="date">Tarix seçin:</label>
-        <input type="date" id="date" name="Date" required />
+        <label asp-for="Date">Tarix seçin:</label>
+        <input asp-for="Date" id="date" name="Date" required />
 
+
+        <input type="hidden" name="username" value="@User.Identity.Name" hidden />
         <br /><br />
 
-        <label for="time">Saat seçin:</label>
-        <input type="time" id="time" name="Time" required />
 
         <br /><br />
 
         <label>Yemək/İçki istəyirsiniz?</label><br />
-        <input type="radio" name="WantsMenu" value="true" /> Bəli
-        <input type="radio" name="WantsMenu" value="false" /> Xeyr
+        <input asp-for="WantsFoodDrink" type="radio" name="WantsMenu" value="true" /> Bəli
+        <input asp-for="WantsFoodDrink" type="radio" name="WantsMenu" value="false" /> Xeyr
 
         <br /><br />
         <button type="submit">Rezervasiya et</button>

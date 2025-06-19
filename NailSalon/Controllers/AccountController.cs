@@ -13,14 +13,16 @@ namespace NailSalon.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IZodiacService _zodiacService;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IReservationService _reservationService;
 
 
-        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,IZodiacService zodiacService, RoleManager<IdentityRole> roleManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IZodiacService zodiacService, RoleManager<IdentityRole> roleManager, IReservationService reservationService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _zodiacService = zodiacService;
             _roleManager = roleManager;
+            _reservationService = reservationService;
         }
 
         [HttpGet]
@@ -129,9 +131,8 @@ namespace NailSalon.Controllers
                     ZodiacSymbol = zodiacInfo.Symbol,
                     ZodiacTrait = zodiacInfo.Trait,
                     SuggestedDesign = zodiacInfo.SuggestedDesign,
-
-
                 };
+                ViewBag.Reservations =await _reservationService.GetAll(user.Id);
 
                 return View(vm);
             }

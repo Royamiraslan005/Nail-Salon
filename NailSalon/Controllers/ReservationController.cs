@@ -1,74 +1,67 @@
-﻿//using Microsoft.AspNetCore.Identity;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.AspNetCore.Mvc.Rendering;
-//using Microsoft.EntityFrameworkCore;
-//using NailSalon.BL.Services.Abstractions;
-//using NailSalon.Core.Models;
-//using NailSalon.Core.ViewModels;
-//using NailSalon.DAL.Contexts;
+﻿
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using NailSalon.BL.Services.Abstractions;
+using NailSalon.Core.ViewModels;
+using NailSalon.Core.Models;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
-//namespace NailSalon.Controllers
-//{
-//    public class ReservationController : Controller
-//    {
-//        private readonly IReservationService _reservationService;
-//        private readonly UserManager<AppUser> _userManager;
+namespace NailSalon.Controllers
+{
+    public class ReservationController : Controller
+    {
+        private readonly IReservationService _reservationService;
+        private readonly IUserService _userService;
+        private readonly IMasterService _masterService;
+        private readonly INailTypeService _nailTypeService;
+        private readonly UserManager<AppUser> _userManager;
 
-//        public ReservationController(IReservationService reservationService, UserManager<AppUser> userManager)
-//        {
-//            _reservationService = reservationService;
-//            _userManager = userManager;
-//        }
-
-//        [HttpGet]
-//        public async Task<IActionResult> Create()
-//        {
-//            var vm = new ReservationVm
-//            {
-//                Date = DateTime.Today,
-//                Time = TimeSpan.FromHours(12),
-//                Masters = await _reservationService.GetMastersAsync(),
-//                NailTypes = await GetDesignsAsync()
-//            };
-//            return View(vm);
-//        }
-
-//        [HttpPost]
-//        public async Task<IActionResult> Create(ReservationVm vm)
-//        {
-//            if (!ModelState.IsValid)
-//            {
-//                //vm.Masters = await GetMastersAsync();     
-//                //vm.NailTypes = await GetDesignsAsync();   
-//                return View(vm);
-//            }
+        public ReservationController(IReservationService reservationService, IUserService userService, IMasterService masterService, INailTypeService nailTypeService, UserManager<AppUser> userManager)
+        {
+            _reservationService = reservationService;
+            _userService = userService;
+            _masterService = masterService;
+            _nailTypeService = nailTypeService;
+            _userManager = userManager;
+        }
 
 
-//            var user = await _userManager.GetUserAsync(User);
-//            if (user == null) return RedirectToAction("Login", "Account");
+        public async Task<IActionResult> Create()
+        {
 
-//            await _reservationService.CreateAsync(vm, user.Id);
+            var masters = await _masterService.GetAllAsync();
+            var designs = await _nailTypeService.GetAllAsync();
+            ViewBag.Masters = masters;
+            ViewBag.Designs = designs;
 
-//            if (vm.WantsMenu)
-//                return RedirectToAction("Menu", "Order");
-//            else
-//                return RedirectToAction("Index", "Home");
-//        }
-
-//        private async Task<List<SelectListItem>> GetMastersAsync()
-//        {
-//            return new List<SelectListItem> {
-//            new("Aygün", "1"), new("Nigar", "2")
-//        };
-//        }
-
-//        private async Task<List<SelectListItem>> GetDesignsAsync()
-//        {
-//            return new List<SelectListItem> {
-//            new("French Qızılı", "1"), new("Glitter Pastel", "2")
-//        };
-//        }
-//    }
-//}
+            return View();
+        }
 
 
+        [HttpPost]
+        public async Task<IActionResult> Create(ReservationVm vm, string username)
+        {
+
+            var user = await _userManager.FindByEmailAsync(username);
+
+            if (user == null)
+                return RedirectToAction("Login", "Account");
+
+            vm.UserId = user.Id;
+            var success = await _reservationService.MakeReservationAsync(vm);
+
+            if (success)
+            {
+                if (vm.WantsFoodDrink)
+                    return RedirectToAction("Menu", "Food");
+                else
+                    return RedirectToAction("Profile", "Account");
+            }
+
+            ModelState.AddModelError("", "Selected time slot is unavailable.");
+
+            return View(vm);
+        }
+    }
+}

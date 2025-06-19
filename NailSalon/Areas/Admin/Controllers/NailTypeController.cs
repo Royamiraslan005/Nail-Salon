@@ -24,7 +24,7 @@ namespace NailSalon.Areas.Admin.Controllers
             {
                 Id = x.Id,
                 Title = x.Title,
-                Price = x.Price,
+                Price = (decimal)x.Price,
                 ImageUrl = x.ImageUrl
             }).ToList();
 
@@ -62,7 +62,7 @@ namespace NailSalon.Areas.Admin.Controllers
             {
                 Id = model.Id,
                 Title = model.Title,
-                Price = model.Price,
+                Price = (decimal)model.Price,
                 ImageUrl = model.ImageUrl
             };
 

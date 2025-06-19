@@ -231,6 +231,55 @@ namespace NailSalon.DAL.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("NailSalon.Core.Models.Contact", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("NailSalon.Core.Models.Design", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Zodiac")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Designs");
+                });
+
             modelBuilder.Entity("NailSalon.Core.Models.Master", b =>
                 {
                     b.Property<int>("Id")
@@ -298,7 +347,7 @@ namespace NailSalon.DAL.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
@@ -312,16 +361,13 @@ namespace NailSalon.DAL.Migrations
 
             modelBuilder.Entity("NailSalon.Core.Models.Reservation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime?>("Date")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("MasterId")
@@ -330,21 +376,16 @@ namespace NailSalon.DAL.Migrations
                     b.Property<int?>("NailTypeId")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int?>("ServicesId")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan?>("Time")
-                        .HasColumnType("time");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("WantsMenu")
+                    b.Property<bool>("WantsFoodDrink")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("MasterId");
 
@@ -401,6 +442,26 @@ namespace NailSalon.DAL.Migrations
                     b.ToTable("Services");
                 });
 
+            modelBuilder.Entity("NailSalon.Core.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -454,23 +515,18 @@ namespace NailSalon.DAL.Migrations
 
             modelBuilder.Entity("NailSalon.Core.Models.Reservation", b =>
                 {
-                    b.HasOne("NailSalon.Core.Models.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("NailSalon.Core.Models.Master", "Master")
                         .WithMany("Reservations")
                         .HasForeignKey("MasterId");
 
                     b.HasOne("NailSalon.Core.Models.NailType", "NailType")
                         .WithMany()
-                        .HasForeignKey("NailTypeId");
+                        .HasForeignKey("NailTypeId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("NailSalon.Core.Models.Services", null)
                         .WithMany("Reservations")
                         .HasForeignKey("ServicesId");
-
-                    b.Navigation("AppUser");
 
                     b.Navigation("Master");
 

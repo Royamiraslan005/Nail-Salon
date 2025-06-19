@@ -1,4 +1,5 @@
 ﻿using NailSalon.Core.Models;
+using NailSalon.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace NailSalon.DAL.Repositories.Abstracts
 {
     public interface IReservationRepository
     {
-        Task CreateAsync(Reservation reservation);
-        Task<List<Reservation>> GetUserReservationsAsync(string userId);
+        bool IsSlotAvailable(int masterId, DateTime date);
+        void CreateReservation(Reservation reservation);
 
-        void SaveAllChanges();
+        Task<List<Reservation>> GetAll(string id);
     }
 
 }

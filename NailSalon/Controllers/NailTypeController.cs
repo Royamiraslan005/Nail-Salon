@@ -20,7 +20,7 @@ namespace NailSalon.Controllers
             {
                 Id = x.Id,
                 Title = x.Title,
-                Price = x.Price,
+                Price = (decimal)x.Price,
                 ImageUrl = x.ImageUrl
             }).ToList();
 
