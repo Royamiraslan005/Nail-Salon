@@ -25,6 +25,9 @@ namespace NailSalon.BL.Services.Concretes
 
         public async Task<bool> MakeReservationAsync(ReservationVm reservationvm)
         {
+            if (reservationvm.Date < DateTime.Today)
+                return false;
+
             var reservation = new Reservation()
             {
                 Date = reservationvm.Date,
@@ -35,11 +38,12 @@ namespace NailSalon.BL.Services.Concretes
             };
 
             if (reservation.MasterId.HasValue &&
-                    _repository.IsSlotAvailable(reservation.MasterId.Value, reservation.Date))
+                _repository.IsSlotAvailable(reservation.MasterId.Value, reservation.Date))
             {
                 _repository.CreateReservation(reservation);
                 return true;
             }
+
             return false;
         }
 

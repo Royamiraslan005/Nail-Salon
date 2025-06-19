@@ -42,26 +42,43 @@ namespace NailSalon.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ReservationVm vm, string username)
         {
+            
+            if (vm.Date < DateTime.Today)
+            {
+                ModelState.AddModelError("Date", "Keçmiş tarix seçilə bilməz.");
+
+                var masters = await _masterService.GetAllAsync();
+                var designs = await _nailTypeService.GetAllAsync();
+                ViewBag.Masters = masters;
+                ViewBag.Designs = designs;
+
+                return View(vm);
+            }
 
             var user = await _userManager.FindByEmailAsync(username);
-
             if (user == null)
                 return RedirectToAction("Login", "Account");
 
             vm.UserId = user.Id;
+
             var success = await _reservationService.MakeReservationAsync(vm);
 
             if (success)
             {
                 if (vm.WantsFoodDrink)
-                    return RedirectToAction("Menu", "Food");
+                    return RedirectToAction("Index", "Menu");
                 else
                     return RedirectToAction("Profile", "Account");
             }
 
-            ModelState.AddModelError("", "Selected time slot is unavailable.");
+            ModelState.AddModelError("", "Seçilmiş vaxt artıq doludur.");
+
+            var allMasters = await _masterService.GetAllAsync();
+            var allDesigns = await _nailTypeService.GetAllAsync();
+            ViewBag.Masters = allMasters;
+            ViewBag.Designs = allDesigns;
 
             return View(vm);
         }
     }
-}
+    }

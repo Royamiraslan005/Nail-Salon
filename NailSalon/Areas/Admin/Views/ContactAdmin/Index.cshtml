@@ -1,0 +1,26 @@
+﻿@using NailSalon.Core.Models
+@model List<ContactMessage>
+
+<h2>Gələn Mesajlar</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ad Soyad</th>
+            <th>Email</th>
+            <th>Mesaj</th>
+            <th>Tarix</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var msg in Model)
+        {
+            <tr>
+                <td>@msg.FullName</td>
+                <td>@msg.Email</td>
+                <td>@msg.Message</td>
+                <td>@msg.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>

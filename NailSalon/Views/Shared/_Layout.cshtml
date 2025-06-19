@@ -194,98 +194,101 @@
                         <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
                                 data-bs-target="#bdNavbar"></button>
                     </div>
-               <div class="offcanvas-body align-items-center justify-content-end">
-    <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold active p-0" aria-current="page" asp-action="Index" asp-controller="Home">Home</a>
-        </li>
-
-        <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" asp-action="About" asp-controller="Home" >About</a>
-        </li>
-
-        <li class="nav-item dropdown px-3 py-2 py-lg-0">
-            <a class="nav-link dropdown-toggle fw-semibold p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Services
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end mt-3 border-0 shadow animate slide">
-                <li>
-                    <a class="dropdown-item" asp-action="Index" asp-controller="Services">
-                        Ümumi Servislər <span class="badge bg-secondary text-black">Yeni</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" asp-action="Index" asp-controller="NailType">
-                        Dırnaq Növləri <span class="badge bg-secondary text-black">Populyar</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" asp-action="Index" asp-controller="Master" >Our Team</a>
-        </li>
+                    <div class="offcanvas-body align-items-center justify-content-end">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item px-3 py-2 py-lg-0">
-                                <a class="nav-link fw-semibold p-0" asp-action="Index" asp-controller="Review" >Comment</a>
+                                <a class="nav-link fw-semibold active p-0" aria-current="page" asp-action="Index" asp-controller="Home">Home</a>
                             </li>
 
-        
+                            <li class="nav-item px-3 py-2 py-lg-0">
+                                <a class="nav-link fw-semibold p-0" asp-action="About" asp-controller="Home">About</a>
+                            </li>
+
+                            <li class="nav-item dropdown px-3 py-2 py-lg-0">
+                                <a class="nav-link dropdown-toggle fw-semibold p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end mt-3 border-0 shadow animate slide">
+                                    <li>
+                                        <a class="dropdown-item" asp-action="Index" asp-controller="Services">
+                                            Ümumi Servislər <span class="badge bg-secondary text-black">Yeni</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-action="Index" asp-controller="NailType">
+                                            Dırnaq Növləri <span class="badge bg-secondary text-black">Populyar</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item px-3 py-2 py-lg-0">
+                                <a class="nav-link fw-semibold p-0" asp-action="Index" asp-controller="Master">Our Team</a>
+                            </li>
+                            <li class="nav-item px-3 py-2 py-lg-0">
+                                <a class="nav-link fw-semibold p-0" asp-action="Index" asp-controller="Review">Comment</a>
+                            </li>
+
+
 
                             <li class="nav-item px-3 py-2 py-lg-0">
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <div class="d-flex gap-3 align-items-center">
-                                        <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Logout">
-                                            Logout
-                                        </a>
-                                        <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Profile">
-                                            Profile
-                                        </a>
-                                    </div>
-                                    
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                    <li class="nav-item search-dropdown px-3 py-2 py-lg-0 dropdown">
+                                        <a class="nav-link fw-semibold p-0" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Panel</a>
+                                    </li>
+                                    }
+                                <div class="d-flex gap-3 align-items-center">
+                                    <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Logout">
+                                        Logout
+                                    </a>
+                                    <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Profile">
+                                        Profile
+                                    </a>
+                                </div>
+
                                 }
+
                                 else
                                 {
-                                    <div class="d-flex gap-3 align-items-center">
-                                        <a class="nav-link fw-semibold p-0" asp-action="Register" asp-controller="Account">Register</a>
-                                        <a class="nav-link fw-semibold p-0" asp-action="Login" asp-controller="Account">
-                                            Login
-                                        </a>
-                                    </div>
-                                    
+                                <div class="d-flex gap-3 align-items-center">
+                                    <a class="nav-link fw-semibold p-0" asp-action="Register" asp-controller="Account">Register</a>
+                                    <a class="nav-link fw-semibold p-0" asp-action="Login" asp-controller="Account">
+                                        Login
+                                    </a>
+                                </div>
+
                                 }
                             </li>
 
-                      
-      
 
-        <li class="nav-item px-3 py-2 py-lg-0">
-            <a class="nav-link fw-semibold p-0" asp-action="Create" asp-controller="Reservation" >Reservation</a>
-        </li>
 
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item search-dropdown px-3 py-2 py-lg-0 dropdown" >
-                                    <a class="nav-link fw-semibold p-0" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Panel</a>
-                                </li>
-                            }
 
-    </ul>
-
-                        <a class="nav-link fw-semibold p-0" asp-controller="Contact" asp-action="Index" >Contact</a>
-
-</div>
-
-                                    </li>
-                                </ul>
+                            <li class="nav-item px-3 py-2 py-lg-0">
+                                <a class="nav-link fw-semibold p-0" asp-action="Create" asp-controller="Reservation">Reservation</a>
                             </li>
+
+
+
+
                         </ul>
+
+                        <a class="nav-link fw-semibold p-0" asp-controller="Contact" asp-action="Index">Contact</a>
+
                     </div>
+
+                    </li>
+                    </ul>
+                    </li>
+                    </ul>
                 </div>
+            </div>
             </div>
         </nav>
     </header>
-        @RenderBody()
+    @RenderBody()
     <footer id="footer">
         <div class="container-lg padding-medium">
             <div class="row ">

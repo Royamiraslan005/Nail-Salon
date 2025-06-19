@@ -210,12 +210,12 @@
 
         <div class="menu-section">
             <h3>☕ Sizin menyu seçimləriniz</h3>
-            @if (Model.MenuItems?.Any() == true)
+            @if ((ViewBag.MenuItems as List<MenuItemVm>).Any() == true)
             {
                 <ul class="menu-list">
-                    @foreach (var item in Model.MenuItems)
+                    @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>)
                     {
-                        <li>@item</li>
+                        <li>@item.Name</li>
                     }
                 </ul>
             }

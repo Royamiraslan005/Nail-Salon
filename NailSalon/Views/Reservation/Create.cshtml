@@ -2,8 +2,6 @@
 @using NailSalon.Core.ViewModels
 @model NailSalon.Core.ViewModels.ReservationVm
 
-
-
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -40,7 +38,7 @@
             color: #d63384;
         }
 
-        select, input[type="date"], input[type="time"] {
+        select, input[type="datetime-local"] {
             width: 100%;
             padding: 12px;
             border: 1px solid #ffc1d9;
@@ -77,59 +75,48 @@
 </head>
 <body>
 
-   
+    <div class="reservation-box">
+        <h2 class="text-danger">Rezarvasiya et</h2>
 
-    <h2 class="text-danger">Rezarvasiya et</h2>
-
-    <form method="post" action="/Reservation/Create">
-        <!-- Usta seçimi -->
-        <label asp-for="MasterId">Usta seçin:</label>
-        <select asp-for="MasterId" required>
-            <option disabled selected>Seçin...</option>
-            @{
-                foreach (var item in ViewBag.Masters as List<MasterVm>)
+        <form method="post" asp-action="Create" asp-controller="Reservation">
+            <!-- Usta seçimi -->
+            <label asp-for="MasterId">Usta seçin:</label>
+            <select asp-for="MasterId" required>
+                <option disabled selected>Seçin...</option>
+                @foreach (var item in ViewBag.Masters as List<MasterVm>)
                 {
-                    <option value=@item.Id>@item.FullName</option>
+                    <option value="@item.Id">@item.FullName</option>
                 }
-            }
+            </select>
 
-        </select>
-
-        <br /><br />
-
-        <!-- Dizayn seçimi -->
-        <label asp-for="DesignId">Dizayn seçin:</label>
-        <select asp-for="DesignId" required>
-            <option disabled selected>Seçin...</option>
-            @{
-                foreach (var item in ViewBag.Designs as List<NailType>)
+            <!-- Dizayn seçimi -->
+            <label asp-for="DesignId">Dizayn seçin:</label>
+            <select asp-for="DesignId" required>
+                <option disabled selected>Seçin...</option>
+                @foreach (var item in ViewBag.Designs as List<NailType>)
                 {
-                    <option value=@item.Id>@item.Title</option>
+                    <option value="@item.Id">@item.Title</option>
                 }
-            }
+            </select>
 
-        </select>
+            <!-- Tarix və Saat -->
+            <label asp-for="Date">Tarix və saat seçin:</label>
+            <input asp-for="Date" type="datetime-local" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+            <span asp-validation-for="Date" class="text-danger"></span>
 
-        <br /><br />
+            <!-- Gizli istifadəçi məlumatı -->
+            <input type="hidden" name="username" value="@User.Identity.Name" />
 
-        <label asp-for="Date">Tarix seçin:</label>
-        <input asp-for="Date" id="date" name="Date" required />
+            <!-- Yemək/İçki -->
+            <label asp-for="WantsFoodDrink">Yemək/İçki istəyirsiniz?</label>
+            <div class="radio-group">
+                <input type="radio" asp-for="WantsFoodDrink" value="true" /> Bəli
+                <input type="radio" asp-for="WantsFoodDrink" value="false" /> Xeyr
+            </div>
+            <span asp-validation-for="WantsFoodDrink" class="text-danger"></span>
 
-
-        <input type="hidden" name="username" value="@User.Identity.Name" hidden />
-        <br /><br />
-
-
-        <br /><br />
-
-        <label>Yemək/İçki istəyirsiniz?</label><br />
-        <input asp-for="WantsFoodDrink" type="radio" name="WantsMenu" value="true" /> Bəli
-        <input asp-for="WantsFoodDrink" type="radio" name="WantsMenu" value="false" /> Xeyr
-
-        <br /><br />
-        <button type="submit">Rezervasiya et</button>
-    </form>
-
-
+            <button type="submit">Rezervasiya et</button>
+        </form>
+    </div>
 </body>
 </html>

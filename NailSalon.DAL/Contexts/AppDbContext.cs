@@ -35,6 +35,7 @@ namespace NailSalon.DAL.Contexts
         public DbSet<Design> Designs { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<ContactMessage> ContactMessages { get; set; }
 
     }
 }

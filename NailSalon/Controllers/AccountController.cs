@@ -14,15 +14,17 @@ namespace NailSalon.Controllers
         private readonly IZodiacService _zodiacService;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IReservationService _reservationService;
+        private readonly IMenuService _menuService;
 
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IZodiacService zodiacService, RoleManager<IdentityRole> roleManager, IReservationService reservationService)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IZodiacService zodiacService, RoleManager<IdentityRole> roleManager, IReservationService reservationService, IMenuService menuService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _zodiacService = zodiacService;
             _roleManager = roleManager;
             _reservationService = reservationService;
+            _menuService = menuService;
         }
 
         [HttpGet]
@@ -47,8 +49,8 @@ namespace NailSalon.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user,"Member");
-          
+                await _userManager.AddToRoleAsync(user, "Member");
+
                 return RedirectToAction("Login", "Account");
             }
             else
@@ -58,7 +60,7 @@ namespace NailSalon.Controllers
                 return View();
             }
 
-            
+
 
             return RedirectToAction("Index", "Home");
         }
@@ -80,7 +82,7 @@ namespace NailSalon.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVm model,string? returnUrl)
+        public async Task<IActionResult> Login(LoginVm model, string? returnUrl)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -95,7 +97,7 @@ namespace NailSalon.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home"); 
+                return RedirectToAction("Index", "Home");
             }
 
 
@@ -114,29 +116,30 @@ namespace NailSalon.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-            [HttpGet]
-            public async Task<IActionResult> Profile()
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login");
+
+            var zodiacInfo = _zodiacService.GetZodiacInfo(user.BirthDate);
+
+            var vm = new ProfileVm
             {
-                var user = await _userManager.GetUserAsync(User);
-                if (user == null) return RedirectToAction("Login");
-
-                var zodiacInfo = _zodiacService.GetZodiacInfo(user.BirthDate);
-
-                var vm = new ProfileVm
-                {
-                    FullName = user.FullName,
-                    Email = user.Email,
-                    BirthDate = user.BirthDate,
-                    Zodiac = zodiacInfo.Name,
-                    ZodiacSymbol = zodiacInfo.Symbol,
-                    ZodiacTrait = zodiacInfo.Trait,
-                    SuggestedDesign = zodiacInfo.SuggestedDesign,
-                };
-                ViewBag.Reservations =await _reservationService.GetAll(user.Id);
+                FullName = user.FullName,
+                Email = user.Email,
+                BirthDate = user.BirthDate,
+                Zodiac = zodiacInfo.Name,
+                ZodiacSymbol = zodiacInfo.Symbol,
+                ZodiacTrait = zodiacInfo.Trait,
+                SuggestedDesign = zodiacInfo.SuggestedDesign,
+            };
+            ViewBag.Reservations = await _reservationService.GetAll(user.Id);
+            ViewBag.MenuItems = await _menuService.GetAllAsync();
 
                 return View(vm);
-            }
-    
+        }
+
 
         public async Task<IActionResult> Logout()
         {
