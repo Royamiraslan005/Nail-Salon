@@ -134,12 +134,17 @@ namespace NailSalon.Controllers
                 ZodiacTrait = zodiacInfo.Trait,
                 SuggestedDesign = zodiacInfo.SuggestedDesign,
             };
-            ViewBag.Reservations = await _reservationService.GetAll(user.Id);
-            ViewBag.MenuItems = await _menuService.GetAllAsync();
 
-                return View(vm);
+            // ⚠️ Burada paralel yox, ARDICIL await istifadə etdik
+            var reservations = await _reservationService.GetAll(user.Id);
+            // Gözlə, sonra davam et
+            var menuItems = await _menuService.GetAllAsync();
+
+            ViewBag.Reservations = reservations;
+            ViewBag.MenuItems = menuItems;
+
+            return View(vm);
         }
-
 
         public async Task<IActionResult> Logout()
         {

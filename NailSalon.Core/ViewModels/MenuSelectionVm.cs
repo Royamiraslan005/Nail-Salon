@@ -8,7 +8,8 @@ namespace NailSalon.Core.ViewModels
 {
     public class MenuSelectionVm
     {
-        public List<string> SelectedItems { get; set; } = new List<string>();
+        public List<int> SelectedItems { get; set; } = new List<int>();
     }
+
 }
 

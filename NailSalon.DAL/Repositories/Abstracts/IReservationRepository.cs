@@ -10,10 +10,11 @@ namespace NailSalon.DAL.Repositories.Abstracts
 {
     public interface IReservationRepository
     {
-        bool IsSlotAvailable(int masterId, DateTime date);
-        void CreateReservation(Reservation reservation);
+        Task<bool> IsSlotAvailableAsync(int masterId, DateTime date);
 
         Task<List<Reservation>> GetAll(string id);
+        Task AddAsync(Reservation reservation);
+        Task CreateAsync(Reservation reservation);
     }
 
 }

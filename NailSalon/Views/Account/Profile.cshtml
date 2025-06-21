@@ -197,7 +197,7 @@
                     @foreach (var order in ViewBag.Reservations as List<ReservationInfoVm>)
                     {
                         <tr>
-                            <td>@order.Date.ToShortDateString()</td>
+                            <td>@order.Date</td>
                             <td>@order.MasterName</td>
                             <td>@order.DesignName</td>
                             <td>@order.WantsMenu</td>

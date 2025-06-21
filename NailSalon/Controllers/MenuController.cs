@@ -1,34 +1,59 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NailSalon.BL.Services.Abstractions;
-using System.Threading.Tasks;
+using NailSalon.Core.Models;
+using NailSalon.Core.ViewModels;
+using System.Text.Json;
 
 namespace NailSalon.Controllers
 {
     public class MenuController : Controller
     {
         private readonly IMenuService _menuService;
+        private readonly IReservationService _reservationService;
 
-        public MenuController(IMenuService menuService)
+        public MenuController(IMenuService menuService, IReservationService reservationService)
         {
             _menuService = menuService;
+            _reservationService = reservationService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var foods = await _menuService.GetAllAsync();
-            return View(foods); 
+            var menuItems = await _menuService.GetAllAsync();
+
+            if (TempData["ReservationVm"] is string json)
+            {
+                TempData.Keep("ReservationVm");
+                var vm = JsonSerializer.Deserialize<ReservationVm>(json);
+                vm.MenuItems = menuItems;
+                return View(vm); // indi düzgün model göndərilir!
+            }
+
+            return RedirectToAction("Create", "Reservation");
         }
 
         [HttpPost]
-        public IActionResult Index(List<int> selectedItems)
+        public async Task<IActionResult> Index(ReservationVm vm)
         {
-            if (selectedItems == null || !selectedItems.Any())
+            if (vm.SelectedMenuIds == null || !vm.SelectedMenuIds.Any())
             {
                 TempData["Message"] = "Zəhmət olmasa ən azı bir məhsul seçin.";
+                TempData["ReservationVm"] = JsonSerializer.Serialize(vm);
                 return RedirectToAction("Index");
             }
 
-            HttpContext.Session.SetString("SelectedMenuItems", string.Join(",", selectedItems));
+            var reservation = new Reservation
+            {
+                UserId = vm.UserId,
+                MasterId = vm.MasterId,
+                NailTypeId = vm.DesignId,
+                Date = vm.Date,
+                WantsFoodDrink = vm.WantsFoodDrink,
+                SelectedMenuIds = string.Join(",", vm.SelectedMenuIds)
+            };
+
+            await _reservationService.CreateAsync(reservation); // VACİB!
+
             return RedirectToAction("Profile", "Account");
         }
 

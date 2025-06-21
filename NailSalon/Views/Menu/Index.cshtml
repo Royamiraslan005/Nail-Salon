@@ -1,5 +1,4 @@
-﻿@using NailSalon.Core.ViewModels
-@model List<MenuItemVm>
+﻿@model NailSalon.Core.ViewModels.ReservationVm
 
 <!DOCTYPE html>
 <html lang="az">
@@ -69,23 +68,37 @@
     <h2 class="menu-title">🧁 Menyu Seçimi</h2>
 
     <div class="menu-container">
-        <form method="post" enctype="multipart/form-data" >
-            <div class="row g-4">
 
-                @foreach (var item in Model)
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-warning text-center">
+                @TempData["Message"]
+            </div>
+        }
+
+        <form method="post" asp-action="Index" asp-controller="Menu">
+
+            <div class="row g-4">
+                @foreach (var item in Model.MenuItems)
                 {
                     <div class="col-md-4">
                         <div class="card menu-card">
                             <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Name" />
                             <div class="card-body">
                                 <h5>@item.Name</h5>
-                                <input type="checkbox" name="selectedItems" value="@item.Id" /> Seç
+                                <input type="checkbox" name="SelectedMenuIds[]" value="@item.Id" /> Seç
                             </div>
                         </div>
                     </div>
                 }
-
             </div>
+
+            <!-- Geri qalan rezervasiya dataları -->
+            <input type="hidden" name="MasterId" value="@Model.MasterId" />
+            <input type="hidden" name="DesignId" value="@Model.DesignId" />
+            <input type="hidden" name="Date" value="@Model.Date.ToString("yyyy-MM-ddTHH:mm")" />
+            <input type="hidden" name="WantsFoodDrink" value="true" />
+            <input type="hidden" name="UserId" value="@Model.UserId" />
 
             <div class="text-center mt-5">
                 <button type="submit" class="btn btn-primary px-5 py-2">Təsdiqlə</button>
@@ -95,4 +108,3 @@
 
 </body>
 </html>
-

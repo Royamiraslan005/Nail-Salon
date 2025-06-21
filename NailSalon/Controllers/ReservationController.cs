@@ -1,11 +1,9 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using NailSalon.BL.Services.Abstractions;
-using NailSalon.Core.ViewModels;
-using NailSalon.Core.Models;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using NailSalon.BL.Services.Abstractions;
+using NailSalon.Core.Models;
+using NailSalon.Core.ViewModels;
+using System.Text.Json;
 
 namespace NailSalon.Controllers
 {
@@ -16,46 +14,44 @@ namespace NailSalon.Controllers
         private readonly IMasterService _masterService;
         private readonly INailTypeService _nailTypeService;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IEmailService _emailService;
 
-        public ReservationController(IReservationService reservationService, IUserService userService, IMasterService masterService, INailTypeService nailTypeService, UserManager<AppUser> userManager)
+        public ReservationController(
+            IReservationService reservationService,
+            IUserService userService,
+            IMasterService masterService,
+            INailTypeService nailTypeService,
+            UserManager<AppUser> userManager,
+            IEmailService emailService)
         {
             _reservationService = reservationService;
             _userService = userService;
             _masterService = masterService;
             _nailTypeService = nailTypeService;
             _userManager = userManager;
+            _emailService = emailService;
         }
 
-
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
-
-            var masters = await _masterService.GetAllAsync();
-            var designs = await _nailTypeService.GetAllAsync();
-            ViewBag.Masters = masters;
-            ViewBag.Designs = designs;
-
+            ViewBag.Masters = await _masterService.GetAllAsync();
+            ViewBag.Designs = await _nailTypeService.GetAllAsync();
             return View();
         }
 
-
         [HttpPost]
-        public async Task<IActionResult> Create(ReservationVm vm, string username)
+        public async Task<IActionResult> Create(ReservationVm vm)
         {
-            
-            if (vm.Date < DateTime.Today)
+            if (vm.Date < DateTime.Now)
             {
                 ModelState.AddModelError("Date", "Keçmiş tarix seçilə bilməz.");
-
-                var masters = await _masterService.GetAllAsync();
-                var designs = await _nailTypeService.GetAllAsync();
-                ViewBag.Masters = masters;
-                ViewBag.Designs = designs;
-
+                ViewBag.Masters = await _masterService.GetAllAsync();
+                ViewBag.Designs = await _nailTypeService.GetAllAsync();
                 return View(vm);
             }
 
-            var user = await _userManager.FindByEmailAsync(username);
+            var user = await _userManager.GetUserAsync(User);
             if (user == null)
                 return RedirectToAction("Login", "Account");
 
@@ -63,22 +59,39 @@ namespace NailSalon.Controllers
 
             var success = await _reservationService.MakeReservationAsync(vm);
 
-            if (success)
+            if (!success)
             {
-                if (vm.WantsFoodDrink)
-                    return RedirectToAction("Index", "Menu");
-                else
-                    return RedirectToAction("Profile", "Account");
+                ModelState.AddModelError("Date", "Seçilmiş vaxtda bu usta artıq bron edilib.");
+                ViewBag.Masters = await _masterService.GetAllAsync();
+                ViewBag.Designs = await _nailTypeService.GetAllAsync();
+                return View(vm);
             }
 
-            ModelState.AddModelError("", "Seçilmiş vaxt artıq doludur.");
+            if (vm.WantsFoodDrink)
+            {
+                TempData["ReservationVm"] = JsonSerializer.Serialize(vm);
+                return RedirectToAction("Index", "Menu");
+            }
 
-            var allMasters = await _masterService.GetAllAsync();
-            var allDesigns = await _nailTypeService.GetAllAsync();
-            ViewBag.Masters = allMasters;
-            ViewBag.Designs = allDesigns;
+            return RedirectToAction("Profile", "Account");
+        }
 
-            return View(vm);
+        [HttpGet]
+        public IActionResult Confirm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ConfirmReservation(ConfirmReservationVm model)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["Success"] = "Email uğurla göndərildi!";
+                return RedirectToAction("Confirm");
+            }
+
+            return View("Confirm", model);
         }
     }
-    }
+}

@@ -24,6 +24,8 @@ namespace NailSalon.Core.Models
         public DateTime Date { get; set; }
         //public TimeSpan Time { get; set; }
         public bool WantsFoodDrink { get; set; }
+        public string? SelectedMenuIds { get; set; } // Məs: "1,2,5"
+
 
     }
 

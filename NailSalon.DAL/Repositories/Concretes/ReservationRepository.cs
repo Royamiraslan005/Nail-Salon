@@ -36,6 +36,24 @@ namespace NailSalon.DAL.Repositories.Concretes
         {
             return await  _context.Reservations.Include(x=>x.Master).Include(x=>x.NailType).Where(x=>x.UserId == id).ToListAsync();
         }
+
+        public async Task AddAsync(Reservation reservation)
+        {
+            await _context.Reservations.AddAsync(reservation);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task CreateAsync(Reservation reservation)
+        {
+            await _context.Reservations.AddAsync(reservation);
+            await _context.SaveChangesAsync();
+        }
+        public async Task<bool> IsSlotAvailableAsync(int masterId, DateTime date)
+        {
+            return !await _context.Reservations
+                .AnyAsync(r => r.MasterId == masterId && r.Date == date);
+        }
+
     }
 
 

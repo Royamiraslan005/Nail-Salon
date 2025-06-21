@@ -76,7 +76,9 @@
                     <!-- 1. Cappuccino -->
                     <div class="col-md-4">
                         <div class="card menu-card">
-                            <img width="300px" height="300px" src="~/images/@item.ImageUrl" class="card-img-top" alt="Cappuccino">
+                            <div style="position:relative" class="img-container">
+                            <img width="300px" height="500px" style=" object-fit: cover; object-position: center;" src="~/images/@item.ImageUrl" class="card-img-top" alt="Cappuccino">
+                            </div>
                             <div class="card-body">
                                 <h5>@item.Name</h5>
                                 <input type="checkbox" name="menuItems" value="Cappuccino"> Seç

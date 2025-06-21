@@ -27,6 +27,7 @@ namespace NailSalon
             {
                 opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
             });
+            builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
             builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
                 opt.User.RequireUniqueEmail = true;
@@ -53,7 +54,7 @@ namespace NailSalon
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IContactService, ContactService>();
             builder.Services.AddScoped<IContactRepository, ContactRepository>();
-
+            builder.Services.AddScoped<IEmailService, EmailService>();
 
             var app = builder.Build();
             app.UseStaticFiles();

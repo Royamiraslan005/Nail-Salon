@@ -308,6 +308,38 @@ namespace NailSalon.DAL.Migrations
                     b.ToTable("Designs");
                 });
 
+            modelBuilder.Entity("NailSalon.Core.Models.EmailSettings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SmtpPort")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SmtpServer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmailSettings");
+                });
+
             modelBuilder.Entity("NailSalon.Core.Models.Master", b =>
                 {
                     b.Property<int>("Id")
@@ -403,6 +435,9 @@ namespace NailSalon.DAL.Migrations
 
                     b.Property<int?>("NailTypeId")
                         .HasColumnType("int");
+
+                    b.Property<string>("SelectedMenuIds")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ServicesId")
                         .HasColumnType("int");

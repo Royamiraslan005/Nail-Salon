@@ -2,6 +2,7 @@
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
 using NailSalon.DAL.Repositories.Abstracts;
+using NailSalon.DAL.Repositories.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,13 @@ namespace NailSalon.BL.Services.Concretes
 
         public async Task<bool> MakeReservationAsync(ReservationVm reservationvm)
         {
-            if (reservationvm.Date < DateTime.Today)
+            if (reservationvm.Date < DateTime.Now)
+                return false;
+
+            // Yeni async metodla yoxla
+            var isAvailable = await _repository.IsSlotAvailableAsync(reservationvm.MasterId, reservationvm.Date);
+
+            if (!isAvailable)
                 return false;
 
             var reservation = new Reservation()
@@ -35,16 +42,11 @@ namespace NailSalon.BL.Services.Concretes
                 MasterId = reservationvm.MasterId,
                 NailTypeId = reservationvm.DesignId,
                 UserId = reservationvm.UserId,
+                SelectedMenuIds = reservationvm.SelectedMenuIds != null ? string.Join(",", reservationvm.SelectedMenuIds) : null
             };
 
-            if (reservation.MasterId.HasValue &&
-                _repository.IsSlotAvailable(reservation.MasterId.Value, reservation.Date))
-            {
-                _repository.CreateReservation(reservation);
-                return true;
-            }
-
-            return false;
+            await _repository.CreateAsync(reservation);
+            return true;
         }
 
         public List<Design> GetDesignsByZodiac(string zodiacSign)
@@ -53,10 +55,6 @@ namespace NailSalon.BL.Services.Concretes
             return _userService.GetAllDesigns().Where(d => d.Zodiac == zodiacSign || d.Zodiac == "All").ToList();
         }
 
-        public Task<bool> MakeReservationAsync(Reservation reservation)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<List<ReservationInfoVm>> GetAll(string id)
         {
@@ -79,5 +77,12 @@ namespace NailSalon.BL.Services.Concretes
 
             return  vms;
         }
+
+
+        public async Task CreateAsync(Reservation reservation)
+        {
+            await _repository.CreateAsync(reservation);
+        }
+
     }
 }
