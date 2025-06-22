@@ -21,6 +21,7 @@ namespace NailSalon.Core.ViewModels
 
         [Display(Name = "Şəkil seçin")]
         public IFormFile? FormFile { get; set; }
+        public string? Zodiac { get; set; }
     }
 
 }

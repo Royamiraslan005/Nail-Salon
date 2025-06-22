@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using NailSalon.BL.Services.Abstractions;
 using NailSalon.Core.Models;
 using NailSalon.DAL.Repositories.Abstracts;
+using NailSalon.DAL.Repositories.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +70,10 @@ namespace NailSalon.BL.Services.Concretes
             await file.CopyToAsync(stream);
 
             return fileName;
+        }
+        public async Task<List<NailType>> GetByZodiacAsync(string zodiac)
+        {
+            return await _repository.GetByZodiacAsync(zodiac);
         }
     }
 

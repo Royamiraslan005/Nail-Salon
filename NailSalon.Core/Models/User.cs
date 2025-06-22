@@ -11,6 +11,7 @@ namespace NailSalon.Core.Models
         public int Id { get; set; }
         public string Username { get; set; }
         public DateTime BirthDate { get; set; }
+        public string Zodiac { get; set; }
     }
 
 }

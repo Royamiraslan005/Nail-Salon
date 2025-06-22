@@ -129,6 +129,8 @@ namespace NailSalon.BL.Services.Concretes
             _masterRepository.DeleteAsync(id);
             _masterRepository.SaveAllChange();
         }
+     
+ 
     }
 
 }

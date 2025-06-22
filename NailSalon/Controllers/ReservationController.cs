@@ -35,22 +35,26 @@ namespace NailSalon.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login");
+
             ViewBag.Masters = await _masterService.GetAllAsync();
-            ViewBag.Designs = await _nailTypeService.GetAllAsync();
+
+            var allDesigns = await _nailTypeService.GetAllAsync();
+            var filteredDesigns = allDesigns
+                .Where(x => x.Zodiac == user.Zodiac || x.Zodiac == "All" || string.IsNullOrEmpty(x.Zodiac))
+                .ToList();
+
+            ViewBag.Designs = filteredDesigns;
+
             return View();
         }
+
+
 
         [HttpPost]
         public async Task<IActionResult> Create(ReservationVm vm)
         {
-            if (vm.Date < DateTime.Now)
-            {
-                ModelState.AddModelError("Date", "Keçmiş tarix seçilə bilməz.");
-                ViewBag.Masters = await _masterService.GetAllAsync();
-                ViewBag.Designs = await _nailTypeService.GetAllAsync();
-                return View(vm);
-            }
-
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
                 return RedirectToAction("Login", "Account");
@@ -63,7 +67,13 @@ namespace NailSalon.Controllers
             {
                 ModelState.AddModelError("Date", "Seçilmiş vaxtda bu usta artıq bron edilib.");
                 ViewBag.Masters = await _masterService.GetAllAsync();
-                ViewBag.Designs = await _nailTypeService.GetAllAsync();
+
+                var allDesigns = await _nailTypeService.GetAllAsync();
+                var filteredDesigns = allDesigns
+                    .Where(x => x.Zodiac == user.Zodiac || x.Zodiac == "All" || string.IsNullOrEmpty(x.Zodiac))
+                    .ToList();
+                ViewBag.Designs = filteredDesigns;
+
                 return View(vm);
             }
 
@@ -75,6 +85,8 @@ namespace NailSalon.Controllers
 
             return RedirectToAction("Profile", "Account");
         }
+
+
 
         [HttpGet]
         public IActionResult Confirm()

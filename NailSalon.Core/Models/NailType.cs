@@ -17,6 +17,7 @@ namespace NailSalon.Core.Models
 
         [NotMapped]
         public IFormFile? FormFile { get; set; }
+        public string? Zodiac { get; set; }
     }
 
 }

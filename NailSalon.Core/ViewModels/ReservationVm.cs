@@ -22,7 +22,7 @@ namespace NailSalon.Core.ViewModels
 
         public List<SelectListItem> MasterList { get; set; }
         public List<SelectListItem> DesignList { get; set; }
-        public List<int>? SelectedMenuIds { get; set; } // checkbox-lardan gələn ID-lər
+        public List<int>? SelectedMenuIds { get; set; } 
         public List<MenuItemVm>? MenuItems { get; set; }
     }
 

@@ -414,6 +414,9 @@ namespace NailSalon.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Zodiac")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("NailTypes");
@@ -517,6 +520,10 @@ namespace NailSalon.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Zodiac")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

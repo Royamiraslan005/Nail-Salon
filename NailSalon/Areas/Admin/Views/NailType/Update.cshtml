@@ -23,6 +23,12 @@
         </div>
 
         <div class="mb-3">
+            <label asp-for="Zodiac" class="form-label">Zodiac</label>
+            <input asp-for="Zodiac" class="form-control" />
+            <span asp-validation-for="Zodiac" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
             <label asp-for="FormFile" class="form-label">New Image</label>
             <input asp-for="FormFile" class="form-control" type="file" />
             <span asp-validation-for="FormFile" class="text-danger"></span>

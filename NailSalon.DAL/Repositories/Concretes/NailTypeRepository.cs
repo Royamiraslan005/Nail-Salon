@@ -30,6 +30,15 @@ namespace NailSalon.DAL.Repositories.Concretes
         public void Delete(NailType nailType) => _context.NailTypes.Remove(nailType);
 
         public async Task SaveAsync() => await _context.SaveChangesAsync();
+
+        public async Task<List<NailType>> GetByZodiacAsync(string zodiac)
+        {
+            return await _context.NailTypes
+                .Where(x => x.Zodiac == zodiac || x.Zodiac == "All")
+                .ToListAsync();
+        }
+
+
     }
 
 }

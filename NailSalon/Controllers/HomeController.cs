@@ -12,17 +12,20 @@ namespace NailSalon.Controllers
     {
         IMasterService _masterService;
         IReviewService _reviewService;
+        IServicesService _servicesService;
 
-        public HomeController(IMasterService masterService, IReviewService reviewService)
+        public HomeController(IMasterService masterService, IReviewService reviewService, IServicesService servicesService)
         {
             _masterService = masterService;
             _reviewService = reviewService;
+            _servicesService = servicesService;
         }
 
         public async Task<IActionResult> Index()
         {
             List<MasterVm> masterVms =await _masterService.GetAllAsync();
             ViewBag.MasterVms = masterVms;
+            ViewBag.Services = await _servicesService.GetAllAsync();
             return View();
 
         }

@@ -11,6 +11,8 @@ namespace NailSalon.DAL.Repositories.Abstracts
     {
         Task<List<NailType>> GetAllAsync();
         Task<NailType> GetByIdAsync(int id);
+        Task<List<NailType>> GetByZodiacAsync(string zodiac);
+
         void Add(NailType nailType);
         void Update(NailType nailType);
         void Delete(NailType nailType);

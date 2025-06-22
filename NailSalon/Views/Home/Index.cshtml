@@ -90,90 +90,41 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
 
         <div class="container">
             <div class="row">
-                @* @foreach (var item in ViewBag.ServicesVms as List<ServicesVm>) *@
-                <!-- Service Card 1 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="services-single.html">
-                            <img src="~/Assets/images/service-img3.jpg" class="card-img-top" alt="Art Nail & Effects">
-                        </a>
-                        <div class="card-body text-center">
-                            <a href="services-single.html" class="text-decoration-none text-dark">
-                                <h5 class="card-title">Art Nail & Effects</h5>
-                            </a>
+                @{
+                    // foreach (var item in ViewBag.Services as List<ServicesVm>)
+                    // {
+                    //     <div class="col-md-6 col-lg-4 mb-4">
+                    //         <div class="card h-100 shadow-sm border-0">
+                    //             <a asp-controller="Services" asp-action="Detail" asp-route-id="@item.Id>
+                    //                 <img src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt="Art Nail & Effects">
+                    //             </a>
+                    //             <div class="card-body text-center">
+                    //                 <a asp-controller="Services" asp-action="Detail" asp-route-id="@item.Id" class="text-decoration-none text-dark">
+                    //                     <h5 class="card-title">@item.Title</h5>
+                    //                 </a>
+                    //             </div>
+                    //         </div>
+                    //     </div>
+                    // }
+                    @foreach (var item in ViewBag.Services as List<ServicesVm>)
+                    {
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100 shadow-sm border-0">
+                                <a href="@Url.Action("Detail", "Services", new { id = item.Id })" style="text-decoration:none; color:black">
+                                    <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="@Url.Action("Detail", "Services", new { id = item.Id })" class="text-decoration-none text-dark">
+                                        <h5 class="card-title">@item.Title</h5>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    }
+                }
+                
 
-                <!-- Service Card 2 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="services-single.html">
-                            <img src="~/Assets/images/service-img7.jpg" class="card-img-top" alt="Paraffin For Nail Hands">
-                        </a>
-                        <div class="card-body text-center">
-                            <a href="services-single.html" class="text-decoration-none text-dark">
-                                <h5 class="card-title">Paraffin For Nail Hands</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="services-single.html">
-                            <img src="~/Assets/images/service-img8.jpg" class="card-img-top" alt="Glitter For Nail Art">
-                        </a>
-                        <div class="card-body text-center">
-                            <a href="services-single.html" class="text-decoration-none text-dark">
-                                <h5 class="card-title">Glitter For Nail Art</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="services-single.html">
-                            <img src="~/Assets/images/service-img2.jpg" class="card-img-top" alt="Classic Nail Manicure">
-                        </a>
-                        <div class="card-body text-center">
-                            <a href="services-single.html" class="text-decoration-none text-dark">
-                                <h5 class="card-title">Classic Nail Manicure</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 5 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="services-single.html">
-                            <img src="~/Assets/images/service-img4.jpg" class="card-img-top" alt="Pedicure">
-                        </a>
-                        <div class="card-body text-center">
-                            <a href="services-single.html" class="text-decoration-none text-dark">
-                                <h5 class="card-title">Pedicure</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 6 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="services-single.html">
-                            <img src="~/Assets/images/service-img6.jpg" class="card-img-top" alt="Deep Paraffin Waxing">
-                        </a>
-                        <div class="card-body text-center">
-                            <a href="services-single.html" class="text-decoration-none text-dark">
-                                <h5 class="card-title">Deep Paraffin Waxing</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
 
