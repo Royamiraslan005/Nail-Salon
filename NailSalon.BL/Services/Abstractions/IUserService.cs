@@ -11,7 +11,7 @@ namespace NailSalon.BL.Services.Abstractions
     {
         User GetUserByUsername(string username);
         string CalculateZodiac(DateTime birthDate);
-        List<Design> GetAllDesigns();
+        List<NailType> GetAllDesigns();
         List<Master> GetAllMasters();
     }
 

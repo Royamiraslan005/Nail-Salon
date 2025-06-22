@@ -49,7 +49,7 @@ namespace NailSalon.BL.Services.Concretes
             return true;
         }
 
-        public List<Design> GetDesignsByZodiac(string zodiacSign)
+        public List<NailType> GetDesignsByZodiac(string zodiacSign)
         {
             
             return _userService.GetAllDesigns().Where(d => d.Zodiac == zodiacSign || d.Zodiac == "All").ToList();

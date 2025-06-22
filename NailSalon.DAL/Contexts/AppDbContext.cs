@@ -32,7 +32,6 @@ namespace NailSalon.DAL.Contexts
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Review> Reviews { get; set; }
-        public DbSet<Design> Designs { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<ContactMessage> ContactMessages { get; set; }

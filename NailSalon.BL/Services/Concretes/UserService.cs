@@ -61,9 +61,9 @@ namespace NailSalon.BL.Services.Concretes
             };
         }
 
-        public List<Design> GetAllDesigns()
+        public List<NailType> GetAllDesigns()
         {
-            return _context.Designs.ToList();
+            return _context.NailTypes.ToList();
         }
 
         public List<Master> GetAllMasters()

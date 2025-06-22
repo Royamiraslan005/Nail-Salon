@@ -11,7 +11,7 @@ namespace NailSalon.BL.Services.Abstractions
     public interface IReservationService
     {
         Task<bool> MakeReservationAsync(ReservationVm reservation);
-        List<Design> GetDesignsByZodiac(string zodiacSign);
+        List<NailType> GetDesignsByZodiac(string zodiacSign);
         Task CreateAsync(Reservation reservation);
 
 
