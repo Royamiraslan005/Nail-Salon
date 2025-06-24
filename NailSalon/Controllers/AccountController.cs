@@ -121,7 +121,7 @@ namespace NailSalon.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login");
-            ViewBag.MenuItems = await _menuService.GetAllAsync();
+
             var zodiacInfo = _zodiacService.GetZodiacInfo(user.BirthDate);
 
             var vm = new ProfileVm
@@ -132,16 +132,33 @@ namespace NailSalon.Controllers
                 Zodiac = zodiacInfo.Name,
                 ZodiacSymbol = zodiacInfo.Symbol,
                 ZodiacTrait = zodiacInfo.Trait,
-                SuggestedDesign = zodiacInfo.SuggestedDesign,
+                SuggestedDesign = zodiacInfo.SuggestedDesign
             };
 
-            // ⚠️ Burada paralel yox, ARDICIL await istifadə etdik
-            ViewBag.Reservations = await _reservationService.GetAll(user.Id);
-            // Gözlə, sonra davam et
-           
+            var reservations = await _reservationService.GetAll(user.Id);
+            ViewBag.Reservations = reservations;
 
-            
-            
+            // Menyu ID-ləri topla
+            var selectedMenuIds = reservations
+                .Where(r => !string.IsNullOrWhiteSpace(r.SelectedMenuIds))
+                .SelectMany(r => r.SelectedMenuIds.Split(',').Select(id => int.Parse(id)))
+                .Distinct()
+                .ToList();
+
+            // Menyu item-ləri yüklə
+            var selectedMenuItems = await _menuService.GetMenuItemsByIdsAsync(selectedMenuIds);
+
+            // MenuItemVm listini doldur
+            vm.MenuItems = selectedMenuItems.Select(m => new MenuItemVm
+            {
+                Id = m.Id,
+                Name = m.Name,
+                ImageUrl = m.ImageUrl,
+                IsSelected = true
+            }).ToList();
+
+            // ViewBag vasitəsilə də göndərsən, Razor faylı dəyişməyə ehtiyac yoxdur
+            ViewBag.MenuItems = vm.MenuItems;
 
             return View(vm);
         }

@@ -15,5 +15,7 @@ namespace NailSalon.Core.ViewModels
         public string DesignName { get; set; }
    
         public bool WantsMenu { get; set; }
+        public string? SelectedMenuIds { get; set; }
+        public List<MenuItem>? MenuItems { get; set; }
     }
 }

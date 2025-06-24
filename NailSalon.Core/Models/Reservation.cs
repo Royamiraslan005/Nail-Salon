@@ -25,7 +25,7 @@ namespace NailSalon.Core.Models
         //public TimeSpan Time { get; set; }
         public bool WantsFoodDrink { get; set; }
         public string? SelectedMenuIds { get; set; } // Məs: "1,2,5"
-
+        public List<MenuItem>? MenuItems { get; set; }
 
     }
 

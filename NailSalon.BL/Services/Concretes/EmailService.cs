@@ -5,6 +5,7 @@ using MimeKit.Text;
 using Microsoft.Extensions.Options;
 using NailSalon.BL.Services.Abstractions;
 using NailSalon.Core.Models;
+using System.Runtime;
 
 public class EmailService : IEmailService
 {
@@ -22,16 +23,23 @@ public class EmailService : IEmailService
         email.To.Add(MailboxAddress.Parse(toEmail));
         email.Subject = subject;
 
-        var builder = new BodyBuilder
-        {
-            HtmlBody = body
-        };
-        email.Body = builder.ToMessageBody();
+        email.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = body };
 
-        using var smtp = new MailKit.Net.Smtp.SmtpClient(); // BAX BURADA MailKit versiyasını istifadə edirik
-        await smtp.ConnectAsync(_settings.SmtpServer, _settings.SmtpPort, SecureSocketOptions.StartTls);
-        await smtp.AuthenticateAsync(_settings.SenderEmail, _settings.Password);
-        await smtp.SendAsync(email);
-        await smtp.DisconnectAsync(true);
+        using var smtp = new SmtpClient();
+        try
+        {
+            await smtp.ConnectAsync(_settings.SmtpServer, _settings.SmtpPort, SecureSocketOptions.StartTls);
+            await smtp.AuthenticateAsync(_settings.SenderEmail, _settings.Password);
+            await smtp.SendAsync(email);
+            await smtp.DisconnectAsync(true);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("SMTP error: " + ex.Message);
+            throw;
+        }
     }
 }
+
+
+

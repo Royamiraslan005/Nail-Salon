@@ -13,7 +13,7 @@
         <input asp-for="Email" class="form-control" placeholder="example@mail.com" />
         <span asp-validation-for="Email" class="text-danger small"></span>
     </div>
-    <button type="submit" class="btn w-100 fw-bold" style="background-color: pink; color: white;">
+    <button asp-action="ConfirmReservation" type="submit" class="btn w-100 fw-bold" style="background-color: pink; color: white;">
         Təsdiqlə və Email Göndər
     </button>
 </form>

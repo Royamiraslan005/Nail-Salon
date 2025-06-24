@@ -94,17 +94,21 @@ namespace NailSalon.Controllers
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult ConfirmReservation(ConfirmReservationVm model)
+        public async Task<IActionResult> ConfirmReservation(ConfirmReservationVm model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                TempData["Success"] = "Email uğurla göndərildi!";
-                return RedirectToAction("Confirm");
+                await _emailService.SendEmailAsync(model.Email, "Təsdiq", "Rezervasiyanız qeydə alındı");
+                return RedirectToAction("Index");
             }
-
-            return View("Confirm", model);
+            catch (Exception ex)
+            {
+                // Burada loglama və ya istifadəçiyə xəbərdarlıq verə bilərsən
+                ModelState.AddModelError("", "Email göndərmə zamanı xəta baş verdi: " + ex.Message);
+                return View("Confirm", model);
+            }
         }
+
     }
 }

@@ -24,6 +24,7 @@ namespace NailSalon.Core.ViewModels
         public List<SelectListItem> DesignList { get; set; }
         public List<int>? SelectedMenuIds { get; set; } 
         public List<MenuItemVm>? MenuItems { get; set; }
+        //public List<MenuItem>? MenuItems { get; set; }
     }
 
 

@@ -182,38 +182,13 @@
             <p><strong>Tövsiyə olunan dırnaq dizaynı:</strong> @Model.SuggestedDesign</p>
         </div>
 
-        <h3>💅 Əvvəlki Sifarişlər</h3>
-        
-            <table class="orders-table">
-                <thead>
-                    <tr>
-                        <th>Tarix</th>
-                        <th>Usta</th>
-                        <th>Dizayn</th>
-                        <th>Wants to drink</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var order in ViewBag.Reservations as List<ReservationInfoVm>)
-                    {
-                        <tr>
-                            <td>@order.Date</td>
-                            <td>@order.MasterName</td>
-                            <td>@order.DesignName</td>
-                            <td>@order.WantsMenu</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        
-        
-
         <div class="menu-section">
             <h3>☕ Sizin menyu seçimləriniz</h3>
-            @if ((ViewBag.MenuItems as List<MenuItemVm>).Any() == true)
+
+            @if (Model.MenuItems != null && Model.MenuItems.Any(mi => mi.IsSelected))
             {
                 <ul class="menu-list">
-                    @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>)
+                    @foreach (var item in Model.MenuItems.Where(mi => mi.IsSelected))
                     {
                         <li>@item.Name</li>
                     }
@@ -224,7 +199,25 @@
                 <p>Seçim edilməyib.</p>
             }
         </div>
-    </div>
+
+
+    @*     <div class="menu-section"> *@
+    @*         <h3>☕ Sizin menyu seçimləriniz</h3> *@
+    @*         @if ((ViewBag.MenuItems as List<MenuItemVm>).Any() == true) *@
+    @*         { *@
+    @*             <ul class="menu-list"> *@
+    @*                 @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>) *@
+    @*                 { *@
+    @*                     <li>@item.Name</li> *@
+    @*                 } *@
+    @*             </ul> *@
+    @*         } *@
+    @*         else *@
+    @*         { *@
+    @*             <p>Seçim edilməyib.</p> *@
+    @*         } *@
+    @*     </div> *@
+    @* </div> *@
 
 </body>
 </html>

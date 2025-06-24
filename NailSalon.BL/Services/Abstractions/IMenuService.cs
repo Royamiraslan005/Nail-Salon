@@ -1,4 +1,5 @@
-﻿using NailSalon.Core.ViewModels;
+﻿using NailSalon.Core.Models;
+using NailSalon.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace NailSalon.BL.Services.Abstractions
     {
         Task<List<MenuItemVm>> GetAllAsync();
         Task<MenuItemVm> GetByIdAsync(int id);
+        // IMenuService.cs
+        Task<List<MenuItem>> GetMenuItemsByIdsAsync(List<int> ids);
+
         Task CreateAsync(MenuItemVm vm, string wwwRootPath);
         Task UpdateAsync(MenuItemVm vm, string wwwRootPath);
         Task DeleteAsync(int id, string wwwRootPath);

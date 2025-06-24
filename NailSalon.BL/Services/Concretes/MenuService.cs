@@ -128,5 +128,10 @@ public class MenuService : IMenuService
          _repo.SaveAllChange();
     }
 
-    
+    // MenuService.cs
+    public async Task<List<MenuItem>> GetMenuItemsByIdsAsync(List<int> ids)
+    {
+        return await _repo.GetByIdsAsync(ids);
+    }
+
 }
