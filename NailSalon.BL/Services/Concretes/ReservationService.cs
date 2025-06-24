@@ -49,7 +49,7 @@ namespace NailSalon.BL.Services.Concretes
             return true;
         }
 
-        public List<NailType> GetDesignsByZodiac(string zodiacSign)
+        public List<Design> GetDesignsByZodiac(string zodiacSign)
         {
             
             return _userService.GetAllDesigns().Where(d => d.Zodiac == zodiacSign || d.Zodiac == "All").ToList();
@@ -62,8 +62,6 @@ namespace NailSalon.BL.Services.Concretes
             var reservations = await _repository.GetAll(id);
 
             var masters = _masterService.GetAllAsync();
-
-
 
             var vms = reservations.Select(x => new ReservationInfoVm()
             {

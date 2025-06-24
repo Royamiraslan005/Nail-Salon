@@ -221,9 +221,8 @@
                                 </ul>
                             </li>
 
-                            <li class="nav-item px-3 py-2 py-lg-0">
-                                <a class="nav-link fw-semibold p-0" asp-action="Index" asp-controller="Master">Our Team</a>
-                            </li>
+                        <a class="nav-link fw-semibold p-0 text-nowrap" asp-action="Index" asp-controller="Master">Our Team</a>
+
                             <li class="nav-item px-3 py-2 py-lg-0">
                                 <a class="nav-link fw-semibold p-0" asp-action="Index" asp-controller="Review">Comment</a>
                             </li>
@@ -235,9 +234,10 @@
                                 {
                                     @if (User.IsInRole("Admin"))
                                     {
-                                    <li class="nav-item search-dropdown px-3 py-2 py-lg-0 dropdown">
-                                        <a class="nav-link fw-semibold p-0" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Panel</a>
-                                    </li>
+                                <li class="nav-item search-dropdown px-3 py-2 py-lg-0 dropdown">
+                                    <a class="nav-link fw-semibold p-0 text-nowrap" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Panel</a>
+                                </li>
+
                                     }
                                 <div class="d-flex gap-3 align-items-center">
                                     <a class="nav-link fw-semibold p-0" asp-controller="Account" asp-action="Logout">

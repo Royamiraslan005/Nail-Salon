@@ -83,6 +83,7 @@ namespace NailSalon.Controllers
                 return RedirectToAction("Index", "Menu");
             }
 
+            
             return RedirectToAction("Profile", "Account");
         }
 

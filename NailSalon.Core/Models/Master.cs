@@ -14,6 +14,8 @@ namespace NailSalon.Core.Models
         public string Zodiac { get; set; }
         public string Specialty { get; set; }
         public string ImageUrl { get; set; }
+        public double DurationHours { get; set; }
+
 
 
         public ICollection<Reservation> Reservations { get; set; }

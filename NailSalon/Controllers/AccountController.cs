@@ -121,7 +121,7 @@ namespace NailSalon.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login");
-
+            ViewBag.MenuItems = await _menuService.GetAllAsync();
             var zodiacInfo = _zodiacService.GetZodiacInfo(user.BirthDate);
 
             var vm = new ProfileVm
@@ -136,12 +136,12 @@ namespace NailSalon.Controllers
             };
 
             // ⚠️ Burada paralel yox, ARDICIL await istifadə etdik
-            var reservations = await _reservationService.GetAll(user.Id);
+            ViewBag.Reservations = await _reservationService.GetAll(user.Id);
             // Gözlə, sonra davam et
-            var menuItems = await _menuService.GetAllAsync();
+           
 
-            ViewBag.Reservations = reservations;
-            ViewBag.MenuItems = menuItems;
+            
+            
 
             return View(vm);
         }

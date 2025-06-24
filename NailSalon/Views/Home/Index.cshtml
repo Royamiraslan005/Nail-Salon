@@ -260,9 +260,10 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
 
 <div class="container py-5">
     <h2 class="text-center mb-4 text-pink">💬 Bizimlə təəssüratını paylaş!</h2>
+        <section id="#rey">
 
     <div class="card shadow-sm p-4 rounded-4 bg-white-pink mx-auto" style="max-width: 600px;">
-        <form asp-action="Create" method="post">
+        <form  asp-action="Create" method="post">
             <div class="mb-3">
                 <label asp-for="FullName" class="form-label text-muted">Adınız</label>
                 <input asp-for="FullName" class="form-control rounded-3" placeholder="Adınızı daxil edin" />
@@ -280,6 +281,8 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
             </div>
         </form>
     </div>
+
+        </section>
 </div>
 
 <style>
