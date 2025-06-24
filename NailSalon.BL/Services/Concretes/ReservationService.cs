@@ -63,8 +63,6 @@ namespace NailSalon.BL.Services.Concretes
 
             var masters = _masterService.GetAllAsync();
 
-
-
             var vms = reservations.Select(x => new ReservationInfoVm()
             {
                 

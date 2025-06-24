@@ -15,7 +15,6 @@ namespace NailSalon.Core.Models
         public string Email { get; set; }
 
         public string Message { get; set; }
-
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 

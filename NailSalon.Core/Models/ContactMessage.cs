@@ -19,6 +19,9 @@ namespace NailSalon.Core.Models
 
         [Required]
         public string Message { get; set; }
+        public string? Reply { get; set; }             // Admin cavabı
+        public bool IsReplied { get; set; } = false;   // Cavab verilib/verilməyib
+
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
