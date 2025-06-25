@@ -42,15 +42,19 @@ namespace NailSalon.Controllers
                 return RedirectToAction("Index");
             }
 
+            var items =await _menuService.GetMenuItemsByIdsAsync(vm.SelectedMenuIds);
+            
             var reservation = new Reservation
             {
-                UserId = vm.UserId,
+                AppUserId = vm.UserId,
                 MasterId = vm.MasterId,
                 NailTypeId = vm.DesignId,
                 Date = vm.Date,
                 WantsFoodDrink = vm.WantsFoodDrink,
-                SelectedMenuIds = string.Join(",", vm.SelectedMenuIds)
+                
             };
+        
+            reservation.MenuItems = items;
 
             await _reservationService.CreateAsync(reservation); // VACİB!
 

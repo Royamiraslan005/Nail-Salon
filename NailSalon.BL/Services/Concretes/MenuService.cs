@@ -26,6 +26,7 @@ public class MenuService : IMenuService
             Id = x.Id,
             Name = x.Name,
             ImageUrl = x.ImageUrl,
+            
             IsSelected = x.IsSelected
         }).ToList();
     }
@@ -131,7 +132,7 @@ public class MenuService : IMenuService
     // MenuService.cs
     public async Task<List<MenuItem>> GetMenuItemsByIdsAsync(List<int> ids)
     {
-        return await _repo.GetByIdsAsync(ids);
+        return  _repo.GetByIdsAsync(ids);
     }
 
 }

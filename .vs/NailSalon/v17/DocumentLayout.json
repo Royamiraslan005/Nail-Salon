@@ -3,60 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.core\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|solutionrelative:nailsalon.core\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.core\\models\\emailsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|solutionrelative:nailsalon.core\\models\\emailsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\views\\reservation\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\views\\reservation\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02C9BC21-9931-4EFD-BFEB-50EC59D5ED97}|NailSalon.BL\\NailSalon.BL.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.bl\\services\\concretes\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02C9BC21-9931-4EFD-BFEB-50EC59D5ED97}|NailSalon.BL\\NailSalon.BL.csproj|solutionrelative:nailsalon.bl\\services\\concretes\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.core\\viewmodels\\reservationvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|solutionrelative:nailsalon.core\\viewmodels\\reservationvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\views\\review\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\views\\review\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{02C9BC21-9931-4EFD-BFEB-50EC59D5ED97}|NailSalon.BL\\NailSalon.BL.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.bl\\services\\abstractions\\imenuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02C9BC21-9931-4EFD-BFEB-50EC59D5ED97}|NailSalon.BL\\NailSalon.BL.csproj|solutionrelative:nailsalon.bl\\services\\abstractions\\imenuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\views\\review\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\views\\review\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.core\\models\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|solutionrelative:nailsalon.core\\models\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02C9BC21-9931-4EFD-BFEB-50EC59D5ED97}|NailSalon.BL\\NailSalon.BL.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.bl\\services\\concretes\\menuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02C9BC21-9931-4EFD-BFEB-50EC59D5ED97}|NailSalon.BL\\NailSalon.BL.csproj|solutionrelative:nailsalon.bl\\services\\concretes\\menuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\views\\order\\menuselection.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\views\\order\\menuselection.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{402BC70B-0FFB-44EB-BE2F-A38307F0B401}|NailSalon.DAL\\NailSalon.DAL.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.dal\\repositories\\concretes\\menurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{402BC70B-0FFB-44EB-BE2F-A38307F0B401}|NailSalon.DAL\\NailSalon.DAL.csproj|solutionrelative:nailsalon.dal\\repositories\\concretes\\menurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CB5114F-0F88-437C-A33C-0E3D7E2E4781}|NailSalon\\NailSalon.csproj|solutionrelative:nailsalon\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.core\\viewmodels\\reservationinfovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|solutionrelative:nailsalon.core\\viewmodels\\reservationinfovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{402BC70B-0FFB-44EB-BE2F-A38307F0B401}|NailSalon.DAL\\NailSalon.DAL.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.dal\\repositories\\concretes\\reservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{402BC70B-0FFB-44EB-BE2F-A38307F0B401}|NailSalon.DAL\\NailSalon.DAL.csproj|solutionrelative:nailsalon.dal\\repositories\\concretes\\reservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02C9BC21-9931-4EFD-BFEB-50EC59D5ED97}|NailSalon.BL\\NailSalon.BL.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.bl\\services\\concretes\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02C9BC21-9931-4EFD-BFEB-50EC59D5ED97}|NailSalon.BL\\NailSalon.BL.csproj|solutionrelative:nailsalon.bl\\services\\concretes\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.core\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|solutionrelative:nailsalon.core\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|c:\\users\\hp\\desktop\\asdads\\nail-salon\\nailsalon.core\\models\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45C9DFD9-D4B5-49F0-A0DB-7DF18F917A57}|NailSalon.Core\\NailSalon.Core.csproj|solutionrelative:nailsalon.core\\models\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,8 +74,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IMenuService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\Services\\Abstractions\\IMenuService.cs",
+              "RelativeDocumentMoniker": "NailSalon.BL\\Services\\Abstractions\\IMenuService.cs",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\Services\\Abstractions\\IMenuService.cs",
+              "RelativeToolTip": "NailSalon.BL\\Services\\Abstractions\\IMenuService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T12:16:35.369Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -82,180 +103,197 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Message.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\Message.cs",
-              "RelativeDocumentMoniker": "NailSalon.Core\\Models\\Message.cs",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\Message.cs",
-              "RelativeToolTip": "NailSalon.Core\\Models\\Message.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T08:20:52.621Z",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Reservation\\Create.cshtml",
+              "RelativeDocumentMoniker": "NailSalon\\Views\\Reservation\\Create.cshtml",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Reservation\\Create.cshtml",
+              "RelativeToolTip": "NailSalon\\Views\\Reservation\\Create.cshtml",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAAwJkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-25T11:29:20.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmailSettings.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\EmailSettings.cs",
-              "RelativeDocumentMoniker": "NailSalon.Core\\Models\\EmailSettings.cs",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\EmailSettings.cs",
-              "RelativeToolTip": "NailSalon.Core\\Models\\EmailSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T08:20:48.11Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "ReservationController.cs",
               "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Controllers\\ReservationController.cs",
               "RelativeDocumentMoniker": "NailSalon\\Controllers\\ReservationController.cs",
               "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Controllers\\ReservationController.cs",
               "RelativeToolTip": "NailSalon\\Controllers\\ReservationController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAowEYAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAgwDYAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T08:12:55.958Z",
+              "WhenOpened": "2025-06-25T11:29:07.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReservationService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\Services\\Concretes\\ReservationService.cs",
+              "RelativeDocumentMoniker": "NailSalon.BL\\Services\\Concretes\\ReservationService.cs",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\Services\\Concretes\\ReservationService.cs",
+              "RelativeToolTip": "NailSalon.BL\\Services\\Concretes\\ReservationService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwBwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:53:50.156Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ReviewController.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Controllers\\ReviewController.cs",
-              "RelativeDocumentMoniker": "NailSalon\\Controllers\\ReviewController.cs",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Controllers\\ReviewController.cs",
-              "RelativeToolTip": "NailSalon\\Controllers\\ReviewController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "MenuItem.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\MenuItem.cs",
+              "RelativeDocumentMoniker": "NailSalon.Core\\Models\\MenuItem.cs",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\MenuItem.cs",
+              "RelativeToolTip": "NailSalon.Core\\Models\\MenuItem.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T08:12:47.887Z",
+              "WhenOpened": "2025-06-25T10:36:14.642Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\appsettings.json",
-              "RelativeDocumentMoniker": "NailSalon\\appsettings.json",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\appsettings.json",
-              "RelativeToolTip": "NailSalon\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-25T08:11:17.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "NailSalon\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "NailSalon\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAABmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T07:53:40.086Z",
+              "DocumentIndex": 3,
+              "Title": "ReservationVm.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\ViewModels\\ReservationVm.cs",
+              "RelativeDocumentMoniker": "NailSalon.Core\\ViewModels\\ReservationVm.cs",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\ViewModels\\ReservationVm.cs",
+              "RelativeToolTip": "NailSalon.Core\\ViewModels\\ReservationVm.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:36:24.323Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Review\\Index.cshtml",
-              "RelativeDocumentMoniker": "NailSalon\\Views\\Review\\Index.cshtml",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Review\\Index.cshtml",
-              "RelativeToolTip": "NailSalon\\Views\\Review\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Menu\\Index.cshtml",
+              "RelativeDocumentMoniker": "NailSalon\\Views\\Menu\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Menu\\Index.cshtml",
+              "RelativeToolTip": "NailSalon\\Views\\Menu\\Index.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T07:44:21.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Review\\Create.cshtml",
-              "RelativeDocumentMoniker": "NailSalon\\Views\\Review\\Create.cshtml",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Review\\Create.cshtml",
-              "RelativeToolTip": "NailSalon\\Views\\Review\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T07:44:16.36Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "NailSalon\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "NailSalon\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAH8BAAAAAAAAAAAuwKsBAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T07:20:34.455Z",
+              "WhenOpened": "2025-06-25T10:47:10.766Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "ReservationService.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\Services\\Concretes\\ReservationService.cs",
-              "RelativeDocumentMoniker": "NailSalon.BL\\Services\\Concretes\\ReservationService.cs",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\Services\\Concretes\\ReservationService.cs",
-              "RelativeToolTip": "NailSalon.BL\\Services\\Concretes\\ReservationService.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAUwEwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T18:02:36.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "ReservationRepository.cs",
               "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.DAL\\Repositories\\Concretes\\ReservationRepository.cs",
               "RelativeDocumentMoniker": "NailSalon.DAL\\Repositories\\Concretes\\ReservationRepository.cs",
               "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.DAL\\Repositories\\Concretes\\ReservationRepository.cs",
               "RelativeToolTip": "NailSalon.DAL\\Repositories\\Concretes\\ReservationRepository.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAswC8AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAASwCQAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T18:02:16.487Z"
+              "WhenOpened": "2025-06-25T10:58:44.336Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 8,
+              "Title": "MenuSelection.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Order\\MenuSelection.cshtml",
+              "RelativeDocumentMoniker": "NailSalon\\Views\\Order\\MenuSelection.cshtml",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Order\\MenuSelection.cshtml",
+              "RelativeToolTip": "NailSalon\\Views\\Order\\MenuSelection.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-25T11:30:20.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "NailSalon\\Views\\Account\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "NailSalon\\Views\\Account\\Profile.cshtml",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAAANYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-25T10:41:43.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "NailSalon\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "NailSalon\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA9wBgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:40:52.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "MenuRepository.cs",
               "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.DAL\\Repositories\\Concretes\\MenuRepository.cs",
               "RelativeDocumentMoniker": "NailSalon.DAL\\Repositories\\Concretes\\MenuRepository.cs",
               "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.DAL\\Repositories\\Concretes\\MenuRepository.cs",
               "RelativeToolTip": "NailSalon.DAL\\Repositories\\Concretes\\MenuRepository.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAswC0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAmwDcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T18:01:00.742Z"
+              "WhenOpened": "2025-06-25T10:40:52.756Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MenuService.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\Services\\Concretes\\MenuService.cs",
-              "RelativeDocumentMoniker": "NailSalon.BL\\Services\\Concretes\\MenuService.cs",
-              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\Services\\Concretes\\MenuService.cs",
-              "RelativeToolTip": "NailSalon.BL\\Services\\Concretes\\MenuService.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAADwv3gAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T18:00:45.01Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "NailSalon\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon\\Controllers\\AccountController.cs",
               "RelativeToolTip": "NailSalon\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAQwJgAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAqwI4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T18:00:03.918Z",
+              "WhenOpened": "2025-06-25T10:39:14.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ReservationInfoVm.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\ViewModels\\ReservationInfoVm.cs",
+              "RelativeDocumentMoniker": "NailSalon.Core\\ViewModels\\ReservationInfoVm.cs",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\ViewModels\\ReservationInfoVm.cs",
+              "RelativeToolTip": "NailSalon.Core\\ViewModels\\ReservationInfoVm.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwA8AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:39:05.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\Reservation.cs",
+              "RelativeDocumentMoniker": "NailSalon.Core\\Models\\Reservation.cs",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\Reservation.cs",
+              "RelativeToolTip": "NailSalon.Core\\Models\\Reservation.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAUwBAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:38:15.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Services.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\Services.cs",
+              "RelativeDocumentMoniker": "NailSalon.Core\\Models\\Services.cs",
+              "ToolTip": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.Core\\Models\\Services.cs",
+              "RelativeToolTip": "NailSalon.Core\\Models\\Services.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:37:53.298Z",
               "EditorCaption": ""
             }
           ]

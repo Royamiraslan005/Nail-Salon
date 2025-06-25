@@ -34,7 +34,7 @@ namespace NailSalon.DAL.Repositories.Concretes
 
         public async Task<List<Reservation>> GetAll(string id)
         {
-            return await  _context.Reservations.Include(x=>x.Master).Include(x=>x.NailType).Where(x=>x.UserId == id).ToListAsync();
+            return await  _context.Reservations.Where(x => x.AppUserId == id).Include(x=>x.Master).Include(x=>x.NailType).Include(x=>x.MenuItems).ToListAsync();
         }
 
         public async Task AddAsync(Reservation reservation)

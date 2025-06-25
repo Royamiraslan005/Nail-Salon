@@ -50,9 +50,9 @@ namespace NailSalon.DAL.Repositories.Concretes
             _context.SaveChanges();
         }
         // MenuRepository.cs
-        public async Task<List<MenuItem>> GetByIdsAsync(List<int> ids)
+        public  List<MenuItem> GetByIdsAsync(List<int> ids)
         {
-            return await _context.MenuItems.Where(m => ids.Contains(m.Id)).ToListAsync();
+            return  _context.MenuItems.Where(m => ids.Contains(m.Id)).ToList();
         }
 
     }

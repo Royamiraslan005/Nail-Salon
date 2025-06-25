@@ -11,7 +11,7 @@ namespace NailSalon.DAL.Repositories.Abstracts
     {
         Task<List<MenuItem>> GetAllAsync();
         Task<MenuItem> GetByIdAsync(int id);
-        Task<List<MenuItem>> GetByIdsAsync(List<int> ids);
+        List<MenuItem> GetByIdsAsync(List<int> ids);
         Task AddAsync(MenuItem item);
         Task UpdateAsync(MenuItem item);
         void SaveAllChange();

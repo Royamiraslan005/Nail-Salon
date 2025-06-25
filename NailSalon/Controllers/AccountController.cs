@@ -132,33 +132,13 @@ namespace NailSalon.Controllers
                 Zodiac = zodiacInfo.Name,
                 ZodiacSymbol = zodiacInfo.Symbol,
                 ZodiacTrait = zodiacInfo.Trait,
-                SuggestedDesign = zodiacInfo.SuggestedDesign
+                SuggestedDesign = zodiacInfo.SuggestedDesign,
+                
             };
 
-            var reservations = await _reservationService.GetAll(user.Id);
+            var reservations = await _reservationService.GetAll("9ee987a1-0538-465c-ab3d-5ab6cc2395cc");
             ViewBag.Reservations = reservations;
-
-            // Menyu ID-ləri topla
-            var selectedMenuIds = reservations
-                .Where(r => !string.IsNullOrWhiteSpace(r.SelectedMenuIds))
-                .SelectMany(r => r.SelectedMenuIds.Split(',').Select(id => int.Parse(id)))
-                .Distinct()
-                .ToList();
-
-            // Menyu item-ləri yüklə
-            var selectedMenuItems = await _menuService.GetMenuItemsByIdsAsync(selectedMenuIds);
-
-            // MenuItemVm listini doldur
-            vm.MenuItems = selectedMenuItems.Select(m => new MenuItemVm
-            {
-                Id = m.Id,
-                Name = m.Name,
-                ImageUrl = m.ImageUrl,
-                IsSelected = true
-            }).ToList();
-
-            // ViewBag vasitəsilə də göndərsən, Razor faylı dəyişməyə ehtiyac yoxdur
-            ViewBag.MenuItems = vm.MenuItems;
+            ViewBag.MenuItems = reservations.Select(s => s.MenuItems).ToList();
 
             return View(vm);
         }

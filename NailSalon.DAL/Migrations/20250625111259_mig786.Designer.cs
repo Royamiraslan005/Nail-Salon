@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NailSalon.DAL.Contexts;
 
@@ -11,9 +12,11 @@ using NailSalon.DAL.Contexts;
 namespace NailSalon.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250625111259_mig786")]
+    partial class mig786
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -472,6 +475,9 @@ namespace NailSalon.DAL.Migrations
                     b.Property<int?>("ServicesId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("WantsFoodDrink")
                         .HasColumnType("bit");
 
@@ -626,7 +632,7 @@ namespace NailSalon.DAL.Migrations
 
             modelBuilder.Entity("NailSalon.Core.Models.Reservation", b =>
                 {
-                    b.HasOne("NailSalon.Core.Models.AppUser", "AppUser")
+                    b.HasOne("NailSalon.Core.Models.AppUser", null)
                         .WithMany("Reservations")
                         .HasForeignKey("AppUserId");
 
@@ -642,8 +648,6 @@ namespace NailSalon.DAL.Migrations
                     b.HasOne("NailSalon.Core.Models.Services", null)
                         .WithMany("Reservations")
                         .HasForeignKey("ServicesId");
-
-                    b.Navigation("AppUser");
 
                     b.Navigation("Master");
 

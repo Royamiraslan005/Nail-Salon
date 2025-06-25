@@ -12,8 +12,7 @@ namespace NailSalon.Core.Models
         public string Name { get; set; }
         public string? ImageUrl { get; set; }
         public bool IsSelected { get; set; }
-
-        
+        public List<Reservation>? Reservations { get; set; }
     }
 
 }

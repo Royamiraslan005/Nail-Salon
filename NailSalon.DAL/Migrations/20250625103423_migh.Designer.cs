@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NailSalon.DAL.Contexts;
 
@@ -11,9 +12,11 @@ using NailSalon.DAL.Contexts;
 namespace NailSalon.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250625103423_migh")]
+    partial class migh
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -454,9 +457,6 @@ namespace NailSalon.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -472,12 +472,13 @@ namespace NailSalon.DAL.Migrations
                     b.Property<int?>("ServicesId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("WantsFoodDrink")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("MasterId");
 
@@ -626,10 +627,6 @@ namespace NailSalon.DAL.Migrations
 
             modelBuilder.Entity("NailSalon.Core.Models.Reservation", b =>
                 {
-                    b.HasOne("NailSalon.Core.Models.AppUser", "AppUser")
-                        .WithMany("Reservations")
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("NailSalon.Core.Models.Master", "Master")
                         .WithMany("Reservations")
                         .HasForeignKey("MasterId");
@@ -643,16 +640,9 @@ namespace NailSalon.DAL.Migrations
                         .WithMany("Reservations")
                         .HasForeignKey("ServicesId");
 
-                    b.Navigation("AppUser");
-
                     b.Navigation("Master");
 
                     b.Navigation("NailType");
-                });
-
-            modelBuilder.Entity("NailSalon.Core.Models.AppUser", b =>
-                {
-                    b.Navigation("Reservations");
                 });
 
             modelBuilder.Entity("NailSalon.Core.Models.Master", b =>

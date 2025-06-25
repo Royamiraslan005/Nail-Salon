@@ -1,14 +1,22 @@
 ﻿@using NailSalon.Core.Models
 @using NailSalon.Core.ViewModels
-@model NailSalon.Core.ViewModels.ReservationVm
+@model ReservationVm
+
+@{
+    ViewData["Title"] = "Rezervasiya";
+    var menuItems = new[] { "Cappuccino", "Latte", "Çay", "İsti Şokolad", "Şokoladlı Keks", "Vanilli Cupcake" };
+}
 
 <!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8">
-    <title>@ViewData["Title"]</title>
+    <title>@ViewData["Title"] – Zodiac Nails</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         body {
             background: #fff0f5;
@@ -17,7 +25,7 @@
         }
 
         .reservation-box {
-            max-width: 600px;
+            max-width: 1000px;
             margin: auto;
             background: #ffffff;
             border-radius: 16px;
@@ -28,12 +36,10 @@
         h2 {
             text-align: center;
             color: #d63384;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         label {
-            display: block;
-            margin-top: 18px;
             font-weight: 600;
             color: #d63384;
         }
@@ -48,16 +54,29 @@
             font-size: 14px;
         }
 
-        .radio-group {
-            margin-top: 10px;
+        .radio-group input {
+            margin-right: 8px;
         }
 
-            .radio-group input {
-                margin-right: 8px;
-            }
+        .menu-section {
+            margin-top: 40px;
+        }
+
+        .card.menu-card {
+            border: 1px solid #f8c5d3;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+        }
+
+        .card.menu-card img {
+            height: 160px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
 
         button {
-            margin-top: 25px;
+            margin-top: 30px;
             width: 100%;
             padding: 14px;
             border: none;
@@ -68,54 +87,82 @@
             cursor: pointer;
         }
 
-            button:hover {
-                background: #e754a3;
-            }
+        button:hover {
+            background: #e754a3;
+        }
     </style>
 </head>
 <body>
 
     <div class="reservation-box">
-        <h2 class="text-danger">Rezarvasiya et</h2>
+        <h2>💅 Rezarvasiya et və Menyu Seç</h2>
+
         <form method="post" asp-action="Create" asp-controller="Reservation">
-            <!-- Usta seçimi -->
-            <label asp-for="MasterId">Usta seçin:</label>
-            <select asp-for="MasterId" required>
-                <option disabled selected>Seçin...</option>
-                @foreach (var item in ViewBag.Masters as List<MasterVm>)
-                {
-                    <option value="@item.Id">@item.FullName</option>
-                }
-            </select>
 
-            <!-- Dizayn seçimi -->
-            <label asp-for="DesignId">Dizayn seçin:</label>
-            <select asp-for="DesignId" required>
-                <option disabled selected>Seçin...</option>
-                @foreach (var item in ViewBag.Designs as List<NailType>)
-                {
-                    <option value="@item.Id">@item.Title</option>
-                }
-            </select>
+            <!-- Usta -->
+            <div class="mb-3">
+                <label asp-for="MasterId">Usta seçin:</label>
+                <select asp-for="MasterId" class="form-select" required>
+                    <option disabled selected>Seçin...</option>
+                    @foreach (var item in ViewBag.Masters as List<MasterVm>)
+                    {
+                        <option value="@item.Id">@item.FullName</option>
+                    }
+                </select>
+            </div>
 
-            <!-- Tarix və Saat -->
-            <label asp-for="Date">Tarix və saat seçin:</label>
-            <input asp-for="Date" type="datetime-local" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
-            <span asp-validation-for="Date" class="text-danger"></span>
+            <!-- Dizayn -->
+            <div class="mb-3">
+                <label asp-for="DesignId">Dizayn seçin:</label>
+                <select asp-for="DesignId" class="form-select" required>
+                    <option disabled selected>Seçin...</option>
+                    @foreach (var item in ViewBag.Designs as List<NailType>)
+                    {
+                        <option value="@item.Id">@item.Title</option>
+                    }
+                </select>
+            </div>
 
-            <!-- Gizli istifadəçi məlumatı -->
-            <input type="hidden" name="username" value="@User.Identity.Name" />
+            <!-- Tarix -->
+            <div class="mb-3">
+                <label asp-for="Date">Tarix və saat:</label>
+                <input asp-for="Date" type="datetime-local" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
 
             <!-- Yemək/İçki -->
-            <label asp-for="WantsFoodDrink">Yemək/İçki istəyirsiniz?</label>
-            <div class="radio-group">
-                <input type="radio" asp-for="WantsFoodDrink" value="true" /> Bəli
-                <input type="radio" asp-for="WantsFoodDrink" value="false" /> Xeyr
+            <div class="mb-3">
+                <label asp-for="WantsFoodDrink">Yemək/İçki istəyirsiniz?</label>
+                <div class="radio-group">
+                   
+                </div>
+                <span asp-validation-for="WantsFoodDrink" class="text-danger"></span>
             </div>
-            <span asp-validation-for="WantsFoodDrink" class="text-danger"></span>
 
-            <button type="submit">Rezervasiya et</button>
+            <!-- Menyu Seçimi -->
+            <div class="menu-section">
+                <h4 class="text-center text-success">🧁 Menyu Seçimi</h4>
+                <div class="row mt-4">
+                    @foreach (var item in menuItems)
+                    {
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card">
+                                <img src="~/images/@(item.Replace(" ", "").Replace("ə", "e").ToLower()).jpg" class="card-img-top" alt="@item" />
+                                <div class="card-body text-center">
+                                    <h6>@item</h6>
+                                    <input type="checkbox" name="SelectedMenuItems" value="@item." /> Seç
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <input type="hidden" name="username" value="@User.Identity?.Name" />
+
+            <button type="submit">Rezarvasiya et</button>
         </form>
     </div>
+
 </body>
 </html>

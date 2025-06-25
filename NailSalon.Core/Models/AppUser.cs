@@ -12,6 +12,6 @@ namespace NailSalon.Core.Models
         public string FullName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Zodiac { get; set; }
-        //public ICollection<Reservation> Reservations { get; set; }
+        public ICollection<Reservation>? Reservations { get; set; }
     }
 }

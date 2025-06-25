@@ -1,4 +1,5 @@
-﻿@using NailSalon.Core.ViewModels
+﻿@using NailSalon.Core.Models
+@using NailSalon.Core.ViewModels
 @model NailSalon.Core.ViewModels.ProfileVm
 @{
     string zodiacClass = Model.Zodiac.ToLower() switch
@@ -183,14 +184,15 @@
         </div>
 
         <div class="menu-section">
-            <h3>☕ Sizin menyu seçimləriniz</h3>
+            <h3>Reservations</h3>
 
-            @if (Model.MenuItems != null && Model.MenuItems.Any(mi => mi.IsSelected))
+            @if (ViewBag.Reservations as List<ReservationInfoVm> != null)
             {
                 <ul class="menu-list">
-                    @foreach (var item in Model.MenuItems.Where(mi => mi.IsSelected))
+                    @foreach (var item in ViewBag.Reservations as List<ReservationInfoVm>)
                     {
-                        <li>@item.Name</li>
+                        <li>@item.DesignName</li>
+                        <li>@item.Date</li>
                     }
                 </ul>
             }
@@ -200,24 +202,38 @@
             }
         </div>
 
+        <div class="menu-section">
+            <h3>☕ Sizin menyu seçimləriniz</h3>
 
-    @*     <div class="menu-section"> *@
-    @*         <h3>☕ Sizin menyu seçimləriniz</h3> *@
-    @*         @if ((ViewBag.MenuItems as List<MenuItemVm>).Any() == true) *@
-    @*         { *@
-    @*             <ul class="menu-list"> *@
-    @*                 @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>) *@
-    @*                 { *@
-    @*                     <li>@item.Name</li> *@
-    @*                 } *@
-    @*             </ul> *@
-    @*         } *@
-    @*         else *@
-    @*         { *@
-    @*             <p>Seçim edilməyib.</p> *@
-    @*         } *@
-    @*     </div> *@
-    @* </div> *@
+            
+                <ul class="menu-list">
+                    @foreach (var item in ViewBag.MenuItems as List<MenuItem>)
+                    {
+                        <li>@item.Name</li>
+                    }
+                </ul>
+            
+           
+        </div>
+
+
+        @*     <div class="menu-section"> *@
+        @*         <h3>☕ Sizin menyu seçimləriniz</h3> *@
+        @*         @if ((ViewBag.MenuItems as List<MenuItemVm>).Any() == true) *@
+        @*         { *@
+        @*             <ul class="menu-list"> *@
+        @*                 @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>) *@
+        @*                 { *@
+        @*                     <li>@item.Name</li> *@
+        @*                 } *@
+        @*             </ul> *@
+        @*         } *@
+        @*         else *@
+        @*         { *@
+        @*             <p>Seçim edilməyib.</p> *@
+        @*         } *@
+        @*     </div> *@
+        @* </div> *@
 
 </body>
 </html>

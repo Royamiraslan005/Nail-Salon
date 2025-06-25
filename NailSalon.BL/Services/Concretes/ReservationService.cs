@@ -16,12 +16,14 @@ namespace NailSalon.BL.Services.Concretes
         private readonly IReservationRepository _repository;
         private readonly IUserService _userService;
         private readonly IMasterService _masterService;
+        IMenuRepository _menuRepo;
 
-        public ReservationService(IReservationRepository repository, IUserService userService, IMasterService masterService)
+        public ReservationService(IReservationRepository repository, IUserService userService, IMasterService masterService, IMenuRepository menuRepo)
         {
             _repository = repository;
             _userService = userService;
             _masterService = masterService;
+            _menuRepo = menuRepo;
         }
 
         public async Task<bool> MakeReservationAsync(ReservationVm reservationvm)
@@ -35,14 +37,17 @@ namespace NailSalon.BL.Services.Concretes
             if (!isAvailable)
                 return false;
 
+            var menuItems = _menuRepo.GetByIdsAsync(reservationvm.SelectedMenuIds);
+
             var reservation = new Reservation()
             {
                 Date = reservationvm.Date,
                 WantsFoodDrink = reservationvm.WantsFoodDrink,
                 MasterId = reservationvm.MasterId,
                 NailTypeId = reservationvm.DesignId,
-                UserId = reservationvm.UserId,
-                SelectedMenuIds = reservationvm.SelectedMenuIds != null ? string.Join(",", reservationvm.SelectedMenuIds) : null
+                AppUserId = reservationvm.UserId,
+                MenuItems = menuItems
+
             };
 
             await _repository.CreateAsync(reservation);
@@ -51,7 +56,7 @@ namespace NailSalon.BL.Services.Concretes
 
         public List<Design> GetDesignsByZodiac(string zodiacSign)
         {
-            
+
             return _userService.GetAllDesigns().Where(d => d.Zodiac == zodiacSign || d.Zodiac == "All").ToList();
         }
 
@@ -65,15 +70,14 @@ namespace NailSalon.BL.Services.Concretes
 
             var vms = reservations.Select(x => new ReservationInfoVm()
             {
-                
-                MasterName =x.Master.FullName,
-                DesignName=x.NailType.Title,
-                WantsMenu=x.WantsFoodDrink,
-                Date=x.Date,
-               
+                MasterName = x.Master.FullName,
+                DesignName = x.NailType.Title,
+                WantsMenu = x.WantsFoodDrink,
+                Date = x.Date,
+                MenuItems = x.MenuItems,
             }).ToList();
 
-            return  vms;
+            return vms;
         }
 
 
