@@ -12,7 +12,7 @@ namespace NailSalon.BL.Services.Abstractions
     {
         Task<List<MenuItemVm>> GetAllAsync();
         Task<MenuItemVm> GetByIdAsync(int id);
-        // IMenuService.cs
+     
         Task<List<MenuItem>> GetMenuItemsByIdsAsync(List<int> ids);
 
         Task CreateAsync(MenuItemVm vm, string wwwRootPath);
