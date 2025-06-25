@@ -25,7 +25,7 @@ namespace NailSalon
             });
             builder.Services.AddDbContext<AppDbContext>(opt =>
             {
-                opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+                opt.UseSqlServer(builder.Configuration.GetConnectionString("Deploy"));
             });
             builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
             builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
@@ -70,6 +70,7 @@ namespace NailSalon
                 pattern: "{controller=Home}/{action=Index}"
                 );
             app.UseAuthentication();
+            app.UseHttpsRedirection();
             app.UseSession();
             app.UseAuthorization();
             app.Run();

@@ -183,35 +183,90 @@
             <p><strong>Tövsiyə olunan dırnaq dizaynı:</strong> @Model.SuggestedDesign</p>
         </div>
 
-        <div class="menu-section">
-            <h3>Reservations</h3>
+        @{
+            var reservations = ViewBag.Reservations as List<ReservationInfoVm> ?? new List<ReservationInfoVm>();
+        }
 
-            @if (ViewBag.Reservations as List<ReservationInfoVm> != null)
+        <div class="menu-section">
+            <h3>📅 Rezarvasiya Cədvəli</h3>
+
+            @if (reservations.Any())
             {
-                <ul class="menu-list">
-                    @foreach (var item in ViewBag.Reservations as List<ReservationInfoVm>)
-                    {
-                        <li>@item.DesignName</li>
-                        <li>@item.Date</li>
-                    }
-                </ul>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Usta</th>
+                            <th>Dizayn</th>
+                            <th>Tarix</th>
+                            <th>Yemək/İçki</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in reservations)
+                        {
+                            <tr>
+                                <td>@item?.MasterName</td>
+                                <td>@item?.DesignName</td>
+                                <td>@item?.Date.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>@(item?.WantsMenu == true ? "Bəli" : "Xeyr")</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             }
             else
             {
-                <p>Seçim edilməyib.</p>
+                <p class="no-data">Rezarvasiya tapılmadı.</p>
             }
         </div>
 
         <div class="menu-section">
-            <h3>☕ Sizin menyu seçimləriniz</h3>
+            <h3>☕ Menyu Seçimləri</h3>
+
+            @if (reservations.Any(r => r?.MenuItems != null && r.MenuItems.Any()))
+            {
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Tarix</th>
+                            <th>Seçilmiş Menyular</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var res in reservations)
+                        {
+                            if (res?.MenuItems != null && res.MenuItems.Any())
+                            {
+                                <tr>
+                                    <td>@res.Date.ToString("dd.MM.yyyy HH:mm")</td>
+                                    <td>
+                                        <ul class="menu-list">
+                                            @foreach (var item in res.MenuItems)
+                                            {
+                                                <li>@item?.Name</li>
+                                            }
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="no-data">Menyu seçimi yoxdur.</p>
+            }
+
 
             
-                <ul class="menu-list">
-                    @foreach (var item in ViewBag.MenuItems as List<MenuItem>)
-                    {
-                        <li>@item.Name</li>
-                    }
-                </ul>
+                @* <ul class="menu-list"> *@
+                @*     @foreach (var item in ViewBag.MenuItems as List<MenuItem>) *@
+                @*     { *@
+                @*         <li>@item.Name</li> *@
+                @*     } *@
+                @* </ul> *@
             
            
         </div>
