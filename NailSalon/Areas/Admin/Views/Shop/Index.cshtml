@@ -1,0 +1,35 @@
+﻿@model List<NailSalon.Core.ViewModels.ShopProductVm>
+
+@{
+    ViewData["Title"] = "Shop Products";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Shop Products</h2>
+
+    <div class="text-end mb-3">
+        <a class="btn btn-success" asp-action="Create">Add New Product</a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Name" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text text-muted">@item.Description</p>
+                        <p class="fw-bold">Price: ₼@item.Price</p>
+                        <span class="badge bg-primary">@item.Category</span>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a class="btn btn-warning btn-sm" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger"
+                           onclick="return confirm('Silmək istədiyinizə əminsiniz?')">Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

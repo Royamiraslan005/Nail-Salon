@@ -93,9 +93,15 @@
 
             <div class="mb-2 text-start">
                 <label asp-for="BirthDate" class="form-label">Doğum tarixi</label>
-                <input asp-for="BirthDate" class="form-control" type="date" onchange="showZodiacPopup(this.value)" />
+                <input asp-for="BirthDate"
+                       type="date"
+                       class="form-control"
+                       min="1900-01-01"
+                       max="2015-12-31"
+                       onchange="showZodiacPopup(this.value)" />
                 <span asp-validation-for="BirthDate" class="text-danger"></span>
             </div>
+
 
             <div asp-validation-summary="All" class="text-danger small mb-2"></div>
             <button type="submit" class="btn btn-primary">Qeydiyyatdan keç</button>

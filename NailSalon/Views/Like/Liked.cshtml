@@ -1,0 +1,33 @@
+﻿@model List<NailSalon.Core.ViewModels.ShopProductVm>
+
+@{
+    ViewData["Title"] = "Bəyəndiklərim";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">❤️ Bəyəndiklərim</h2>
+
+    @if (!Model.Any())
+    {
+        <p>Hələ ki, heç bir məhsulu bəyənməmisiniz.</p>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Name" style="height: 250px; object-fit: cover;" />
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text text-muted">@item.Description</p>
+                            <td>@($"{item.Price:F2} azn")</td>
+                            <span class="badge bg-primary">@item.Category</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

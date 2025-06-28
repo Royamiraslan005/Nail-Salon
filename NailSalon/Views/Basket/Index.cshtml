@@ -1,0 +1,64 @@
+﻿@model List<NailSalon.Core.ViewModels.BasketItemVm>
+
+@{
+    ViewData["Title"] = "Səbətim";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">🛒 Səbətim</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <p>Səbətiniz boşdur.</p>
+        <a asp-controller="Shop" asp-action="Index" class="btn btn-primary">Alış-verişə davam et</a>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Şəkil</th>
+                    <th>Məhsul</th>
+                    <th>Qiymət</th>
+                    <th>Say</th>
+                    <th>Cəm</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/images/@item.ImageUrl" alt="@item.Name" style="height: 60px; object-fit: cover;" />
+                        </td>
+                        <td>@item.Name</td>
+                        <td>@($"{item.Price:F2} azn")</td>
+                        <td>@item.Count</td>
+                        <td>@($"{(item.Price * item.Count):F2} azn")</td>
+                        <td>
+                            <form asp-controller="Basket" asp-action="RemoveFromBasket" method="post">
+                                <input type="hidden" name="itemId" value="@item.Id" />
+                                <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4" class="text-end">Cəmi:</th>
+                    <th colspan="2">
+                        @($"{Model.Sum(x => x.Price * x.Count):F2} azn")
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <form asp-action="ClearBasket" method="post">
+            <button type="submit" class="btn btn-warning">Səbəti təmizlə</button>
+            <a asp-controller="Shop" asp-action="Index" class="btn btn-secondary ms-2">Alış-verişə davam et</a>
+        </form>
+    }
+</div>

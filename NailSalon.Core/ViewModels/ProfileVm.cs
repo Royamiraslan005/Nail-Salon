@@ -22,23 +22,6 @@ namespace NailSalon.Core.ViewModels
         public List<OrderVm> Orders { get; set; } = new();
     }
 
-    public class MenuItemVm
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string? ImageUrl { get; set; }
-        [Display(Name = "Şəkil seçin")]
-        public IFormFile? FormFile { get; set; }
-        public bool IsSelected { get; set; }
-    }
-
-    public class OrderVm
-    {
-        public DateTime Date { get; set; }
-        public string MasterName { get; set; }
-        public string DesignName { get; set; }
-        public decimal Price { get; set; }
-    }
 
 
 }

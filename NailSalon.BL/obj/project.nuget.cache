@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4orM3MLHpJk=",
+  "dgSpecHash": "56Yk4ii6weY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\Desktop\\asdads\\Nail-Salon\\NailSalon.BL\\NailSalon.BL.csproj",
+  "projectFilePath": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon.BL\\NailSalon.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

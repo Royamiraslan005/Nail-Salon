@@ -2,18 +2,18 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NailSalon.BL.Services.Abstractions;
 using NailSalon.BL.Services.Concretes;
+using NailSalon.BL.Services.Concretes.NailSalon.Business.Services.Implementations;
 using NailSalon.Core.Models;
 using NailSalon.DAL.Contexts;
 using NailSalon.DAL.Repositories.Abstractions;
 using NailSalon.DAL.Repositories.Abstracts;
 using NailSalon.DAL.Repositories.Concretes;
-using System;
 
 namespace NailSalon
 {
-    public class Program
+    public  class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
@@ -25,7 +25,7 @@ namespace NailSalon
             });
             builder.Services.AddDbContext<AppDbContext>(opt =>
             {
-                opt.UseSqlServer(builder.Configuration.GetConnectionString("Deploy"));
+                opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
             });
             builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
             builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
@@ -55,16 +55,27 @@ namespace NailSalon
             builder.Services.AddScoped<IContactService, ContactService>();
             builder.Services.AddScoped<IContactRepository, ContactRepository>();
             builder.Services.AddScoped<IEmailService, EmailService>();
+            builder.Services.AddScoped<IShopService, ShopService>();
+            builder.Services.AddScoped<IShopRepository, ShopRepository>();
+            builder.Services.AddScoped<IBasketService, BasketService>();
+            builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+            builder.Services.AddScoped<ILikeService, LikeService>();
+            builder.Services.AddScoped<ILikeRepository, LikeRepository>();
 
             var app = builder.Build();
             app.UseStaticFiles();
             app.UseRouting();
-
-
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                if (!await roleManager.RoleExistsAsync("Member"))
+                    await roleManager.CreateAsync(new IdentityRole("Member"));
+            }
             app.MapControllerRoute(
             name: "areas",
             pattern: "{area:exists}/{controller=DashBoard}/{action=Index}/{id?}"
           );
+
             app.MapControllerRoute(
                 name: "Default",
                 pattern: "{controller=Home}/{action=Index}"

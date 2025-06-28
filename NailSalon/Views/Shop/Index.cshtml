@@ -1,0 +1,62 @@
+﻿@model List<NailSalon.Core.ViewModels.ShopProductVm>
+
+@{
+    ViewData["Title"] = "Shop Products";
+}
+
+<style>
+    .like-button-overlay {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+    }
+
+    .product-card {
+        position: relative;
+    }
+</style>
+
+<!-- ❤️ Bəyəndiklərim səhifəsinə keçid düyməsi -->
+<div class="text-end me-3 mt-3">
+    <a asp-controller="Like" asp-action="Liked" class="btn btn-outline-danger">
+        ❤️ Bəyəndiklərim
+    </a>
+</div>
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">🛍️ Məhsullar</h2>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm product-card">
+                    <!-- ❤️ Bəyən ikonu -->
+                    <form asp-controller="Like" asp-action="Toggle" method="post" class="like-button-overlay">
+                        <input type="hidden" name="productId" value="@item.Id" />
+                        <button type="submit" class="btn btn-sm @(item.IsLikedByUser ? "btn-danger" : "btn-outline-danger")">
+                            ❤️ @item.LikeCount
+                        </button>
+                    </form>
+
+                    <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Name" style="height: 200px; object-fit: cover;" />
+
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text text-muted">@item.Description</p>
+                        <p class="fw-bold">Qiymət: @($"{item.Price:F2} azn")</p>
+                        <span class="badge bg-primary">@item.Category</span>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <form asp-controller="Basket" asp-action="AddToBasket" method="post">
+                            <input type="hidden" name="productId" value="@item.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">Səbətə əlavə et</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
