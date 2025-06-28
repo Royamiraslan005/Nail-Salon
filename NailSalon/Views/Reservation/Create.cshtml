@@ -68,12 +68,12 @@
             box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
         }
 
-        .card.menu-card img {
-            height: 160px;
-            object-fit: cover;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
+            .card.menu-card img {
+                height: 160px;
+                object-fit: cover;
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
 
         button {
             margin-top: 30px;
@@ -87,9 +87,9 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background: #e754a3;
-        }
+            button:hover {
+                background: #e754a3;
+            }
     </style>
 </head>
 <body>
@@ -131,41 +131,31 @@
             </div>
 
             <!-- Yemək/İçki -->
-            <div class="mb-3">
-                <label asp-for="WantsFoodDrink">Yemək/İçki istəyirsiniz?</label>
-                <div class="radio-group">
-                   
-                </div>
-                <span asp-validation-for="WantsFoodDrink" class="text-danger"></span>
-            </div>
+            
 
             <!-- Menyu Seçimi -->
             <div class="menu-section">
                 <h4 class="text-center text-success">🧁 Menyu Seçimi</h4>
                 <div class="row mt-4">
-                    @foreach (var item in menuItems)
-                    {
-                        <div class="col-12 mb-3">
-                            <div class="card menu-card d-flex flex-row align-items-center p-2">
-                                <img src="~/images/@(item.Replace(" ", "").Replace("ə", "e").ToLower()).jpg"
-                                     class="img-thumbnail me-3"
-                                     alt="@item"
-                                     style="width: 100px; height: 100px; object-fit: cover;" />
-
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-1">@item</h6>
-                                    <input type="checkbox" name="SelectedMenuItems" value="@item" /> Seç
-                                </div>
-                            </div>
-                        </div>
-                    }
                 </div>
-            </div>
+                @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox"
+                               name="SelectedMenuIds"
+                               value="@item.Id"
+                               id="menu_@item.Id" />
 
+                        <label class="form-check-label" for="menu_@item.Id">
+                            @item.Name
+                        </label>
+                    </div>
+                }
 
-            <input type="hidden" name="username" value="@User.Identity?.Name" />
+                <input type="hidden" name="username" value="@User.Identity?.Name" />
 
-            <button type="submit">Rezarvasiya et</button>
+                <button type="submit">Rezarvasiya et</button>
         </form>
     </div>
 

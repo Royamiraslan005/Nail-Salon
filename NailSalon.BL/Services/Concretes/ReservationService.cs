@@ -52,7 +52,7 @@ namespace NailSalon.BL.Services.Concretes
 
             await _repository.CreateAsync(reservation);
             return true;
-        }
+            }
 
         public List<Design> GetDesignsByZodiac(string zodiacSign)
         {

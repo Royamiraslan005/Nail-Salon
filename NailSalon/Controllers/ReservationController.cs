@@ -15,6 +15,7 @@ namespace NailSalon.Controllers
         private readonly INailTypeService _nailTypeService;
         private readonly UserManager<AppUser> _userManager;
         private readonly IEmailService _emailService;
+        private readonly IMenuService _menuService;
 
         public ReservationController(
             IReservationService reservationService,
@@ -22,7 +23,8 @@ namespace NailSalon.Controllers
             IMasterService masterService,
             INailTypeService nailTypeService,
             UserManager<AppUser> userManager,
-            IEmailService emailService)
+            IEmailService emailService,
+            IMenuService menuService)
         {
             _reservationService = reservationService;
             _userService = userService;
@@ -30,6 +32,7 @@ namespace NailSalon.Controllers
             _nailTypeService = nailTypeService;
             _userManager = userManager;
             _emailService = emailService;
+            _menuService = menuService;
         }
 
         [HttpGet]
@@ -46,6 +49,9 @@ namespace NailSalon.Controllers
                 .ToList();
 
             ViewBag.Designs = filteredDesigns;
+            ViewBag.MenuItems = await _menuService.GetAllAsync(); 
+
+
 
             return View();
         }
@@ -73,7 +79,7 @@ namespace NailSalon.Controllers
                     .Where(x => x.Zodiac == user.Zodiac || x.Zodiac == "All" || string.IsNullOrEmpty(x.Zodiac))
                     .ToList();
                 ViewBag.Designs = filteredDesigns;
-
+                ViewBag.MenuItems = await _menuService.GetAllAsync();
                 return View(vm);
             }
 

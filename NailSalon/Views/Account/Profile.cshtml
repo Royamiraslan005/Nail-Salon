@@ -1,6 +1,6 @@
-﻿@using NailSalon.Core.Models
-@using NailSalon.Core.ViewModels
+﻿@using NailSalon.Core.ViewModels
 @model NailSalon.Core.ViewModels.ProfileVm
+
 @{
     string zodiacClass = Model.Zodiac.ToLower() switch
     {
@@ -18,6 +18,7 @@
         "balıq" => "zodiac-baliq",
         _ => ""
     };
+    var reservations = ViewBag.Reservations as List<ReservationInfoVm> ?? new();
 }
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@
         }
 
         .profile-container {
-            max-width: 700px;
+            max-width: 900px;
             margin: 50px auto;
             background: #fff;
             border-radius: 10px;
@@ -80,25 +81,18 @@
                 border: 1px solid #ffb6c1;
                 padding: 10px;
                 text-align: left;
+                vertical-align: top;
             }
 
             .orders-table th {
                 background-color: #ffe4ec;
             }
 
-        .menu-section {
-            margin-top: 30px;
-        }
-
-            .menu-section h3 {
-                color: #d63384;
-                margin-bottom: 10px;
-            }
-
         .menu-list {
             padding-left: 20px;
             list-style: disc;
             color: #555;
+            margin: 0;
         }
 
         .trait-box {
@@ -110,8 +104,13 @@
             color: #444;
             margin-top: 8px;
         }
-    </style>
-    <style>
+
+        .text-muted {
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Bürclərə görə rənglər */
         .zodiac-qoc {
             background-color: #fff3f3;
         }
@@ -160,10 +159,8 @@
             background-color: #edf4ff;
         }
     </style>
-
 </head>
 <body>
-
     <div class="profile-container @zodiacClass">
         <div class="profile-header">
             <div class="zodiac-symbol">@Model.ZodiacSymbol</div>
@@ -183,12 +180,8 @@
             <p><strong>Tövsiyə olunan dırnaq dizaynı:</strong> @Model.SuggestedDesign</p>
         </div>
 
-        @{
-            var reservations = ViewBag.Reservations as List<ReservationInfoVm> ?? new List<ReservationInfoVm>();
-        }
-
         <div class="menu-section">
-            <h3>📅 Rezarvasiya Cədvəli</h3>
+            <h3>📅 Rezarvasiya Cədvəli & ☕ Menyu Seçimi</h3>
 
             @if (reservations.Any())
             {
@@ -198,7 +191,7 @@
                             <th>Usta</th>
                             <th>Dizayn</th>
                             <th>Tarix</th>
-                            <th>Yemək/İçki</th>
+                            <th>Seçilmiş Menyular</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -208,8 +201,21 @@
                                 <td>@item?.MasterName</td>
                                 <td>@item?.DesignName</td>
                                 <td>@item?.Date.ToString("dd.MM.yyyy HH:mm")</td>
-                                <td>@(item?.WantsMenu == true ? "Bəli" : "Xeyr")</td>
-
+                                <td>
+                                    @if (item?.MenuItems != null && item.MenuItems.Any())
+                                    {
+                                        <ul class="menu-list">
+                                            @foreach (var menu in item.MenuItems)
+                                            {
+                                                <li>@menu?.Name</li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Seçilməyib</span>
+                                    }
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -220,75 +226,6 @@
                 <p class="no-data">Rezarvasiya tapılmadı.</p>
             }
         </div>
-
-        <div class="menu-section">
-            <h3>☕ Menyu Seçimləri</h3>
-
-            @if (reservations.Any(r => r?.MenuItems != null && r.MenuItems.Any()))
-            {
-                <table class="orders-table">
-                    <thead>
-                        <tr>
-                            <th>Tarix</th>
-                            <th>Seçilmiş Menyular</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var res in reservations)
-                        {
-                            if (res?.MenuItems != null && res.MenuItems.Any())
-                            {
-                                <tr>
-                                    <td>@res.Date.ToString("dd.MM.yyyy HH:mm")</td>
-                                    <td>
-                                        <ul class="menu-list">
-                                            @foreach (var item in res.MenuItems)
-                                            {
-                                                <li>@item?.Name</li>
-                                            }
-                                        </ul>
-                                    </td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            }
-            else
-            {
-                <p class="no-data">Menyu seçimi yoxdur.</p>
-            }
-
-
-            
-                @* <ul class="menu-list"> *@
-                @*     @foreach (var item in ViewBag.MenuItems as List<MenuItem>) *@
-                @*     { *@
-                @*         <li>@item.Name</li> *@
-                @*     } *@
-                @* </ul> *@
-            
-           
-        </div>
-
-
-        @*     <div class="menu-section"> *@
-        @*         <h3>☕ Sizin menyu seçimləriniz</h3> *@
-        @*         @if ((ViewBag.MenuItems as List<MenuItemVm>).Any() == true) *@
-        @*         { *@
-        @*             <ul class="menu-list"> *@
-        @*                 @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>) *@
-        @*                 { *@
-        @*                     <li>@item.Name</li> *@
-        @*                 } *@
-        @*             </ul> *@
-        @*         } *@
-        @*         else *@
-        @*         { *@
-        @*             <p>Seçim edilməyib.</p> *@
-        @*         } *@
-        @*     </div> *@
-        @* </div> *@
-
+    </div>
 </body>
 </html>
