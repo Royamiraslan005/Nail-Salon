@@ -48,11 +48,26 @@ namespace NailSalon.DAL.Repositories.Concretes
             await _context.Reservations.AddAsync(reservation);
             await _context.SaveChangesAsync();
         }
-        public async Task<bool> IsSlotAvailableAsync(int masterId, DateTime date)
+        public async Task<bool> IsSlotAvailableAsync(int masterId, DateTime requestedDate)
         {
-            return !await _context.Reservations
-                .AnyAsync(r => r.MasterId == masterId && r.Date == date);
+            var existingReservations = await _context.Reservations
+                .Where(r => r.MasterId == masterId)
+                .ToListAsync();
+
+            foreach (var res in existingReservations)
+            {
+                var timeDiff = Math.Abs((res.Date - requestedDate).TotalMinutes);
+                if (timeDiff < 90) // 1.5 saatdan azdırsa
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
+
+
+
 
     }
 
