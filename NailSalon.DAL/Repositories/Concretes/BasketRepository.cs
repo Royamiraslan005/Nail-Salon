@@ -15,14 +15,14 @@ public class BasketRepository : IBasketRepository
     public async Task<List<BasketItem>> GetItemsAsync(string userId)
     {
         return await _context.BasketItems
-            .Where(x => x.UserId == userId)
+            .Where(x => x.AppUserId == userId)
             .ToListAsync();
     }
 
     public async Task AddItemAsync(BasketItem item)
     {
         var existing = await _context.BasketItems
-            .FirstOrDefaultAsync(x => x.UserId == item.UserId && x.ProductId == item.ProductId);
+            .FirstOrDefaultAsync(x => x.AppUserId == item.AppUserId && x.ProductId == item.ProductId);
 
         if (existing != null)
         {
@@ -38,7 +38,7 @@ public class BasketRepository : IBasketRepository
 
     public async Task RemoveItemAsync(int itemId)
     {
-        var item = await _context.BasketItems.FindAsync(itemId);
+        var item = await _context.BasketItems.Where(x=>x.ProductId == itemId).FirstOrDefaultAsync();
         if (item != null)
         {
             _context.BasketItems.Remove(item);
@@ -50,7 +50,7 @@ public class BasketRepository : IBasketRepository
 
     public async Task ClearBasketAsync(string userId)
     {
-        var items = _context.BasketItems.Where(x => x.UserId == userId);
+        var items = _context.BasketItems.Where(x => x.AppUserId == userId);
         _context.BasketItems.RemoveRange(items);
         await _context.SaveChangesAsync();
     }

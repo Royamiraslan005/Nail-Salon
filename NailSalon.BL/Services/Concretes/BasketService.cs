@@ -32,7 +32,7 @@ namespace NailSalon.BL.Services.Concretes
 
             var newItem = new BasketItem
             {
-                UserId = userId,
+                AppUserId = userId,
                 ProductId = productId,
                 Quantity = quantity,
                 Name = product.Name,        // Burada mütləq doldurmalısan

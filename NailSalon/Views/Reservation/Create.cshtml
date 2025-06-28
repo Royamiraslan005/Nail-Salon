@@ -145,18 +145,23 @@
                 <div class="row mt-4">
                     @foreach (var item in menuItems)
                     {
-                        <div class="col-md-4 mb-4">
-                            <div class="card menu-card">
-                                <img src="~/images/@(item.Replace(" ", "").Replace("ə", "e").ToLower()).jpg" class="card-img-top" alt="@item" />
-                                <div class="card-body text-center">
-                                    <h6>@item</h6>
-                                    <input type="checkbox" name="SelectedMenuItems" value="@item." /> Seç
+                        <div class="col-12 mb-3">
+                            <div class="card menu-card d-flex flex-row align-items-center p-2">
+                                <img src="~/images/@(item.Replace(" ", "").Replace("ə", "e").ToLower()).jpg"
+                                     class="img-thumbnail me-3"
+                                     alt="@item"
+                                     style="width: 100px; height: 100px; object-fit: cover;" />
+
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">@item</h6>
+                                    <input type="checkbox" name="SelectedMenuItems" value="@item" /> Seç
                                 </div>
                             </div>
                         </div>
                     }
                 </div>
             </div>
+
 
             <input type="hidden" name="username" value="@User.Identity?.Name" />
 
