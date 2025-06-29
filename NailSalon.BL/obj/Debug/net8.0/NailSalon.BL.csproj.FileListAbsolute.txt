@@ -83,8 +83,8 @@ C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\NailSa
 C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\NailSalon.BL.AssemblyInfo.cs
 C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\NailSalon.BL.csproj.CoreCompileInputs.cache
 C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\NailSalon.BL.sourcelink.json
-C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\NailSalo.7A516AB4.Up2Date
 C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\NailSalon.BL.dll
 C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\refint\NailSalon.BL.dll
 C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\NailSalon.BL.pdb
 C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\ref\NailSalon.BL.dll
+C:\Users\hp\Downloads\Nail-Salon\Nail-Salon\NailSalon.BL\obj\Debug\net8.0\NailSalo.7A516AB4.Up2Date

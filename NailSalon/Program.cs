@@ -8,6 +8,8 @@ using NailSalon.DAL.Contexts;
 using NailSalon.DAL.Repositories.Abstractions;
 using NailSalon.DAL.Repositories.Abstracts;
 using NailSalon.DAL.Repositories.Concretes;
+using Stripe;
+using ReviewService = NailSalon.BL.Services.Concretes.ReviewService;
 
 namespace NailSalon
 {
@@ -16,6 +18,7 @@ namespace NailSalon
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            
             builder.Services.AddControllersWithViews();
             builder.Services.AddSession(options =>
             {
@@ -25,7 +28,7 @@ namespace NailSalon
             });
             builder.Services.AddDbContext<AppDbContext>(opt =>
             {
-                opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+                opt.UseSqlServer(builder.Configuration.GetConnectionString("Deploy"));
             });
             builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
             builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
@@ -61,8 +64,13 @@ namespace NailSalon
             builder.Services.AddScoped<IBasketRepository, BasketRepository>();
             builder.Services.AddScoped<ILikeService, LikeService>();
             builder.Services.AddScoped<ILikeRepository, LikeRepository>();
+            builder.Services.AddScoped<ISaleService, SaleService>();
+            builder.Services.AddScoped<ISaleRepository, SaleRepository>();
+            builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
             var app = builder.Build();
+            StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
+
             app.UseStaticFiles();
             app.UseRouting();
             using (var scope = app.Services.CreateScope())

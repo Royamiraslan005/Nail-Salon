@@ -131,27 +131,35 @@
             </div>
 
             <!-- Yemək/İçki -->
-            
-
             <!-- Menyu Seçimi -->
             <div class="menu-section">
                 <h4 class="text-center text-success">🧁 Menyu Seçimi</h4>
                 <div class="row mt-4">
-                </div>
-                @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>)
-                {
-                    <div class="form-check">
-                        <input class="form-check-input"
-                               type="checkbox"
-                               name="SelectedMenuIds"
-                               value="@item.Id"
-                               id="menu_@item.Id" />
+                    @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>)
+                    {
+                        <div class="col-12 mb-3">
+                            <div class="card h-100 shadow-sm d-flex flex-row align-items-center p-2">
+                                <img src="~/images/@item.ImageUrl" alt="@item.Name"
+                                     style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-right: 15px;">
 
-                        <label class="form-check-label" for="menu_@item.Id">
-                            @item.Name
-                        </label>
-                    </div>
-                }
+                                <div class="card-body p-0">
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               name="SelectedMenuIds"
+                                               value="@item.Id"
+                                               id="menu_@item.Id" />
+                                        <label class="form-check-label" for="menu_@item.Id">
+                                            <strong>@item.Name</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
 
                 <input type="hidden" name="username" value="@User.Identity?.Name" />
 

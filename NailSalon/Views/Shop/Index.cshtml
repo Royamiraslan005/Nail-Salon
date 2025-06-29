@@ -49,12 +49,25 @@
                         <span class="badge bg-primary">@item.Category</span>
                     </div>
 
-                    <div class="card-footer text-center">
-                        <form asp-controller="Basket" asp-action="AddToBasket" method="post">
+                       <div class="card-footer text-center d-flex justify-content-center gap-2">
+        <!-- Səbətə əlavə et: 🛒 -->
+        <form asp-controller="Basket" asp-action="AddToBasket" method="post" class="m-0">
+            <input type="hidden" name="productId" value="@item.Id" />
+            <button type="submit" class="btn btn-outline-success btn-sm" title="Səbətə əlavə et">
+                🛒
+            </button>
+        </form>
+
+                        <form asp-controller="Sale" asp-action="Create" method="post" class="d-inline m-0">
                             <input type="hidden" name="productId" value="@item.Id" />
-                            <button type="submit" class="btn btn-success btn-sm">Səbətə əlavə et</button>
+                            <input type="number" name="quantity" value="1" min="1" class="form-control form-control-sm" style="width: 60px; display: inline-block;" />
+                            <button type="submit" class="btn btn-outline-primary btn-sm" title="Kartla al">
+                                💳
+                            </button>
                         </form>
-                    </div>
+
+    </div>
+
                 </div>
             </div>
         }

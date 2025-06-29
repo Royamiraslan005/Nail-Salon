@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8IWbTPmMLS8p+jXDPD3bMQ3WfdYaQQEmtGRF1d+0VtQ=",
+  "Hash": "YNVuUhipfbTR6Huz/ggBVWtgAx9CV2Dn4T3oe3eu20I=",
   "Source": "NailSalon",
   "BasePath": "_content/NailSalon",
   "Mode": "Default",
@@ -3910,6 +3910,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\d7ccad50-6327-453c-b5b6-e027dd2df585.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\d8cda2a4-6a04-4afa-a411-14e9e010f3c2.jpeg",
+      "SourceId": "NailSalon",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\",
+      "BasePath": "_content/NailSalon",
+      "RelativePath": "images/d8cda2a4-6a04-4afa-a411-14e9e010f3c2.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\d8cda2a4-6a04-4afa-a411-14e9e010f3c2.jpeg"
     },
     {
       "Identity": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\db78d77a-30c5-410f-af32-4893347d5527.jpg",

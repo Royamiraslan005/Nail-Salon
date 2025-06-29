@@ -569,6 +569,39 @@ namespace NailSalon.DAL.Migrations
                     b.ToTable("Reviews");
                 });
 
+            modelBuilder.Entity("NailSalon.Core.Models.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Sales");
+                });
+
             modelBuilder.Entity("NailSalon.Core.Models.Services", b =>
                 {
                     b.Property<int>("Id")
@@ -752,6 +785,25 @@ namespace NailSalon.DAL.Migrations
                     b.Navigation("Master");
 
                     b.Navigation("NailType");
+                });
+
+            modelBuilder.Entity("NailSalon.Core.Models.Sale", b =>
+                {
+                    b.HasOne("NailSalon.Core.Models.ShopProduct", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NailSalon.Core.Models.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("NailSalon.Core.Models.AppUser", b =>

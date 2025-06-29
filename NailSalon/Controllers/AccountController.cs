@@ -136,7 +136,7 @@ namespace NailSalon.Controllers
                 
             };
 
-            var reservations = await _reservationService.GetAll("9ee987a1-0538-465c-ab3d-5ab6cc2395cc");
+            var reservations = await _reservationService.GetAll(user.Id);
             ViewBag.Reservations = reservations;
             ViewBag.MenuItems = reservations.Select(s => s.MenuItems).ToList();
 

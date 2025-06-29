@@ -40,6 +40,7 @@ namespace NailSalon.DAL.Contexts
         public DbSet<ShopProduct> ShopProducts { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Like> Likes { get; set; }
+        public DbSet<Sale> Sales { get; set; }
 
     }
 }
