@@ -1,4 +1,4 @@
-﻿@using NailSalon.Core.ViewModels
+﻿﻿@using NailSalon.Core.ViewModels
 @model NailSalon.Core.ViewModels.ProfileVm
 
 @{
@@ -24,9 +24,9 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8" />
-    <title>Tarixçə – Zodiac Nails</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <title>Profilim – Zodiac Nails</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             background: #fdf1f6;
@@ -35,7 +35,7 @@
             padding: 0;
         }
 
-        .container {
+        .profile-container {
             max-width: 900px;
             margin: 50px auto;
             background: #fff;
@@ -44,19 +44,40 @@
             padding: 30px;
         }
 
-        h1 {
+        .profile-header {
             text-align: center;
+        }
+
+        .zodiac-symbol {
+            font-size: 60px;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        h2 {
             color: #d63384;
-            margin-bottom: 30px;
+            margin: 10px 0;
+        }
+
+        .info-box p {
+            font-size: 16px;
+            margin: 6px 0;
+        }
+
+        .design-box {
+            background: #ffeef4;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
 
         .orders-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 25px;
         }
 
-            .orders-table th,
-            .orders-table td {
+            .orders-table th, .orders-table td {
                 border: 1px solid #ffb6c1;
                 padding: 10px;
                 text-align: left;
@@ -74,113 +95,159 @@
             margin: 0;
         }
 
+        .trait-box {
+            font-size: 14px;
+            background-color: #fdf6fb;
+            padding: 10px;
+            border-left: 4px solid #ff69b4;
+            border-radius: 6px;
+            color: #444;
+            margin-top: 8px;
+        }
+
         .text-muted {
             color: #999;
             font-style: italic;
         }
 
-        .no-data {
-            margin-top: 15px;
-            color: #999;
-            text-align: center;
+        .btn-history {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
         }
 
-        /* Bürclərə görə cədvəl arxa fonu */
-        .orders-table.zodiac-qoc {
+            .btn-history:hover {
+                background-color: #b12e6e;
+            }
+
+
+        /* Bürclərə görə rənglər */
+        .zodiac-qoc {
             background-color: #fff3f3;
         }
 
-        .orders-table.zodiac-buga {
+        .zodiac-buga {
             background-color: #f4fff4;
         }
 
-        .orders-table.zodiac-ekizler {
+        .zodiac-ekizler {
             background-color: #f0f9ff;
         }
 
-        .orders-table.zodiac-xerceng {
+        .zodiac-xerceng {
             background-color: #fff5f9;
         }
 
-        .orders-table.zodiac-sir {
+        .zodiac-sir {
             background-color: #fff7e6;
         }
 
-        .orders-table.zodiac-qiz {
+        .zodiac-qiz {
             background-color: #f4fff9;
         }
 
-        .orders-table.zodiac-terezi {
+        .zodiac-terezi {
             background-color: #fdf6ff;
         }
 
-        .orders-table.zodiac-eqreb {
+        .zodiac-eqreb {
             background-color: #fceef5;
         }
 
-        .orders-table.zodiac-oxatan {
+        .zodiac-oxatan {
             background-color: #fefde5;
         }
 
-        .orders-table.zodiac-oglaq {
+        .zodiac-oglaq {
             background-color: #f0f0f0;
         }
 
-        .orders-table.zodiac-dolca {
+        .zodiac-dolca {
             background-color: #e8f7ff;
         }
 
-        .orders-table.zodiac-baliq {
+        .zodiac-baliq {
             background-color: #edf4ff;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Sizin Rezarvasiya Tarixçəniz</h1>
+    <div class="profile-container @zodiacClass">
+        <div class="profile-header">
+            <div class="zodiac-symbol">@Model.ZodiacSymbol</div>
+            <h2>Salam, @Model.FullName!</h2>
+            <p>Zodiac Nails-də profiliniz</p>
+        </div>
 
-        @if (reservations.Any())
-        {
-            <table class="orders-table @zodiacClass">
-                <thead>
-                    <tr>
-                        <th>Usta</th>
-                        <th>Dizayn</th>
-                        <th>Tarix</th>
-                        <th>Seçilmiş Menyular</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in reservations)
-                    {
+        <div class="info-box">
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Bürcünüz:</strong> @Model.Zodiac (@Model.ZodiacSymbol)</p>
+            <div class="trait-box">
+                <strong>Xasiyyət:</strong> @Model.ZodiacTrait
+            </div>
+        </div>
+
+        <div class="design-box">
+            <p><strong>Tövsiyə olunan dırnaq dizaynı:</strong> @Model.SuggestedDesign</p>
+        </div>
+
+        <div class="menu-section">
+            <h3>📅 Rezarvasiya Cədvəli & ☕ Menyu Seçimi</h3>
+
+            @if (reservations.Any())
+            {
+                <table class="orders-table">
+                    <thead>
                         <tr>
-                            <td>@item?.MasterName</td>
-                            <td>@item?.DesignName</td>
-                            <td>@item?.Date.ToString("dd.MM.yyyy HH:mm")</td>
-                            <td>
-                                @if (item?.MenuItems != null && item.MenuItems.Any())
-                                {
-                                    <ul class="menu-list">
-                                        @foreach (var menu in item.MenuItems)
-                                        {
-                                            <li>@menu?.Name</li>
-                                        }
-                                    </ul>
-                                }
-                                else
-                                {
-                                    <span class="text-muted">Seçilməyib</span>
-                                }
-                            </td>
+                            <th>Usta</th>
+                            <th>Dizayn</th>
+                            <th>Tarix</th>
+                            <th>Seçilmiş Menyular</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        }
-        else
-        {
-            <p class="no-data">Heç bir rezarvasiya tapılmadı.</p>
-        }
+                    </thead>
+                    <tbody>
+                        @foreach (var item in reservations)
+                        {
+                            <tr>
+                                <td>@item?.MasterName</td>
+                                <td>@item?.DesignName</td>
+                                <td>@item?.Date.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>
+                                    @if (item?.MenuItems != null && item.MenuItems.Any())
+                                    {
+                                        <ul class="menu-list">
+                                            @foreach (var menu in item.MenuItems)
+                                            {
+                                                <li>@menu?.Name</li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Seçilməyib</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="no-data">Rezarvasiya tapılmadı.</p>
+            }
+            <div style="text-align: right; margin-top: 20px;">
+                <a asp-action="History" asp-controller="Account" class="btn-history" role="button">Tarixçə</a>
+            </div>
+
+        </div>
     </div>
 </body>
 </html>

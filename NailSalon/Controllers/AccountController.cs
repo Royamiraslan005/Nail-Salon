@@ -124,6 +124,22 @@ namespace NailSalon.Controllers
 
             var zodiacInfo = _zodiacService.GetZodiacInfo(user.BirthDate);
 
+            // Doğum günü endirimi üçün yoxlama
+            bool showDiscount = false;
+            string birthdayMessage = "";
+
+            var today = DateTime.Today;
+            var thisYearBirthday = new DateTime(today.Year, user.BirthDate.Month, user.BirthDate.Day);
+            if (thisYearBirthday < today)
+                thisYearBirthday = thisYearBirthday.AddYears(1); // keçibsə, növbəti il
+
+            var daysLeft = (thisYearBirthday - today).TotalDays;
+            if (daysLeft <= 7)
+            {
+                showDiscount = true;
+                birthdayMessage = "Ad gününüz yaxınlaşır! 💖 Sizə özəl 30% endirim! 🎉";
+            }
+
             var vm = new ProfileVm
             {
                 FullName = user.FullName,
@@ -133,11 +149,13 @@ namespace NailSalon.Controllers
                 ZodiacSymbol = zodiacInfo.Symbol,
                 ZodiacTrait = zodiacInfo.Trait,
                 SuggestedDesign = zodiacInfo.SuggestedDesign,
+
+                // endirim hissələri
+                ShowBirthdayDiscount = showDiscount,
+                BirthdayMessage = birthdayMessage
             };
 
             var allReservations = await _reservationService.GetAll(user.Id);
-
-            // Yalnız gələcək və ya bu günkü rezervasiyalar
             var upcomingReservations = allReservations
                 .Where(r => r.Date >= DateTime.Now)
                 .ToList();
