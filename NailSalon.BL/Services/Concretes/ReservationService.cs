@@ -31,6 +31,10 @@ namespace NailSalon.BL.Services.Concretes
 
         public async Task<bool> MakeReservationAsync(ReservationVm reservationvm)
         {
+            if(reservationvm.MasterId==null || reservationvm.MasterId == 0)
+            {
+                return false;
+            }
             if (reservationvm.Date < DateTime.Now)
                 return false;
 

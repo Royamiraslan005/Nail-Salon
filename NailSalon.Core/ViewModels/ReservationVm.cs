@@ -12,7 +12,9 @@ namespace NailSalon.Core.ViewModels
 {
     public class ReservationVm
     {
+        [Required(ErrorMessage = "Master mütləq seçilməlidir!!!")]
         public int MasterId { get; set; }
+
         public int? DesignId { get; set; }
         
         public string? UserId { get; set; }
@@ -20,8 +22,8 @@ namespace NailSalon.Core.ViewModels
         //public TimeSpan Time { get; set; }
         public bool WantsFoodDrink { get; set; }
 
-        public List<SelectListItem> MasterList { get; set; }
-        public List<SelectListItem> DesignList { get; set; }
+        public List<SelectListItem>? MasterList { get; set; }
+        public List<SelectListItem>? DesignList { get; set; }
         public List<int>? SelectedMenuIds { get; set; }
         
         public List<MenuItemVm>? MenuItems { get; set; }

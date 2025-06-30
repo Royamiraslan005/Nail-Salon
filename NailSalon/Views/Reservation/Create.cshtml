@@ -109,6 +109,7 @@
                         <option value="@item.Id">@item.FullName</option>
                     }
                 </select>
+                <span asp-validation-for="MasterId" class="text-danger"></span>
             </div>
 
             <!-- Dizayn -->
@@ -125,10 +126,15 @@
 
             <!-- Tarix -->
             <div class="mb-3">
-                <label asp-for="Date">Tarix və saat:</label>
-                <input asp-for="Date" type="datetime-local" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+                <label for="Date">Tarix və saat:</label>
+                <input type="datetime-local"
+                       name="Date"
+                       class="form-control"
+                       min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")"
+                       value="@(Model.Date == DateTime.MinValue ? "" : Model.Date.ToString("yyyy-MM-ddTHH:mm"))" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
+
 
             <!-- Yemək/İçki -->
             <!-- Menyu Seçimi -->

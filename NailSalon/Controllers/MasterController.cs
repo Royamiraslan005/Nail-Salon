@@ -27,5 +27,23 @@ namespace NailSalon.Controllers
             }).ToList();
             return View(masterVm);
         }
+        public async Task<IActionResult> Detail(int id)
+        {
+            var master = await _masterService.GetByIdAsync(id);
+            if (master == null) return NotFound();
+
+            var masterVm = new MasterVm
+            {
+                Id = master.Id,
+                FullName = master.FullName,
+                Experience = master.Experience,
+                Zodiac = master.Zodiac,
+                Specialty = master.Specialty,
+                ImageUrl = master.ImageUrl
+            };
+
+            return View(masterVm);
+        }
+
     }
 }

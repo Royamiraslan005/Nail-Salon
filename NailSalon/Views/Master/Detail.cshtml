@@ -1,0 +1,19 @@
+﻿@using NailSalon.Core.ViewModels
+@model MasterVm
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="~/IMAGE/@Model.ImageUrl" class="img-fluid rounded shadow-sm" alt="@Model.FullName" />
+        </div>
+        <div class="col-md-8">
+            <h2>@Model.FullName</h2>
+            <p><strong>Təcrübə:</strong> @Model.Experience</p>
+            <p><strong>ixtisas:</strong> @Model.Specialty</p>
+            <p><strong>Bürc:</strong> @Model.Zodiac</p>
+
+            <a asp-controller="Reservation" asp-action="Create" asp-route-masterId="@Model.Id" class="btn btn-primary mt-3">Bu ustadan rezervasiya et</a>
+        </div>
+    </div>
+</div>
+

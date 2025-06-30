@@ -141,22 +141,30 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
 
         @foreach (var item in ViewBag.MasterVms as List<MasterVm>)
         {
-            <!-- Usta 1 -->
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 shadow-sm text-center">
-                    <img width="330" height="330" src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt=@item.FullName>
+                    <a asp-action="Detail" asp-controller="Master" asp-route-id="@item.Id">
+                        <img width="330" height="330" src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt="@item.FullName" />
+                    </a>
+
+                    
                     <div class="card-body">
                         <h5 class="card-title">@item.FullName</h5>
-                        <p class="card-text">@item.Experience <br> @item.Zodiac <br> @item.Specialty</p>
-                        <a href="booking.html" class="btn btn-sm btn-outline-primary">Rezervasiya et</a>
+                        <p class="card-text">
+                            @item.Experience <br />
+                            @item.Zodiac <br />
+                            @item.Specialty
+                        </p>
+
+                        <!-- Ustanın Id-sini göndəririk -->
+                        <a asp-action="Create" asp-controller="Reservation" asp-route-masterId="@item.Id" class="btn btn-sm btn-outline-primary">
+                            Rezervasiya et
+                        </a>
                     </div>
                 </div>
             </div>
         }
 
-
-    </div>
-</div>
 
 <section class="py-5 bg-light">
     <div class="container">

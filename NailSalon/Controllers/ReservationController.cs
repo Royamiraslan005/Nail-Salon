@@ -34,7 +34,7 @@ namespace NailSalon.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int? masterId)
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login");
@@ -47,11 +47,17 @@ namespace NailSalon.Controllers
                 .ToList();
 
             ViewBag.Designs = filteredDesigns;
-            ViewBag.MenuItems = await _menuService.GetAllAsync(); 
+            ViewBag.MenuItems = await _menuService.GetAllAsync();
 
+            
+            var vm = new ReservationVm
+            {
+                MasterId = masterId ?? 0, 
+                UserId = user.Id,
+                Date = DateTime.MinValue // <-- bu dəyər input-da boş görünəcək
+            };
 
-
-            return View();
+            return View(vm);
         }
 
 
@@ -60,6 +66,21 @@ namespace NailSalon.Controllers
         public async Task<IActionResult> Create(ReservationVm vm)
         {
             var user = await _userManager.GetUserAsync(User);
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("MasterId", "Master mütləq seçilməlidir!!!");
+                ViewBag.Masters = await _masterService.GetAllAsync();
+
+                var allDesigns = await _nailTypeService.GetAllAsync();
+                var filteredDesigns = allDesigns
+                    .Where(x => x.Zodiac == user.Zodiac || x.Zodiac == "All" || string.IsNullOrEmpty(x.Zodiac))
+                    .ToList();
+                ViewBag.Designs = filteredDesigns;
+                ViewBag.MenuItems = await _menuService.GetAllAsync();
+                return View(vm);
+            }
+            
+            
             if (user == null)
                 return RedirectToAction("Login", "Account");
 
