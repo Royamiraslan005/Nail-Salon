@@ -133,15 +133,33 @@ namespace NailSalon.Controllers
                 ZodiacSymbol = zodiacInfo.Symbol,
                 ZodiacTrait = zodiacInfo.Trait,
                 SuggestedDesign = zodiacInfo.SuggestedDesign,
-                
             };
 
-            var reservations = await _reservationService.GetAll(user.Id);
-            ViewBag.Reservations = reservations;
-            ViewBag.MenuItems = reservations.Select(s => s.MenuItems).ToList();
+            var allReservations = await _reservationService.GetAll(user.Id);
+
+            // Yalnız gələcək və ya bu günkü rezervasiyalar
+            var upcomingReservations = allReservations
+                .Where(r => r.Date >= DateTime.Now)
+                .ToList();
+
+            ViewBag.Reservations = upcomingReservations;
+            ViewBag.MenuItems = upcomingReservations.SelectMany(s => s.MenuItems).ToList();
 
             return View(vm);
         }
+
+        public async Task<IActionResult> History()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login");
+
+            var pastReservations = await _reservationService.GetPastReservationsAsync(user.Id);
+
+            ViewBag.Zodiac = _zodiacService.GetZodiacInfo(user.BirthDate).Name; 
+
+            return View(pastReservations);
+        }
+
 
         public async Task<IActionResult> Logout()
         {

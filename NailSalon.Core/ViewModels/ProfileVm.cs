@@ -20,6 +20,8 @@ namespace NailSalon.Core.ViewModels
 
         public List<MenuItemVm> MenuItems { get; set; } = new();
         public List<OrderVm> Orders { get; set; } = new();
+        public List<ReservationInfoVm> Reservations { get; set; } = new();
+
     }
 
 

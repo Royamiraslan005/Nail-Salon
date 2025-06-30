@@ -62,5 +62,9 @@
             <button type="submit" class="btn btn-warning">Səbəti təmizlə</button>
             <a asp-controller="Shop" asp-action="Index" class="btn btn-secondary ms-2">Alış-verişə davam et</a>
         </form>
+        <form asp-controller="Basket" asp-action="Checkout" method="post">
+            <button type="submit" class="btn btn-success mt-3">Ödəniş et</button>
+        </form>
+
     }
 </div>

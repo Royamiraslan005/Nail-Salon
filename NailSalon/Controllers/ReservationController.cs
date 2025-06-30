@@ -14,7 +14,6 @@ namespace NailSalon.Controllers
         private readonly IMasterService _masterService;
         private readonly INailTypeService _nailTypeService;
         private readonly UserManager<AppUser> _userManager;
-        private readonly IEmailService _emailService;
         private readonly IMenuService _menuService;
 
         public ReservationController(
@@ -23,7 +22,6 @@ namespace NailSalon.Controllers
             IMasterService masterService,
             INailTypeService nailTypeService,
             UserManager<AppUser> userManager,
-            IEmailService emailService,
             IMenuService menuService)
         {
             _reservationService = reservationService;
@@ -31,7 +29,7 @@ namespace NailSalon.Controllers
             _masterService = masterService;
             _nailTypeService = nailTypeService;
             _userManager = userManager;
-            _emailService = emailService;
+           
             _menuService = menuService;
         }
 
@@ -105,7 +103,7 @@ namespace NailSalon.Controllers
         {
             try
             {
-                await _emailService.SendEmailAsync(model.Email, "Təsdiq", "Rezervasiyanız qeydə alındı");
+                
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

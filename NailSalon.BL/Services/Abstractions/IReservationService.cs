@@ -13,6 +13,9 @@ namespace NailSalon.BL.Services.Abstractions
         Task<bool> MakeReservationAsync(ReservationVm reservation);
         List<Design> GetDesignsByZodiac(string zodiacSign);
         Task CreateAsync(Reservation reservation);
+        Task<List<ReservationInfoVm>> GetUpcomingReservationsAsync(string userId);
+        Task<List<ReservationInfoVm>> GetPastReservationsAsync(string userId);
+
 
 
         Task<List<ReservationInfoVm>> GetAll(string id);

@@ -30,7 +30,7 @@ namespace NailSalon
             {
                 opt.UseSqlServer(builder.Configuration.GetConnectionString("Deploy"));
             });
-            builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+           
             builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
                 opt.User.RequireUniqueEmail = true;
@@ -57,7 +57,7 @@ namespace NailSalon
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IContactService, ContactService>();
             builder.Services.AddScoped<IContactRepository, ContactRepository>();
-            builder.Services.AddScoped<IEmailService, EmailService>();
+     
             builder.Services.AddScoped<IShopService, ShopService>();
             builder.Services.AddScoped<IShopRepository, ShopRepository>();
             builder.Services.AddScoped<IBasketService, BasketService>();
