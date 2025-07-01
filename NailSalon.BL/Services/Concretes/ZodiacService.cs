@@ -44,7 +44,7 @@ namespace NailSalon.BL.Services.Concretes
             new() { Name = "Şir", Symbol = "♌", Trait = "Qürurlu və cazibədar", SuggestedDesign = "Qızılı metalik dizayn" },
             new() { Name = "Qız", Symbol = "♍", Trait = "Dəqiq və təmizkar", SuggestedDesign = "Sadə fransız manikür" },
             new() { Name = "Tərəzi", Symbol = "♎", Trait = "Estetik və balanslı", SuggestedDesign = "Qrafik xətt dizaynı" },
-            new() { Name = "Əqrəb", Symbol = "♏", Trait = "Dərin və ehtiraslı", SuggestedDesign = "Tünd bənövşəyi dırnaqlar" },
+            new() { Name = "Əqrəb", Symbol = "♏", Trait = "İntuisiyası güclü və sadiq", SuggestedDesign = "Tünd bənövşəyi dırnaqlar" },
             new() { Name = "Oxatan", Symbol = "♐", Trait = "Sərbəst və optimist", SuggestedDesign = "Dağ motivləri" },
             new() { Name = "Oğlaq", Symbol = "♑", Trait = "Ciddi və məqsədli", SuggestedDesign = "Qara-ağ minimal dizayn" },
             new() { Name = "Dolça", Symbol = "♒", Trait = "Yenilikçi və ağıllı", SuggestedDesign = "Holografik dizayn" },

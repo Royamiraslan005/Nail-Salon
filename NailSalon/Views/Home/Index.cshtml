@@ -36,7 +36,7 @@
         <div class="text-center mb-5">
             <h2 class="display-5" style="color:#d06db9; font-family: 'Marck Script', cursive;">✨ About</h2>
             <p class="lead text-muted mx-auto" style="max-width: 700px;">
-                ZoDiva — bürclərə və estetikaya uyğun dırnaq sənətinin ünvanıdır. Həm gözəllik, həm də fərdilik burada birləşir.
+                Zodiac — bürclərə və estetikaya uyğun dırnaq sənətinin ünvanıdır. Həm gözəllik, həm də fərdilik burada birləşir.
             </p>
         </div>
 
@@ -90,22 +90,7 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
 
         <div class="container">
             <div class="row">
-                @{
-                    // foreach (var item in ViewBag.Services as List<ServicesVm>)
-                    // {
-                    //     <div class="col-md-6 col-lg-4 mb-4">
-                    //         <div class="card h-100 shadow-sm border-0">
-                    //             <a asp-controller="Services" asp-action="Detail" asp-route-id="@item.Id>
-                    //                 <img src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt="Art Nail & Effects">
-                    //             </a>
-                    //             <div class="card-body text-center">
-                    //                 <a asp-controller="Services" asp-action="Detail" asp-route-id="@item.Id" class="text-decoration-none text-dark">
-                    //                     <h5 class="card-title">@item.Title</h5>
-                    //                 </a>
-                    //             </div>
-                    //         </div>
-                    //     </div>
-                    // }
+                
                     @foreach (var item in ViewBag.Services as List<ServicesVm>)
                     {
                         <div class="col-md-6 col-lg-4 mb-4">

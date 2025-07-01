@@ -9,7 +9,10 @@
                 <!-- Card 1 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 shadow-sm">
-                        <img height="300" src="~/images/@item.ImageUrl" class="card-img-top" alt="Gel Nails">
+                        <a asp-action="Detail" asp-controller="NailType" asp-route-id="@item.Id" style="text-decoration: none; color: inherit;">
+                            <img height="300" src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title" style="cursor: pointer;" />
+                        </a>
+
                         <div class="card-body text-center">
                             <h5 class="card-title">@item.Title</h5>
                             <p class="card-text text-muted">@item.Price</p>

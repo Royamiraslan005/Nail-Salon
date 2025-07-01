@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Keçmiş Rezervasiyalar";
 
-    // Bürc adı controller-dan ViewBag ilə gəlir
     string zodiac = (ViewBag.Zodiac as string)?.ToLower() ?? "";
 
     string zodiacClass = zodiac switch
@@ -23,25 +22,26 @@
         _ => ""
     };
 }
-
 <!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8" />
     <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
+            background: #fff0f7; /* Açıq çəhrayı arxa fon */
         }
 
         .container {
             max-width: 900px;
             margin: 50px auto;
-            background: #fff;
+            background: #fff0f7;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 16px;
             box-shadow: 0 0 15px rgba(255, 105, 180, 0.2);
         }
 
@@ -51,25 +51,79 @@
             margin-bottom: 25px;
         }
 
-        table {
+        .reservation-table {
             width: 100%;
             border-collapse: collapse;
+            overflow-x: auto;
+            border-radius: 10px;
         }
 
-        th, td {
-            border: 1px solid #ffb6c1;
-            padding: 12px;
-            text-align: left;
+            .reservation-table th,
+            .reservation-table td {
+                padding: 12px;
+                text-align: center;
+                border: 1px solid #ffd1e6;
+            }
+
+            .reservation-table th {
+                background-color: #ffe4ec;
+                color: #d63384;
+            }
+
+        /* Zodiac rənglərinə uyğun cədvəl sətiri arxa fonları */
+        .zodiac-qoc .reservation-table td {
+            background-color: #ffe6e6;
         }
 
-        th {
-            background-color: #ffe4ec;
+        .zodiac-buga .reservation-table td {
+            background-color: #e6ffe6;
+        }
+
+        .zodiac-ekizler .reservation-table td {
+            background-color: #e6f7ff;
+        }
+
+        .zodiac-xerceng .reservation-table td {
+            background-color: #fff0f5;
+        }
+
+        .zodiac-sir .reservation-table td {
+            background-color: #fff9e6;
+        }
+
+        .zodiac-qiz .reservation-table td {
+            background-color: #e6fff9;
+        }
+
+        .zodiac-terezi .reservation-table td {
+            background-color: #fcefff;
+        }
+
+        .zodiac-eqreb .reservation-table td {
+            background-color: #ffe6f2;
+        }
+
+        .zodiac-oxatan .reservation-table td {
+            background-color: #fffde6;
+        }
+
+        .zodiac-oglaq .reservation-table td {
+            background-color: #f2f2f2;
+        }
+
+        .zodiac-dolca .reservation-table td {
+            background-color: #e6f7ff;
+        }
+
+        .zodiac-baliq .reservation-table td {
+            background-color: #e6ecff;
         }
 
         .menu-list {
-            padding-left: 20px;
+            padding-left: 16px;
             margin: 0;
             list-style-type: disc;
+            text-align: left;
         }
 
         .text-muted {
@@ -79,67 +133,39 @@
 
         .back-btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 18px;
+            margin-top: 30px;
+            padding: 10px 20px;
             background-color: #d63384;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
+            transition: background 0.3s ease;
         }
 
             .back-btn:hover {
-                background-color: #c2186a;
+                background-color: #b02c6f;
             }
 
-        /* Bürclərə görə arxa fon rəngləri */
-        .zodiac-qoc {
-            background-color: #fff3f3;
+        @@media (max-width: 768px) {
+            .container
+
+        {
+            padding: 20px;
+            margin: 30px 10px;
         }
 
-        .zodiac-buga {
-            background-color: #f4fff4;
+        .reservation-table th,
+        .reservation-table td {
+            padding: 10px 6px;
+            font-size: 14px;
         }
 
-        .zodiac-ekizler {
-            background-color: #f0f9ff;
+        .menu-list {
+            padding-left: 12px;
         }
 
-        .zodiac-xerceng {
-            background-color: #fff5f9;
-        }
-
-        .zodiac-sir {
-            background-color: #fff7e6;
-        }
-
-        .zodiac-qiz {
-            background-color: #f4fff9;
-        }
-
-        .zodiac-terezi {
-            background-color: #fdf6ff;
-        }
-
-        .zodiac-eqreb {
-            background-color: #fceef5;
-        }
-
-        .zodiac-oxatan {
-            background-color: #fefde5;
-        }
-
-        .zodiac-oglaq {
-            background-color: #f0f0f0;
-        }
-
-        .zodiac-dolca {
-            background-color: #e8f7ff;
-        }
-
-        .zodiac-baliq {
-            background-color: #edf4ff;
         }
     </style>
 </head>
@@ -149,29 +175,29 @@
 
         @if (Model != null && Model.Any())
         {
-            <table>
+            <table class="reservation-table">
                 <thead>
                     <tr>
                         <th>Usta</th>
                         <th>Dizayn</th>
                         <th>Tarix</th>
-                        <th>Seçilmiş Menyu</th>
+                        <th>Menyu</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item?.MasterName</td>
-                            <td>@item?.DesignName</td>
-                            <td>@item?.Date.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>@item.MasterName</td>
+                            <td>@item.DesignName</td>
+                            <td>@item.Date.ToString("dd.MM.yyyy HH:mm")</td>
                             <td>
-                                @if (item?.MenuItems != null && item.MenuItems.Any())
+                                @if (item.MenuItems != null && item.MenuItems.Any())
                                 {
                                     <ul class="menu-list">
                                         @foreach (var menu in item.MenuItems)
                                         {
-                                            <li>@menu?.Name</li>
+                                            <li>@menu.Name</li>
                                         }
                                     </ul>
                                 }

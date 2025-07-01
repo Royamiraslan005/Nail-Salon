@@ -26,6 +26,24 @@ namespace NailSalon.Controllers
 
             return View(nailTypeVms);
         }
+        public async Task<IActionResult> Detail(int id)
+        {
+            var nailType = await _nailTypeService.GetByIdAsync(id);
+            if (nailType == null)
+                return NotFound();
+
+            var vm = new NailTypeVm
+            {
+                Id = nailType.Id,
+                Title = nailType.Title,
+                Price = (decimal)nailType.Price,
+                ImageUrl = nailType.ImageUrl,
+                Zodiac = nailType.Zodiac
+            };
+
+            return View(vm);
+        }
+
 
     }
 }
