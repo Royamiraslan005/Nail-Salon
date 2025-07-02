@@ -1,21 +1,57 @@
 ﻿@model NailSalon.Core.ViewModels.NailTypeVm
 
-<section class="py-5" style="background: #fff0f5;">
+<section class="py-5 bg-white">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <img src="~/images/@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded shadow" style="max-height: 400px;" />
+
+        <div class="row align-items-center g-5">
+            <!-- Şəkil Bloku -->
+            <div class="col-md-6 d-flex justify-content-center position-relative" style="height: 250px;">
+                
+                <!-- Overlay (arxa fon) -->
+                <img src="~/images/Rectangle 97.jpg"
+                     alt="Overlay"
+                     class="position-absolute"
+                     style="top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; width: 340px;" />
+
+                <!-- Əsas şəkil -->
+                <img src="~/images/@Model.ImageUrl"
+                     alt="@Model.Title"
+                     class="img-fluid rounded-4 shadow-lg border border-white position-relative"
+                     style="z-index: 2; width: 300px" />
             </div>
-            <div class="col-md-6">
-                <h2 style="color: #d63384;">@Model.Title</h2>
-                <p class="text-muted"><strong>Qiymət:</strong> @Model.Price.ToString("0.00") ₼</p>
 
-                @if (!string.IsNullOrEmpty(Model.Zodiac))
-                {
-                    <p><strong>Bürc:</strong> @Model.Zodiac</p>
-                }
+            <!-- Məlumat Bloku -->
+            <div class="col-md-6 text-center text-md-start">
+                <div style="display:flex; justify-content: start; align-items:center; gap: 20px">
+                    <h2 class="display-5 fw-bold mb-3" style="color: #d63384;">@Model.Title</h2>
+                    <span class="badge fs-6 py-2 px-3 rounded-pill" style="background-color:#CC3A6DB2;">
+                         @Model.Price.ToString("0.00") AZN
+                    </span>
+                </div>
 
-                <a asp-action="Index" class="btn btn-outline-secondary mt-4">🔙 Geri Qayıt</a>
+                <p class="fs-5 mb-3 text-dark">
+                    Bu dizayn <strong>@Model.Zodiac</strong> bürcünə uyğunlaşdırılıb və sizi daha fərqli göstərəcək!
+                </p>
+
+                <ul class="list-unstyled fs-6 text-muted mt-4">
+                    <li>● Zəriflik və zövq bir arada!</li>
+                    <li>● Bürcünüzə uyğun dizaynla enerjinizi əks etdirin.</li>
+                    <li>● Yüksək keyfiyyətli materiallarla hazırlanır.</li>
+                </ul>
+
+                @* <!-- Qiymət --> *@
+                @* <div class="mt-4 mb-4"> *@
+                @*     <span class="badge fs-6 py-2 px-3 rounded-pill" style="background-color:#CC3A6DB2;"> *@
+                @*       @Model.Price.ToString("0.00") AZN *@
+                @*     </span> *@
+                @* </div> *@
+
+                <!-- Geri Qayıt Buttonu -->
+                <a asp-action="Index"
+                   class="btn px-4 py-2 rounded-pill shadow-sm"
+                   style="background-color: #ffc0cb; color: white; border: none;">
+                     Geri Qayıt
+                </a>
             </div>
         </div>
     </div>

@@ -13,17 +13,29 @@ namespace NailSalon.Controllers
         IMasterService _masterService;
         IReviewService _reviewService;
         IServicesService _servicesService;
+        INailTypeService _nailTypeService;
 
-        public HomeController(IMasterService masterService, IReviewService reviewService, IServicesService servicesService)
+        public HomeController(IMasterService masterService, IReviewService reviewService, IServicesService servicesService, INailTypeService nailTypeService)
         {
             _masterService = masterService;
             _reviewService = reviewService;
             _servicesService = servicesService;
+            _nailTypeService = nailTypeService;
         }
 
         public async Task<IActionResult> Index()
         {
             List<MasterVm> masterVms =await _masterService.GetAllAsync();
+            var nailTypes = await _nailTypeService.GetAllAsync();
+
+            var nailTypeVms = nailTypes.Select(x => new NailTypeVm
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Price = (decimal)x.Price,
+                ImageUrl = x.ImageUrl
+            }).ToList();
+            ViewBag.NailTypesVms = nailTypeVms;
             ViewBag.MasterVms = masterVms;
             ViewBag.Services = await _servicesService.GetAllAsync();
             return View();
@@ -37,10 +49,10 @@ namespace NailSalon.Controllers
                 Description = "ZodiNails – yalnız dırnaq salonu deyil, həm də bürcünüzə uyğun gözəllik təcrübəsi! Estetik və enerjiyə uyğun dizaynlarla sizi fərqli hiss etdiririk.",
                 Features = new List<FeatureVm>
             {
-                new() { Icon = "💫", Title = "12 Bürc Dizaynı", Description = "Hər bürcə uyğun xüsusi dırnaq dizaynları." },
-                new() { Icon = "🎨", Title = "Unikal Stil", Description = "Minimalistdən ekstravaqant dizaynlara qədər seçimlər." },
-                new() { Icon = "🌟", Title = "Ad günü Endirimi", Description = "Ad gününüzə özəl 30% endirim sizi gözləyir!" },
-                new() { Icon = "🧁", Title = "Qonaqpərvərlik", Description = "Seçiminizə uyğun içkilər və şirniyyatlar təqdim olunur." }
+                new() { ImageUrl="burc.jpg", Title = "12 Bürc Dizaynı", Description = "Hər bürcə uyğun xüsusi dırnaq dizaynları." },
+                new() { ImageUrl="unikal.jpg", Title = "Unikal Stil", Description = "Minimalistdən ekstravaqant dizaynlara qədər seçimlər." },
+                new() { ImageUrl="adgunu.jpg", Title = "Ad günü Endirimi", Description = "Ad gününüzə özəl 30% endirim sizi gözləyir!" },
+                new() { ImageUrl="qonaq.png", Title = "Qonaqpərvərlik", Description = "Seçiminizə uyğun içkilər və şirniyyatlar təqdim olunur." }
             }
             };
 

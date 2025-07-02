@@ -4,15 +4,51 @@
 <section id="slider">
     <div class="swiper slider">
         <div class="swiper-wrapper">
+            <style>
+                   @@media (max-width: 900px) {
+                       .slider-title {
+                           font-size:35px !important;
+                           margin-top: 30px !important;
+                       }
+                       .slider-desc {
+                           font-size: 20px !important;
+                           margin-top: 30px !important;
+                       }
+                   }
 
+                   @@media (max-width: 720px) {
+                       .slider-title {
+                           font-size:25px !important;
+                           margin-top: 10px !important;
+                       }
+                       .slider-desc {
+                           font-size: 16px !important;
+                           margin-top: 20px !important;
+                       }
+                       .absolute-div {
+                           top: 4% !important;
+                       }
+                   }
+            </style>
             <!-- Slide 1 (img ilə) -->
-            <div class="swiper-slide d-flex position-relative" style="height: 90vh;">
-                <img src="Assets/images/banner-img2.png" alt="Banner Image" class="position-absolute w-100 h-100" style="object-fit: cover; top: 0; left: 0; z-index: 0;">
+            <div class="swiper-slide d-flex position-relative">
+                <img src="Assets/images/Group 2.png" alt="Banner Image" class=" w-100" style="object-fit: cover; top: 0; left: 0; z-index: 0; ">
 
-                <div class="banner-content text-center m-auto position-relative" data-aos="zoom-out" style="z-index: 1;">
-                    <h2 class="banner-title display-2 fw-normal text-white mb-4">
-                        Bürcünün ilhamı ilə öz stilini yaşayan, güclü və zövqlü qadınların dırnaq cənnəti.
+                <div class="absolute-div" style="
+                       position: absolute;
+                       top: 8%;
+                       left: 6%;
+                       color: #4A0020;
+        z-index: 1;
+        text-align: left;
+                ">
+                    <h2 style="font-size: 56px; font-weight: 700; margin-top: 40px;" class='slider-title'>
+                        Stilini bürcünlə tamamla!
                     </h2>
+                    <h3 class='slider-desc' style="font-size: 28px; font-style: italic; font-weight: 400; line-height: 1.5; margin-top:40px">
+                        Bürcünün ilhamı ilə öz stilini yaşayan, güclü və zövqlü <br>
+                        qadınların dırnaq cənnəti.
+                    </h3>
                 </div>
             </div>
 
@@ -34,48 +70,92 @@
 <section id="about" class="py-5" style="background-color: #fff6fb;">
     <div class="container-lg padding-medium">
         <div class="text-center mb-5">
-            <h2 class="display-5" style="color:#d06db9; font-family: 'Marck Script', cursive;">✨ About</h2>
+            <h2 class="display-5" style="color:#d06db9; font-family: 'Marck Script', cursive;"> About</h2>
             <p class="lead text-muted mx-auto" style="max-width: 700px;">
                 Zodiac — bürclərə və estetikaya uyğun dırnaq sənətinin ünvanıdır. Həm gözəllik, həm də fərdilik burada birləşir.
             </p>
         </div>
 
-        <div class="row g-md-4 text-center">
+        <style>
+            .custom-cards-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            }
+
+            .custom-cards-row .col-md-3 {
+            flex: 1 1 calc(25% - 1rem);
+            max-width: calc(25% - 1rem);
+            box-sizing: border-box;
+            }
+
+            @@media (min-width: 768px) and (max-width: 1024px) {
+            .custom-cards-row .col-md-3
+
+            {
+            flex: 1 1 calc(50% - 1rem);
+            max-width: calc(50% - 1rem);
+            }
+
+            }
+
+            @@media (max-width: 767px) {
+            .custom-cards-row .col-md-3
+
+            {
+            flex: 1 1 100%;
+            max-width: 100%;
+            }
+
+            }
+        </style>
+
+        <div class="row g-md-4 text-center custom-cards-row">
             <!-- Bürc Dizaynı -->
             <div class="col-md-3 mb-4">
-                <div class="p-4 bg-white shadow rounded-4 h-100">
-                    <div class="display-3 mb-3">🔮</div>
-                    <h5 class="fw-semibold mb-2">12 Bürc Dizaynı</h5>
-                    <p class="text-muted mb-0">Hər bürcə uyğun xüsusi dırnaq dizaynları.</p>
+                <div class="bg-white shadow rounded-4 text-center" style="padding: 0px 8px; height: 320px; display: flex; align-items: center; justify-content: center; flex-direction: column">
+
+
+                    <!-- Üst şəkil (ikon) -->
+                    <img src="Assets/images/burc.jpg" alt="Burc"
+                    style="width: 150px; height: 135px; ">
+                    <h5 class="fw-semibold my-2" style="color: black">12 Bürc Dizaynı</h5>
+                    <p class="text-muted mb-0" style="color: black">Hər bürcə uyğun xüsusi dırnaq dizaynları.</p>
                 </div>
             </div>
 
+
             <!-- Unikal Stil -->
             <div class="col-md-3 mb-4">
-                <div class="p-4 bg-white shadow rounded-4 h-100">
-                    <div class="display-3 mb-3">🎨</div>
-                    <h5 class="fw-semibold mb-2">Unikal Stil</h5>
-                    <p class="text-muted mb-0">Minimalistdən ekstravaqant dizaynlara qədər seçimlər.</p>
+                <div class="bg-white shadow rounded-4 text-center" style="padding: 0px 8px; height: 320px; display: flex; align-items: center; justify-content: center; flex-direction: column">
+                    <img src="Assets/images/unikal.jpg" alt="Unikal"
+                    style="width: 150px; height: 135px; ">
+                    <h5 class="fw-semibold my-2" style="color: black">Unikal Stil</h5>
+                    <p class="text-muted mb-0" style="color: black">Minimalistdən ekstravaqant dizaynlara qədər seçimlər.</p>
                 </div>
             </div>
 
             <!-- Ad günü Endirimi -->
             <div class="col-md-3 mb-4">
-                <div class="p-4 bg-white shadow rounded-4 h-100">
-                    <div class="display-3 mb-3">🌟</div>
-                    <h5 class="fw-semibold mb-2">Ad günü Endirimi</h5>
-                    <p class="text-muted mb-0">Ad gününüzə özəl 30% endirim sizi gözləyir!</p>
+                <div class="bg-white shadow rounded-4 text-center" style="padding: 0px 8px; height: 320px; display: flex; align-items: center; justify-content: center; flex-direction: column">
+                    <img src="Assets/images/adgunu.jpg" alt="Ad gunu"style="width: 100px; height: 135px; ">
+                    <h5 class="fw-semibold my-2" style="color: black">Ad günü Endirimi</h5>
+                    <p class="text-muted mb-0" style="color: black">Ad gününüzə özəl 30% endirim sizi gözləyir!</p>
                 </div>
             </div>
 
             <!-- Qonaqpərvərlik -->
             <div class="col-md-3 mb-4">
-                <div class="p-4 bg-white shadow rounded-4 h-100">
-                    <div class="display-3 mb-3">🧁</div>
-                    <h5 class="fw-semibold mb-2">Qonaqpərvərlik</h5>
-                    <p class="text-muted mb-0">Seçiminizə uyğun içkilər və şirniyyatlar təqdim olunur.</p>
+                <div class="bg-white shadow rounded-4 text-center" style="padding: 0px 8px; height: 320px; display: flex; align-items: center; justify-content: center; flex-direction: column">
+                    <img src="Assets/images/qonaq.png" alt="İçki İkonsu"
+                    style="width: 218px; height: 149.11px; ">
+
+                    <!-- Yazılar -->
+                    <h5 class="fw-semibold my-2" style="color: black">Qonaqpərvərlik</h5>
+                    <p class="mb-0" style="color: black">Seçiminizə uyğun içkilər və şirniyyatlar təqdim olunur.</p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -90,26 +170,26 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
 
         <div class="container">
             <div class="row">
-                
-                    @foreach (var item in ViewBag.Services as List<ServicesVm>)
-                    {
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card h-100 shadow-sm border-0">
-                                <a href="@Url.Action("Detail", "Services", new { id = item.Id })" style="text-decoration:none; color:black">
-                                    <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title">
-                                </a>
-                                <div class="card-body text-center">
-                                    <a href="@Url.Action("Detail", "Services", new { id = item.Id })" class="text-decoration-none text-dark">
-                                        <h5 class="card-title">@item.Title</h5>
+
+                @foreach (var item in ViewBag.Services as List<ServicesVm>)
+                {
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <a href="@Url.Action("Detail", "Services", new { id = item.Id })" style="text-decoration:none; color:black">
+                                        <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title">
                                     </a>
+                                    <div class="card-body text-center">
+                                        <a href="@Url.Action("Detail", "Services", new { id = item.Id })" class="text-decoration-none text-dark">
+                                            <h5 class="card-title">@item.Title</h5>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
                 }
-                
+                }
 
-               
+
+
             </div>
         </div>
 
@@ -119,143 +199,73 @@ style="background-image: url(images/background-1.jpg); background-size: cover; b
 
 <div class="container py-5">
     <h2 class="text-center mb-5" style="color: #d63384;">
-        👩‍🎨
+
         Our Professional Masters
     </h2>
     <div class="row g-4">
 
         @foreach (var item in ViewBag.MasterVms as List<MasterVm>)
         {
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm text-center">
-                    <a asp-action="Detail" asp-controller="Master" asp-route-id="@item.Id">
-                        <img width="330" height="330" src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt="@item.FullName" />
-                    </a>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 shadow-sm text-center">
+                            <a asp-action="Detail" asp-controller="Master" asp-route-id="@item.Id">
+                                <img width="330" height="330" src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt="@item.FullName" />
+                            </a>
 
-                    
-                    <div class="card-body">
-                        <h5 class="card-title">@item.FullName</h5>
-                        <p class="card-text">
+
+                            <div class="card-body">
+                                <h5 class="card-title">@item.FullName</h5>
+                                <p class="card-text">
                             @item.Experience <br />
                             @item.Zodiac <br />
                             @item.Specialty
-                        </p>
+                                </p>
 
-                        <!-- Ustanın Id-sini göndəririk -->
-                        <a asp-action="Create" asp-controller="Reservation" asp-route-masterId="@item.Id" class="btn btn-sm btn-outline-primary">
-                            Rezervasiya et
-                        </a>
+                                <!-- Ustanın Id-sini göndəririk -->
+                                <a asp-action="Create" asp-controller="Reservation" asp-route-masterId="@item.Id" class="btn btn-sm btn-outline-primary">
+                                    Rezervasiya et
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
         }
 
 
-<section class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center mb-5" style="color: #d63384;"> Nail Types</h2>
-        <div class="row g-4">
-            <!-- Card 1 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img height="300" src="~/Assets/dirnaqlar/gel.jpg" class="card-img-top" alt="Gel Nails">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Gel Nails</h5>
-                        <p class="card-text text-muted">Price: 25 AZN</p>
-                    </div>
-                </div>
-            </div>
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5" style="color: #d63384;"> Nail Types</h2>
+                <div class="row g-4">
+                    @foreach (var item in ViewBag.NailTypesVms as List<NailTypeVm>)
+                    {
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="card h-100 shadow-sm">
+                                            <a asp-action="Detail" asp-controller="NailType" asp-route-id="@item.Id">
+                <img height="300" src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title">
+                                                </a>  
 
-            <!-- Card 2 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img height="300" src="~/Assets/dirnaqlar/frenchh.jpg" class="card-img-top" alt="French Manicure">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">French Manicure</h5>
-                        <p class="card-text text-muted">Price: 30 AZN</p>
-                    </div>
-                </div>
-            </div>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">@item.Title</h5>
+                                            <p class="card-text text-muted"> Price @item.Price</p>
+                                        </div>
+                                    </div>
+                                </div>
 
-            <!-- Card 3 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img height="300" src="~/Assets/dirnaqlar/acrrr.jpg" class="card-img-top" alt="Acrylic Nails">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Acrylic Nails</h5>
-                        <p class="card-text text-muted">Price: 35 AZN</p>
-                    </div>
-                </div>
-            </div>
+                    }
 
-            <!-- Card 4 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img height="300" src="~/Assets/dirnaqlar/ombre.jpg" class="card-img-top" alt="Ombre Nails">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Ombre Nails</h5>
-                        <p class="card-text text-muted">Price: 28 AZN</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img height="300" src="~/Assets/dirnaqlar/matte.jpg" class="card-img-top" alt="Matte Nails">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Matte Nails</h5>
-                        <p class="card-text text-muted">Price: 26 AZN</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img height="300" src="~/Assets/dirnaqlar/glitter.jpg" class="card-img-top" alt="Glitter Nails">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Glitter Nails</h5>
-                        <p class="card-text text-muted">Price: 32 AZN</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img height="300" src="~/Assets/dirnaqlar/steletto.jpg" class="card-img-top" alt="Stiletto Nails">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Stiletto Nails</h5>
-                        <p class="card-text text-muted">Price: 34 AZN</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img height="300" src="~/Assets/dirnaqlar/almond.jpg" class="card-img-top" alt="Almond Shape">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Almond Shape</h5>
-                        <p class="card-text text-muted">Price: 29 AZN</p>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
 </section>
 
 <section id="rey">
-    
 
-@{
-    ViewData["Title"] = "Rəy Yaz";
-}
+
+            @{
+                ViewData["Title"] = "Rəy Yaz";
+            }
 
 <div class="container py-5">
-    <h2 class="text-center mb-4 text-pink">💬 Bizimlə təəssüratını paylaş!</h2>
+    <h2 class="text-center mb-4 text-pink"> Bizimlə təəssüratını paylaş!</h2>
         <section id="#rey">
 
     <div class="card shadow-sm p-4 rounded-4 bg-white-pink mx-auto" style="max-width: 600px;">

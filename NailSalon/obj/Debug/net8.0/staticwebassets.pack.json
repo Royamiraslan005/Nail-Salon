@@ -73,8 +73,20 @@
       "PackagePath": "staticwebassets\\Assets\\dirnaqlar\\steletto.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\Group 2.png",
+      "PackagePath": "staticwebassets\\Assets\\images\\Group 2.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\Rectangle 79.png",
+      "PackagePath": "staticwebassets\\Assets\\images\\Rectangle 79.png"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\about-img.jpg",
       "PackagePath": "staticwebassets\\Assets\\images\\about-img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\adgunu.jpg",
+      "PackagePath": "staticwebassets\\Assets\\images\\adgunu.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\background-1.jpg",
@@ -119,6 +131,10 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\blog-lg.jpg",
       "PackagePath": "staticwebassets\\Assets\\images\\blog-lg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\burc.jpg",
+      "PackagePath": "staticwebassets\\Assets\\images\\burc.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\chocolat\\close.png",
@@ -213,6 +229,10 @@
       "PackagePath": "staticwebassets\\Assets\\images\\post-6.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\qonaq.png",
+      "PackagePath": "staticwebassets\\Assets\\images\\qonaq.png"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\reviewer1.jpg",
       "PackagePath": "staticwebassets\\Assets\\images\\reviewer1.jpg"
     },
@@ -283,6 +303,10 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\testimonial-bg.jpg",
       "PackagePath": "staticwebassets\\Assets\\images\\testimonial-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\unikal.jpg",
+      "PackagePath": "staticwebassets\\Assets\\images\\unikal.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\Assets\\images\\usta1.jpg",
@@ -8077,6 +8101,10 @@
       "PackagePath": "staticwebassets\\images\\80c39065-b54f-4020-9fe4-76c7954e3fa0.jpeg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\80ecc29e-e426-442a-9a5a-a3e914e09ce1.jpg",
+      "PackagePath": "staticwebassets\\images\\80ecc29e-e426-442a-9a5a-a3e914e09ce1.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\826167dd-06aa-4c1e-bbdd-e23ece7b3b88.jpg",
       "PackagePath": "staticwebassets\\images\\826167dd-06aa-4c1e-bbdd-e23ece7b3b88.jpg"
     },
@@ -8143,6 +8171,14 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\ChatGPT Image Jun 25, 2025, 01_35_22 PM.png",
       "PackagePath": "staticwebassets\\images\\ChatGPT Image Jun 25, 2025, 01_35_22 PM.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\Group 2.png",
+      "PackagePath": "staticwebassets\\images\\Group 2.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\Rectangle 97.jpg",
+      "PackagePath": "staticwebassets\\images\\Rectangle 97.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\a1594d5f-8bb7-4627-a91f-c9b5fcf42461.jpeg",

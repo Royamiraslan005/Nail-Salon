@@ -22,6 +22,7 @@
         _ => ""
     };
 }
+
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -33,16 +34,16 @@
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
-            background: #fff0f7; /* Açıq çəhrayı arxa fon */
         }
 
         .container {
             max-width: 900px;
             margin: 50px auto;
-            background: #fff0f7;
+            background: rgba(255, 255, 255, 0.7);
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 0 15px rgba(255, 105, 180, 0.2);
+            animation: fadeIn 1s ease-in-out;
         }
 
         h2 {
@@ -51,72 +52,32 @@
             margin-bottom: 25px;
         }
 
+        .responsive-table-wrapper {
+            overflow-x: auto;
+        }
+
         .reservation-table {
             width: 100%;
             border-collapse: collapse;
-            overflow-x: auto;
-            border-radius: 10px;
+            min-width: 600px;
+            animation: slideUp 1s ease-in-out;
         }
 
-            .reservation-table th,
-            .reservation-table td {
-                padding: 12px;
-                text-align: center;
-                border: 1px solid #ffd1e6;
-            }
-
-            .reservation-table th {
-                background-color: #ffe4ec;
-                color: #d63384;
-            }
-
-        /* Zodiac rənglərinə uyğun cədvəl sətiri arxa fonları */
-        .zodiac-qoc .reservation-table td {
-            background-color: #ffe6e6;
+        .reservation-table th,
+        .reservation-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ffd1e6;
         }
 
-        .zodiac-buga .reservation-table td {
-            background-color: #e6ffe6;
+        .reservation-table th {
+            background-color: #ffe4ec;
+            color: #d63384;
         }
 
-        .zodiac-ekizler .reservation-table td {
-            background-color: #e6f7ff;
-        }
-
-        .zodiac-xerceng .reservation-table td {
-            background-color: #fff0f5;
-        }
-
-        .zodiac-sir .reservation-table td {
-            background-color: #fff9e6;
-        }
-
-        .zodiac-qiz .reservation-table td {
-            background-color: #e6fff9;
-        }
-
-        .zodiac-terezi .reservation-table td {
-            background-color: #fcefff;
-        }
-
-        .zodiac-eqreb .reservation-table td {
-            background-color: #ffe6f2;
-        }
-
-        .zodiac-oxatan .reservation-table td {
-            background-color: #fffde6;
-        }
-
-        .zodiac-oglaq .reservation-table td {
-            background-color: #f2f2f2;
-        }
-
-        .zodiac-dolca .reservation-table td {
-            background-color: #e6f7ff;
-        }
-
-        .zodiac-baliq .reservation-table td {
-            background-color: #e6ecff;
+        .reservation-table tbody tr:hover {
+            background-color: #ffeaf4;
+            transition: background 0.3s ease;
         }
 
         .menu-list {
@@ -144,28 +105,98 @@
             transition: background 0.3s ease;
         }
 
-            .back-btn:hover {
-                background-color: #b02c6f;
+        .back-btn:hover {
+            background-color: #b02c6f;
+        }
+
+        /* Animasiya qaydaları */
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @@keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Bürclərə görə arxa fonlar */
+        .zodiac-qoc {
+            background: linear-gradient(to right, #ffe6e6, #ffd6cc);
+        }
+
+        .zodiac-buga {
+            background: linear-gradient(to right, #e6ffe6, #ccffcc);
+        }
+
+        .zodiac-ekizler {
+            background: linear-gradient(to right, #e6f7ff, #cceeff);
+        }
+
+        .zodiac-xerceng {
+            background: linear-gradient(to right, #fff0f5, #ffe4ec);
+        }
+
+        .zodiac-sir {
+            background: linear-gradient(to right, #fff9e6, #ffeabf);
+        }
+
+        .zodiac-qiz {
+            background: linear-gradient(to right, #e6fff9, #ccfff2);
+        }
+
+        .zodiac-terezi {
+            background: linear-gradient(to right, #fcefff, #f3e6ff);
+        }
+
+        .zodiac-eqreb {
+            background: linear-gradient(to right, #ffe6f2, #ffcce6);
+        }
+
+        .zodiac-oxatan {
+            background: linear-gradient(to right, #fffde6, #fff5cc);
+        }
+
+        .zodiac-oglaq {
+            background: linear-gradient(to right, #f2f2f2, #e6e6e6);
+        }
+
+        .zodiac-dolca {
+            background: linear-gradient(to right, #e6f7ff, #ccf2ff);
+        }
+
+        .zodiac-baliq {
+            background: linear-gradient(to right, #e6ecff, #ccd9ff);
+        }
+
+        /* Mobil üçün uyğunluq */
+        @@media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
             }
 
-        @@media (max-width: 768px) {
-            .container
+            .reservation-table th,
+            .reservation-table td {
+                font-size: 14px;
+                padding: 10px 6px;
+            }
 
-        {
-            padding: 20px;
-            margin: 30px 10px;
-        }
-
-        .reservation-table th,
-        .reservation-table td {
-            padding: 10px 6px;
-            font-size: 14px;
-        }
-
-        .menu-list {
-            padding-left: 12px;
-        }
-
+            .menu-list {
+                padding-left: 12px;
+            }
         }
     </style>
 </head>
@@ -175,41 +206,43 @@
 
         @if (Model != null && Model.Any())
         {
-            <table class="reservation-table">
-                <thead>
-                    <tr>
-                        <th>Usta</th>
-                        <th>Dizayn</th>
-                        <th>Tarix</th>
-                        <th>Menyu</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+            <div class="responsive-table-wrapper">
+                <table class="reservation-table">
+                    <thead>
                         <tr>
-                            <td>@item.MasterName</td>
-                            <td>@item.DesignName</td>
-                            <td>@item.Date.ToString("dd.MM.yyyy HH:mm")</td>
-                            <td>
-                                @if (item.MenuItems != null && item.MenuItems.Any())
-                                {
-                                    <ul class="menu-list">
-                                        @foreach (var menu in item.MenuItems)
-                                        {
-                                            <li>@menu.Name</li>
-                                        }
-                                    </ul>
-                                }
-                                else
-                                {
-                                    <span class="text-muted">Seçilməyib</span>
-                                }
-                            </td>
+                            <th>Usta</th>
+                            <th>Dizayn</th>
+                            <th>Tarix</th>
+                            <th>Menyu</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MasterName</td>
+                                <td>@item.DesignName</td>
+                                <td>@item.Date.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>
+                                    @if (item.MenuItems != null && item.MenuItems.Any())
+                                    {
+                                        <ul class="menu-list">
+                                            @foreach (var menu in item.MenuItems)
+                                            {
+                                                <li>@menu.Name</li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Seçilməyib</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         }
         else
         {
