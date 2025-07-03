@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NailSalon.DAL.Contexts
 {
-   public class AppDbContext:IdentityDbContext<AppUser>
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -20,11 +20,17 @@ namespace NailSalon.DAL.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
+            //modelBuilder.Entity<Reservation>()
+            //    .HasOne(r => r.NailType)
+            //    .WithMany() // əgər Design tərəfdə Reservation siyahısı yoxdursa
+            //    .HasForeignKey(r => r.NailTypeId)
+            //    .OnDelete(DeleteBehavior.Restrict); // ya da .Cascade əgər avtomatik silmək istəyirsənsə
+
             modelBuilder.Entity<Reservation>()
-                .HasOne(r => r.NailType)
-                .WithMany() // əgər Design tərəfdə Reservation siyahısı yoxdursa
-                .HasForeignKey(r => r.NailTypeId)
-                .OnDelete(DeleteBehavior.Restrict); // ya da .Cascade əgər avtomatik silmək istəyirsənsə
+        .HasOne(r => r.NailType)
+        .WithMany() // əgər əlaqəli kolleksiya yoxdursa
+        .HasForeignKey(r => r.NailTypeId)
+        .OnDelete(DeleteBehavior.SetNull); // <- əsas hissə
         }
         public DbSet<Master> Masters { get; set; }
         public DbSet<Services> Services { get; set; }

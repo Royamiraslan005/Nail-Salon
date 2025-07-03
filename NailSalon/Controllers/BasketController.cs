@@ -72,6 +72,8 @@ namespace NailSalon.Controllers
             // SaleService-də basketItems üçün uyğun metod çağırılır
             var sessionUrl = await _saleService.CreateStripeSessionAsync(basketItems, user.Id);
 
+           await _basketService.ClearBasketAsync(user.Id);
+
             return Redirect(sessionUrl);
         }
 

@@ -742,7 +742,7 @@ namespace NailSalon.DAL.Migrations
                     b.HasOne("NailSalon.Core.Models.NailType", "NailType")
                         .WithMany()
                         .HasForeignKey("NailTypeId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("NailSalon.Core.Models.Services", null)
                         .WithMany("Reservations")

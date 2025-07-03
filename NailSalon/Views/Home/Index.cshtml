@@ -70,10 +70,10 @@
 <section id="about" class="py-5" style="background-color: #fff6fb;">
     <div class="container-lg padding-medium">
         <div class="text-center mb-5">
-            <h2 class="display-5" style="color:#d06db9; font-family: 'Marck Script', cursive;"> About</h2>
-            <p class="lead text-muted mx-auto" style="max-width: 700px;">
+            <h2 class="display-5" style="color:#680427; font-family: 'Marck Script', cursive;"> About</h2>
+            <h2 class="lead text-muted mx-auto" style="max-width: 700px;">
                 Zodiac — bürclərə və estetikaya uyğun dırnaq sənətinin ünvanıdır. Həm gözəllik, həm də fərdilik burada birləşir.
-            </p>
+            </h2>
         </div>
 
         <style>
@@ -162,161 +162,396 @@
 
 
 <section id="services" class="jarallax"
-style="background-image: url(images/background-1.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
-    <div class="container-lg padding-medium">
+         style="background-image: url(images/background-1.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <div class="container-xl px-3 px-md-5">
         <div class="section-title text-center mb-5">
-            <h2 class="display-4 fw-normal" style="color: #d63384;" >Services we Offer</h2>
+            <h2 class="display-4 fw-normal" style="color: #680427;">Services we Offer</h2>
         </div>
 
-        <div class="container">
-            <div class="row">
+        <style>
+            .service-card {
+                border-radius: 0;
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                height: 100%;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+            }
 
-                @foreach (var item in ViewBag.Services as List<ServicesVm>)
-                {
-                            <div class="col-md-6 col-lg-4 mb-4">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <a href="@Url.Action("Detail", "Services", new { id = item.Id })" style="text-decoration:none; color:black">
-                                        <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title">
-                                    </a>
-                                    <div class="card-body text-center">
-                                        <a href="@Url.Action("Detail", "Services", new { id = item.Id })" class="text-decoration-none text-dark">
-                                            <h5 class="card-title">@item.Title</h5>
-                                        </a>
-                                    </div>
-                                </div>
+                .service-card:hover {
+                    transform: translateY(-8px) scale(1.03);
+                    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+                }
+
+            .image-wrapper {
+                width: 100%;
+                height: 250px;
+                overflow: hidden;
+            }
+
+            .service-card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+                display: block;
+            }
+
+            .service-card:hover img {
+                transform: scale(1.05);
+            }
+
+            .card-body {
+                text-align: center;
+                padding: 1rem;
+            }
+
+                .card-body h5 {
+                    color: #680427;
+                    font-weight: 600;
+                    margin: 0;
+                    transition: color 0.3s ease;
+                }
+
+            /* Mobil üçün düzəlişlər */
+            @@media (max-width: 767.98px) {
+                .image-wrapper
+
+            {
+                height: 200px;
+            }
+
+            .card-body h5 {
+                font-size: 1.1rem;
+            }
+
+            .container-xl {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            }
+        </style>
+
+        <div class="row g-4">
+
+            @foreach (var item in ViewBag.Services as List<ServicesVm>)
+            {
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card service-card h-100 shadow-sm border-0">
+                        <a href="@Url.Action("Detail", "Services", new { id = item.Id })" style="text-decoration:none;">
+                            <div class="image-wrapper">
+                                <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title">
                             </div>
-                }
-                }
+                        </a>
+                        <div class="card-body">
+                            <a href="@Url.Action("Detail", "Services", new { id = item.Id })" class="text-decoration-none w-100">
+                                <h5 class="card-title">@item.Title</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
 
-
-
-            </div>
         </div>
-
-    </div>
     </div>
 </section>
 
+
+
 <div class="container py-5">
-    <h2 class="text-center mb-5" style="color: #d63384;">
+    <h2 class="text-center mb-5" style="color: #680427;">Our Professional Masters</h2>
 
-        Our Professional Masters
-    </h2>
+    <style>
+        .btn-pink {
+            background-color: transparent !important;
+            color: #e83e8c !important;
+            border: 1px solid #e83e8c !important;
+            transition: all 0.3s ease;
+        }
+
+            .btn-pink:hover {
+                background-color: #e83e8c !important;
+                color: white !important;
+            }
+
+        .master-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+            .master-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            }
+
+            .master-card img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+
+            .master-card:hover img {
+                transform: scale(1.03);
+            }
+
+            .master-card .card-body h5,
+            .master-card .card-body p {
+                color: #680427;
+            }
+
+        @@media (max-width: 768px) {
+            .master-card img
+
+        {
+            height: 240px;
+             object-fit: cover;
+        }
+
+        .master-card .card-body {
+            padding: 1rem;
+        }
+
+        }
+    </style>
+
     <div class="row g-4">
-
         @foreach (var item in ViewBag.MasterVms as List<MasterVm>)
         {
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 shadow-sm text-center">
-                            <a asp-action="Detail" asp-controller="Master" asp-route-id="@item.Id">
-                                <img width="330" height="330" src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt="@item.FullName" />
-                            </a>
-
-
-                            <div class="card-body">
-                                <h5 class="card-title">@item.FullName</h5>
-                                <p class="card-text">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card master-card h-100 shadow-sm text-center border-0">
+                    <a asp-action="Detail" asp-controller="Master" asp-route-id="@item.Id">
+                        <img src="~/IMAGE/@item.ImageUrl" class="card-img-top" alt="@item.FullName" />
+                    </a>
+                    <div class="card-body text-start">
+                        <h5 class="card-title">@item.FullName</h5>
+                        <p class="card-text">
                             @item.Experience <br />
                             @item.Zodiac <br />
                             @item.Specialty
-                                </p>
+                        </p>
+                        <a asp-action="Create" asp-controller="Reservation" asp-route-masterId="@item.Id"
+                           class="btn btn-sm btn-pink">
+                            Rezervasiya et
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
-                                <!-- Ustanın Id-sini göndəririk -->
-                                <a asp-action="Create" asp-controller="Reservation" asp-route-masterId="@item.Id" class="btn btn-sm btn-outline-primary">
-                                    Rezervasiya et
-                                </a>
+
+
+
+
+<section class="py-5 bg-light">
+    <div class="container-fluid px-3 px-sm-5">
+        <h2 class="text-center mb-5" style="color: #680427;">Nail Types</h2>
+        <div class="row g-4">
+            @foreach (var item in ViewBag.NailTypesVms as List<NailTypeVm>)
+            {
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 shadow-sm" tabindex="0">
+                            <a asp-action="Detail" asp-controller="NailType" asp-route-id="@item.Id">
+                                <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title" />
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">@item.Title</h5>
+                                <p class="card-text text-muted">Price @item.Price</p>
                             </div>
                         </div>
                     </div>
-        }
-
-
-        <section class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5" style="color: #d63384;"> Nail Types</h2>
-                <div class="row g-4">
-                    @foreach (var item in ViewBag.NailTypesVms as List<NailTypeVm>)
-                    {
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="card h-100 shadow-sm">
-                                            <a asp-action="Detail" asp-controller="NailType" asp-route-id="@item.Id">
-                <img height="300" src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.Title">
-                                                </a>  
-
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">@item.Title</h5>
-                                            <p class="card-text text-muted"> Price @item.Price</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                    }
-
-
+            }
         </div>
     </div>
 </section>
 
-<section id="rey">
+<style>
+    /* Container-fluid ilə genişlik maksimum edilir, padding isə responsive */
+    .card {
+        width: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .card:hover,
+    .card:focus,
+    .card:active {
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(214, 51, 132, 0.4);
+        z-index: 10;
+    }
+
+    .card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        transition: transform 0.3s ease;
+        display: block;
+    }
+
+    .card:hover img,
+    .card:focus img,
+    .card:active img {
+        transform: scale(1.1);
+    }
+
+    /* Mobil üçün */
+    @@media (max-width: 576px) {
+        .card img {
+            height: 180px;
+             object-fit: cover;
+        }
+    }
+</style>
 
 
+        <style>
+            .campaign-banner {
+                background-image: url('@Url.Content("~/images/Group 17.png")'); /* Arxa fon şəkli */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 400px;
+                width: 100%; /* Sabit px yox, responsiv üçün full width */
+                max-width: 1350px; /* İstəsən maksimum enlik ver */
+                margin: 0 auto; /* Mərkəzləşdirmək üçün */
+                border-radius: 20px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+               color: #680427;
+                overflow: hidden;
+            }
+
+            .campaign-text h4 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+                text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+            }
+
+            .campaign-text p {
+                font-size: 1.6rem;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            }
+
+            .highlight {
+                color: #680427; /* Tünd bənövşəyi rəng */
+                font-weight: 800; /* Daha qalın */
+                font-size: 1.8rem; /* İstəsən bir az daha böyük */
+            }
+
+         
+
+            @@media (max-width: 768px) {
+                .campaign-text h4
+
+            {
+                font-size: 1.5rem;
+            }
+
+            .campaign-text p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            }
+        </style>
+
+
+        <section id="rey">
             @{
                 ViewData["Title"] = "Rəy Yaz";
             }
 
-<div class="container py-5">
-    <h2 class="text-center mb-4 text-pink"> Bizimlə təəssüratını paylaş!</h2>
-        <section id="#rey">
+            <div class="container py-5">
+                <h2 class="text-center mb-4 text-pink">Bizimlə təəssüratını paylaş!</h2>
 
-    <div class="card shadow-sm p-4 rounded-4 bg-white-pink mx-auto" style="max-width: 600px;">
-        <form  asp-action="Create" method="post">
-            <div class="mb-3">
-                <label asp-for="FullName" class="form-label text-muted">Adınız</label>
-                <input asp-for="FullName" class="form-control rounded-3" placeholder="Adınızı daxil edin" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
+                <div class="row align-items-center">
+                    <!-- Sol tərəf: şəkil -->
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <img src="~/images/Group 14.svg" alt="Rəy Şəkli"
+                             class="img-fluid rounded-4" style="display: block; width: 100%;">
+                    </div>
+
+                    <!-- Sağ tərəf: form -->
+                    <div class="col-md-6">
+                        <div class="card shadow-sm p-4 rounded-4 bg-white-pink">
+                            <form asp-action="Create" method="post">
+                                <div>
+                                    <label asp-for="FullName" class="form-label text-muted">Adınız</label>
+                                    <input asp-for="FullName" class="form-control rounded-3" placeholder="Adınızı daxil edin" />
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="Comment" class="form-label text-muted">Rəyiniz</label>
+                                    <textarea asp-for="Comment" class="form-control rounded-3" rows="4" placeholder="Təcrübənizi bizimlə bölüşün 💕"></textarea>
+                                    <span asp-validation-for="Comment" class="text-danger"></span>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <button asp-action="CreateReview" type="submit" class="btn btn-pink px-4 py-2 rounded-pill">Göndər 💖</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label asp-for="Comment" class="form-label text-muted">Rəyiniz</label>
-                <textarea asp-for="Comment" class="form-control rounded-3" rows="4" placeholder="Təcrübənizi bizimlə bölüşün 💕"></textarea>
-                <span asp-validation-for="Comment" class="text-danger"></span>
-            </div>
+            <style>
+                body {
+                    background-color: #fff0f6;
+                    font-family: 'Segoe UI', sans-serif;
+                }
 
-            <div class="text-center mt-4">
-                <button asp-action="CreateReview" type="submit" class="btn btn-pink px-4 py-2 rounded-pill">Göndər 💖</button>
-            </div>
-        </form>
-    </div>
+                .text-pink {
+                    color: #d63384;
+                    font-family: 'Marck Script', cursive;
+                }
 
+                .bg-white-pink {
+                    background-color: #fff8fc;
+                }
+
+                .btn-pink {
+                    background-color: #d63384;
+                    color: white;
+                    border: none;
+                }
+
+                    .btn-pink:hover {
+                        background-color: #b03060;
+                    }
+
+                @@media (max-width: 768px) {
+                    .text-pink
+
+                {
+                    font-size: 1.4rem;
+                }
+
+                .row.align-items-center > div {
+                    text-align: center;
+                }
+
+                img {
+                    max-width: 80%;
+                    margin: 0 auto;
+                }
+
+                }
+            </style>
         </section>
-</div>
-
-<style>
-    body {
-        background-color: #fff0f6;
-        font-family: 'Segoe UI', sans-serif;
-    }
-
-    .text-pink {
-        color: #d63384;
-        font-family: 'Marck Script', cursive;
-    }
-
-    .bg-white-pink {
-        background-color: #fff8fc;
-    }
-
-    .btn-pink {
-        background-color: #d63384;
-        color: white;
-        border: none;
-    }
-
-        .btn-pink:hover {
-            background-color: #b03060;
-        }
-</style>
-
-</section>
 
 

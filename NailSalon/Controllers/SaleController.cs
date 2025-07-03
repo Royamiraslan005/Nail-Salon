@@ -24,6 +24,7 @@ namespace NailSalon.Controllers
                 return RedirectToAction("Index", "Home"); // Əgər sessionId yoxdursa, yönləndir
 
             await _saleService.ProcessStripePaymentAsync(sessionId);
+            
             return View(); // Success.cshtml view-ə yönləndirir
         }
 
