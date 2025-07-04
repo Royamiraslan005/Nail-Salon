@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NailSalon.BL.Services.Abstractions;
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
@@ -6,6 +7,7 @@ using NailSalon.Core.ViewModels;
 namespace NailSalon.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class NailTypeController : Controller
     {
         private readonly INailTypeService _service;

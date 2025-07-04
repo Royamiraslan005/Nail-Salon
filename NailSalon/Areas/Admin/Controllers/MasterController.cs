@@ -4,10 +4,12 @@ using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
 using NailSalon.BL.Services.Abstractions;
 using NailSalon.BL.Services.Concretes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NailSalon.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class MasterController : Controller
     {
         private readonly IMasterService _masterService;

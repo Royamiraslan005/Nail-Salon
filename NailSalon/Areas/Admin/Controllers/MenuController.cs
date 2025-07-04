@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NailSalon.BL.Services.Abstractions;
 using NailSalon.Core.ViewModels;
 
 namespace NailSalon.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+
     public class MenuController : Controller
     {
         private readonly IMenuService _service;

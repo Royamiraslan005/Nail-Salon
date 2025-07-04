@@ -4,6 +4,7 @@ using NailSalon.BL.Services.Abstractions;
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NailSalon.Controllers
 {
@@ -32,7 +33,7 @@ namespace NailSalon.Controllers
            
             _menuService = menuService;
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Create(int? masterId)
         {
@@ -61,7 +62,7 @@ namespace NailSalon.Controllers
         }
 
 
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(ReservationVm vm)
         {

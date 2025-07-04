@@ -73,7 +73,7 @@ namespace NailSalon.Controllers
         [HttpGet]
         public IActionResult AccessDenied()
         {
-            return RedirectToAction("Login");
+            return View();
         }
 
 
