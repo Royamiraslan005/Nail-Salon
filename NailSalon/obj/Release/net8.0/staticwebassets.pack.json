@@ -361,10 +361,6 @@
       "PackagePath": "staticwebassets\\IMAGE\\099bf6bd-94c6-4551-823c-c3258f0cdb96.jpeg"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\0c30875c-86f1-45fb-8283-2022e09571fb.jpg",
-      "PackagePath": "staticwebassets\\IMAGE\\0c30875c-86f1-45fb-8283-2022e09571fb.jpg"
-    },
-    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\10badb1d-f56e-4128-be8a-703bb2b38ca7.jpg",
       "PackagePath": "staticwebassets\\IMAGE\\10badb1d-f56e-4128-be8a-703bb2b38ca7.jpg"
     },
@@ -385,12 +381,12 @@
       "PackagePath": "staticwebassets\\IMAGE\\2adb0463-2507-4d50-9b04-c86651479610.jpg"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\34b9f389-b91b-4bf9-957b-099775bfa26a.jpg",
-      "PackagePath": "staticwebassets\\IMAGE\\34b9f389-b91b-4bf9-957b-099775bfa26a.jpg"
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\34371223-6754-4f4a-aeaf-d5a83db855cf.webp",
+      "PackagePath": "staticwebassets\\IMAGE\\34371223-6754-4f4a-aeaf-d5a83db855cf.webp"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\438252f9-41f1-42d3-9cd5-6035368ec6e4.jpg",
-      "PackagePath": "staticwebassets\\IMAGE\\438252f9-41f1-42d3-9cd5-6035368ec6e4.jpg"
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\34b9f389-b91b-4bf9-957b-099775bfa26a.jpg",
+      "PackagePath": "staticwebassets\\IMAGE\\34b9f389-b91b-4bf9-957b-099775bfa26a.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\4bee9047-d0f3-4976-886e-86b368b24f21.jpg",
@@ -433,12 +429,12 @@
       "PackagePath": "staticwebassets\\IMAGE\\96163557-c37f-4a59-b27a-4c86d2ef6eb4.jpeg"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\9fdae24c-c126-4e9e-a9c3-9e88862a8154.jpg",
-      "PackagePath": "staticwebassets\\IMAGE\\9fdae24c-c126-4e9e-a9c3-9e88862a8154.jpg"
-    },
-    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\a34b4821-7d59-47ef-b080-34c9305f4a19.jpg",
       "PackagePath": "staticwebassets\\IMAGE\\a34b4821-7d59-47ef-b080-34c9305f4a19.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\aedf499e-328a-4385-94bc-904411a40736.jpg",
+      "PackagePath": "staticwebassets\\IMAGE\\aedf499e-328a-4385-94bc-904411a40736.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\b1d4e6fa-3059-42d2-acea-414823efcf1f.jpg",
@@ -447,6 +443,10 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\b7760fd6-6f39-40b8-9306-5cddbf3f6cd5.jpg",
       "PackagePath": "staticwebassets\\IMAGE\\b7760fd6-6f39-40b8-9306-5cddbf3f6cd5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\bccc0c11-c1c1-40e3-808e-4ad9007d13f1.webp",
+      "PackagePath": "staticwebassets\\IMAGE\\bccc0c11-c1c1-40e3-808e-4ad9007d13f1.webp"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\IMAGE\\bf3c8e4f-7243-460b-b826-99c441f83bf3.jpg",
@@ -7917,6 +7917,10 @@
       "PackagePath": "staticwebassets\\images\\023e00df-495b-4838-9f2b-c9bd71d2096b.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\0691411b-7b4f-4a04-a8a8-683a97897c0a.jpg",
+      "PackagePath": "staticwebassets\\images\\0691411b-7b4f-4a04-a8a8-683a97897c0a.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\075c95fa-9300-4efe-92b8-492e5459c1b3.jpg",
       "PackagePath": "staticwebassets\\images\\075c95fa-9300-4efe-92b8-492e5459c1b3.jpg"
     },
@@ -7961,6 +7965,10 @@
       "PackagePath": "staticwebassets\\images\\1db5738a-9373-4248-bac7-b26875627b56.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\1dd37bc3-978d-4418-8d19-30ada73847be.jpg",
+      "PackagePath": "staticwebassets\\images\\1dd37bc3-978d-4418-8d19-30ada73847be.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\1de079d6-6c65-4e29-ba56-f46b2a5bd029.jpg",
       "PackagePath": "staticwebassets\\images\\1de079d6-6c65-4e29-ba56-f46b2a5bd029.jpg"
     },
@@ -7977,12 +7985,20 @@
       "PackagePath": "staticwebassets\\images\\26c33754-c9c1-40cb-87f9-2eda8421fcd5.jpeg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\2bdf948b-b115-4efa-b09f-76b372d93532.jpg",
+      "PackagePath": "staticwebassets\\images\\2bdf948b-b115-4efa-b09f-76b372d93532.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\2ed6c6bc-f650-4343-80f9-446f21489ce8.jpg",
       "PackagePath": "staticwebassets\\images\\2ed6c6bc-f650-4343-80f9-446f21489ce8.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\308cd111-1f9a-4992-92e3-a552710ce5b7.jpeg",
       "PackagePath": "staticwebassets\\images\\308cd111-1f9a-4992-92e3-a552710ce5b7.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\308ef7db-5769-417c-9971-d59b78ed250d.jpg",
+      "PackagePath": "staticwebassets\\images\\308ef7db-5769-417c-9971-d59b78ed250d.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\3176294b-0594-49ed-9a59-0c831ebf1e4d.png",
@@ -8009,6 +8025,14 @@
       "PackagePath": "staticwebassets\\images\\3a53a84b-92c5-49ea-a540-f77453211414.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\3ac1efe4-46a4-4d01-8be7-86952e1e3fd8.jpg",
+      "PackagePath": "staticwebassets\\images\\3ac1efe4-46a4-4d01-8be7-86952e1e3fd8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\3d81f7ba-7650-4714-94c0-6eff281ac8f0.jpg",
+      "PackagePath": "staticwebassets\\images\\3d81f7ba-7650-4714-94c0-6eff281ac8f0.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\40a95758-01f5-4c04-9f15-1ab093993c60.jpg",
       "PackagePath": "staticwebassets\\images\\40a95758-01f5-4c04-9f15-1ab093993c60.jpg"
     },
@@ -8023,6 +8047,10 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\4553a6cf-9949-4f62-b02a-b04c3e368f25.jpg",
       "PackagePath": "staticwebassets\\images\\4553a6cf-9949-4f62-b02a-b04c3e368f25.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\46b46e24-c8b5-4fff-8a32-f16d9c201b89.jpg",
+      "PackagePath": "staticwebassets\\images\\46b46e24-c8b5-4fff-8a32-f16d9c201b89.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\4928467f-4602-4afe-9b47-7100ce75a263.jpg",
@@ -8045,6 +8073,10 @@
       "PackagePath": "staticwebassets\\images\\50d1441b-3315-4705-b74f-6ff821b78274.jpeg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\556a98e7-5860-4947-b071-fbb002428da6.jpg",
+      "PackagePath": "staticwebassets\\images\\556a98e7-5860-4947-b071-fbb002428da6.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\55a1141a-d7af-4214-abc7-1e0452107f4d.jpeg",
       "PackagePath": "staticwebassets\\images\\55a1141a-d7af-4214-abc7-1e0452107f4d.jpeg"
     },
@@ -8063,6 +8095,10 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\5c3991ca-d5f1-46ae-87ec-25831d65f564.jpeg",
       "PackagePath": "staticwebassets\\images\\5c3991ca-d5f1-46ae-87ec-25831d65f564.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\5e598282-5c07-4ff4-a237-5bcbacfc8ab4.webp",
+      "PackagePath": "staticwebassets\\images\\5e598282-5c07-4ff4-a237-5bcbacfc8ab4.webp"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\601b2c83-1d35-4e74-b38a-15bfa8c01655.jpg",
@@ -8105,6 +8141,10 @@
       "PackagePath": "staticwebassets\\images\\6bf40282-7cf7-4148-8f23-fb3495911897.jpeg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\6d519d2d-b13d-4492-9dbc-9e2ee41f8a7b.jpg",
+      "PackagePath": "staticwebassets\\images\\6d519d2d-b13d-4492-9dbc-9e2ee41f8a7b.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\6f627660-62a7-4c81-b548-005d9bcac206.jpg",
       "PackagePath": "staticwebassets\\images\\6f627660-62a7-4c81-b548-005d9bcac206.jpg"
     },
@@ -8113,8 +8153,16 @@
       "PackagePath": "staticwebassets\\images\\71c61086-0ea8-4ae2-a4bd-53ba522f3785.jpeg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\753612f4-ef98-4528-a36a-27d229e565ef.jpg",
+      "PackagePath": "staticwebassets\\images\\753612f4-ef98-4528-a36a-27d229e565ef.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\76207ca9-66df-499e-b5f2-7b9dbc9bf9dc.jpg",
       "PackagePath": "staticwebassets\\images\\76207ca9-66df-499e-b5f2-7b9dbc9bf9dc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\774849f0-7d24-43ac-ba7e-92d81b73b3c1.jpg",
+      "PackagePath": "staticwebassets\\images\\774849f0-7d24-43ac-ba7e-92d81b73b3c1.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\791e65fb-aa18-4377-ae08-21d6a2b16016.jpg",
@@ -8249,6 +8297,10 @@
       "PackagePath": "staticwebassets\\images\\a640d156-1e39-4f8a-b532-3f9da5b23a5d.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\a73b143c-13a2-4f78-89f6-40188437917d.jpg",
+      "PackagePath": "staticwebassets\\images\\a73b143c-13a2-4f78-89f6-40188437917d.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\a806b54c-c363-40f9-b41f-ba1cdcaee262.jpg",
       "PackagePath": "staticwebassets\\images\\a806b54c-c363-40f9-b41f-ba1cdcaee262.jpg"
     },
@@ -8271,6 +8323,10 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\b5b806a5-8fa6-4414-9e56-539d5d9defda.jpg",
       "PackagePath": "staticwebassets\\images\\b5b806a5-8fa6-4414-9e56-539d5d9defda.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\b811f860-9256-4161-b4c8-60490dfec320.jpg",
+      "PackagePath": "staticwebassets\\images\\b811f860-9256-4161-b4c8-60490dfec320.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\ba67f3ec-b701-4b95-9ab3-d247b4e83261.jpeg",
@@ -8317,6 +8373,10 @@
       "PackagePath": "staticwebassets\\images\\cb2436aa-0825-46ac-a455-0e45e8430303.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\ccb2a4b7-80f5-47f4-af17-90066a0397d5.jpg",
+      "PackagePath": "staticwebassets\\images\\ccb2a4b7-80f5-47f4-af17-90066a0397d5.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\cd634656-9c45-447c-8270-4972d7ee748e.jpg",
       "PackagePath": "staticwebassets\\images\\cd634656-9c45-447c-8270-4972d7ee748e.jpg"
     },
@@ -8343,6 +8403,10 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\d8cda2a4-6a04-4afa-a411-14e9e010f3c2.jpeg",
       "PackagePath": "staticwebassets\\images\\d8cda2a4-6a04-4afa-a411-14e9e010f3c2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\d90691c8-0254-4b16-9d7d-a2359ea69d03.jpg",
+      "PackagePath": "staticwebassets\\images\\d90691c8-0254-4b16-9d7d-a2359ea69d03.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\db78d77a-30c5-410f-af32-4893347d5527.jpg",
@@ -8387,6 +8451,10 @@
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\e7d6a1cf-ea4a-4159-9d74-6b58cdbb2241.jpg",
       "PackagePath": "staticwebassets\\images\\e7d6a1cf-ea4a-4159-9d74-6b58cdbb2241.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\eaa6ca1b-835d-4464-8bbf-acdda043c74d.jpg",
+      "PackagePath": "staticwebassets\\images\\eaa6ca1b-835d-4464-8bbf-acdda043c74d.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\Downloads\\Nail-Salon\\Nail-Salon\\NailSalon\\wwwroot\\images\\ebe5da98-dbfa-4898-a238-336581d9ff6a.jpg",

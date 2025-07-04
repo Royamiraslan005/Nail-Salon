@@ -11,8 +11,8 @@ namespace NailSalon.Core.ViewModels
     {
         public DateTime Date { get; set; }
     
-        public string MasterName { get; set; }
-        public string DesignName { get; set; }
+        public string? MasterName { get; set; }
+        public string? DesignName { get; set; }
    
         public bool WantsMenu { get; set; }
         public string? SelectedMenuIds { get; set; }

@@ -35,13 +35,13 @@
 
         h2 {
             text-align: center;
-            color: #d63384;
+            color: #680427;
             margin-bottom: 30px;
         }
 
         label {
             font-weight: 600;
-            color: #d63384;
+            color: #680427;
         }
 
         select, input[type="datetime-local"] {
@@ -59,6 +59,7 @@
         }
 
         .menu-section {
+            color: #680427;
             margin-top: 40px;
         }
 
@@ -80,7 +81,7 @@
             width: 100%;
             padding: 14px;
             border: none;
-            background: #ff69b4;
+            background-color: #d63384;
             color: white;
             font-size: 16px;
             border-radius: 10px;
@@ -95,7 +96,7 @@
 <body>
 
     <div class="reservation-box">
-        <h2>💅 Rezarvasiya et və Menyu Seç</h2>
+        <h2> Rezarvasiya et və Menyu Seç</h2>
 
         <form method="post" asp-action="Create" asp-controller="Reservation">
 
@@ -139,7 +140,7 @@
             <!-- Yemək/İçki -->
             <!-- Menyu Seçimi -->
             <div class="menu-section">
-                <h4 class="text-center text-success">🧁 Menyu Seçimi</h4>
+                <h4 class="text-center" style=" color: #680427;"> Menyu Seçimi</h4>
                 <div class="row mt-4">
                     @foreach (var item in ViewBag.MenuItems as List<MenuItemVm>)
                     {

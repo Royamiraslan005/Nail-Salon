@@ -412,61 +412,79 @@
         }
     }
 </style>
+<div class="special-offer my-5 text-center position-relative">
+    <img src="~/images/Group 17.png" alt="Kampaniya" class="img-fluid banner-img rounded-4">
+    <div class="offer-text position-absolute top-50 start-50 translate-middle fw-bold">
+        <h4>Bu aya özəl ilk 10 müştəriyə</h4>
+        <p>
+            İstənilən dizaynda dırnağa <span class="highlight-dark">20%</span> endirim
+        </p>
+    </div>
+</div>
+
+<style>
+    .special-offer {
+        max-width: 1350px;
+        height: 400px; /* Bannerin hündürlüyü */
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+
+   
+    .highlight-dark {
+        color: #680427;
+        font-weight: 800;
+        text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4); /* Kölgə effekti */
+        font-size: 1.8rem;
+    }
 
 
-        <style>
-            .campaign-banner {
-                background-image: url('@Url.Content("~/images/Group 17.png")'); /* Arxa fon şəkli */
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                height: 400px;
-                width: 100%; /* Sabit px yox, responsiv üçün full width */
-                max-width: 1350px; /* İstəsən maksimum enlik ver */
-                margin: 0 auto; /* Mərkəzləşdirmək üçün */
-                border-radius: 20px;
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-               color: #680427;
-                overflow: hidden;
-            }
+    .banner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* şəkli div ölçüsünə uyğunlaşdırır */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
 
-            .campaign-text h4 {
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-                text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-            }
+    .offer-text {
+        z-index: 2;
+    }
 
-            .campaign-text p {
-                font-size: 1.6rem;
-                text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-            }
+        .offer-text h4,
+        .offer-text p {
+            color: #680427;
+            text-shadow: 0 2px 6px rgba(255, 255, 255, 0.6);
+        }
 
-            .highlight {
-                color: #680427; /* Tünd bənövşəyi rəng */
-                font-weight: 800; /* Daha qalın */
-                font-size: 1.8rem; /* İstəsən bir az daha böyük */
-            }
+        .offer-text h4 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
 
-         
+        .offer-text p {
+            font-size: 1.6rem;
+        }
 
-            @@media (max-width: 768px) {
-                .campaign-text h4
+    @@media (max-width: 768px) {
+        .offer-text h4
 
-            {
-                font-size: 1.5rem;
-            }
+    {
+        font-size: 1.5rem;
+    }
 
-            .campaign-text p {
-                font-size: 1rem;
-                padding: 0 10px;
-            }
+    .offer-text p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
 
-            }
-        </style>
+    }
+</style>
+
 
 
         <section id="rey">

@@ -66,9 +66,18 @@ namespace NailSalon.Controllers
         public async Task<IActionResult> Create(ReservationVm vm)
         {
             var user = await _userManager.GetUserAsync(User);
+            if (vm.Date < DateTime.UtcNow.AddHours(4))
+            {
+                ModelState.AddModelError("Date", "Tarix indiki vaxtdan geri ola bilməz.");
+            }
+
+
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("MasterId", "Master mütləq seçilməlidir!!!");
+                if (vm.MasterId < 1)
+                {
+                    ModelState.AddModelError("MasterId", "Master mütləq seçilməlidir!!!");
+                }
                 ViewBag.Masters = await _masterService.GetAllAsync();
 
                 var allDesigns = await _nailTypeService.GetAllAsync();
