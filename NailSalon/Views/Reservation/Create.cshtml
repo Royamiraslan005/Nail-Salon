@@ -132,6 +132,7 @@
                        name="Date"
                        class="form-control"
                        min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")"
+                       max="@DateTime.Now.AddMonths(4).ToString("yyyy-MM-ddTHH:mm")"
                        value="@(Model.Date == DateTime.MinValue ? "" : Model.Date.ToString("yyyy-MM-ddTHH:mm"))" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>

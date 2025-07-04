@@ -72,7 +72,7 @@ namespace NailSalon.Controllers
             }
 
 
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || vm.MasterId == 0)
             {
                 if (vm.MasterId < 1)
                 {
