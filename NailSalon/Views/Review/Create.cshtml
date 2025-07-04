@@ -8,12 +8,8 @@
     <h2 class="text-center mb-4 text-pink">💬 Bizimlə təəssüratını paylaş!</h2>
 
     <div class="card shadow-sm p-4 rounded-4 bg-white-pink mx-auto" style="max-width: 600px;">
-        <form asp-action="Create" method="post">
-            <div class="mb-3">
-                <label asp-for="FullName" class="form-label text-muted">Adınız</label>
-                <input asp-for="FullName" class="form-control rounded-3" placeholder="Adınızı daxil edin" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
-            </div>
+        <form asp-action="CreateReview" asp-route-email="@User.Identity.Name" method="post">
+            
 
             <div class="mb-3">
                 <label asp-for="Comment" class="form-label text-muted">Rəyiniz</label>

@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using NailSalon.BL.Services.Abstractions;
 using NailSalon.BL.Services.Concretes;
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
 using NailSalon.DAL.Contexts;
+using Org.BouncyCastle.Crypto.Signers;
 using System.Threading.Tasks;
 
 namespace NailSalon.Controllers
@@ -14,13 +17,14 @@ namespace NailSalon.Controllers
         IReviewService _reviewService;
         IServicesService _servicesService;
         INailTypeService _nailTypeService;
-
-        public HomeController(IMasterService masterService, IReviewService reviewService, IServicesService servicesService, INailTypeService nailTypeService)
+        UserManager<AppUser> _userManager;
+        public HomeController(IMasterService masterService, IReviewService reviewService, IServicesService servicesService, INailTypeService nailTypeService, UserManager<AppUser> userManager)
         {
             _masterService = masterService;
             _reviewService = reviewService;
             _servicesService = servicesService;
             _nailTypeService = nailTypeService;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
@@ -59,14 +63,24 @@ namespace NailSalon.Controllers
             return View(vm);
         }
 
- 
+
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateReview(ReviewVm vm)
         {
-            if (!ModelState.IsValid) return View(vm);
+            if (!ModelState.IsValid) return RedirectToAction("Index");
 
-            await _reviewService.CreateAsync(vm);
+            // İstifadəçinin emailini Identity-dən al
+            var email = User.Claims.FirstOrDefault(c => c.Type == "name")?.Value ?? User.Identity.Name;
+
+            var userName =await _userManager.FindByEmailAsync(email);
+
+
+            
+
+            await _reviewService.CreateAsync(vm, userName.FullName);
+
             return RedirectToAction("Index");
         }
     }

@@ -11,7 +11,7 @@ namespace NailSalon.BL.Services.Abstractions
     {
         Task<List<ReviewVm>> GetAllAsync();
         Task<ReviewVm> GetByIdAsync(int id);
-        Task CreateAsync(ReviewVm vm);
+        Task CreateAsync(ReviewVm vm,string email);
         Task DeleteAsync(int id);
 
     }

@@ -168,8 +168,8 @@ namespace NailSalon.BL.Services.Concretes
                 .Where(x => x.Date < DateTime.Now)
                 .Select(x => new ReservationInfoVm
                 {
-                    MasterName = x.Master.FullName,
-                    DesignName = x.NailType.Title,
+                    MasterName = x.Master?.FullName,
+                    DesignName = x.NailType?.Title,
                     WantsMenu = x.WantsFoodDrink,
                     Date = x.Date,
                     MenuItems = x.MenuItems

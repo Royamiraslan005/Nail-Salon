@@ -1,4 +1,5 @@
-﻿using NailSalon.Core.ViewModels;
+﻿using NailSalon.Core.Models;
+using NailSalon.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace NailSalon.DAL.Repositories.Abstracts
     {
         Task<List<ReviewVm>> GetAllAsync();
         Task<ReviewVm> GetByIdAsync(int id);
-        Task CreateAsync(ReviewVm vm);
+        Task CreateAsync(Review vm);
         Task DeleteAsync(int id);
 
     }

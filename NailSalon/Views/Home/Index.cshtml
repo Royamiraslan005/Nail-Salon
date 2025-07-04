@@ -505,23 +505,17 @@
                     <!-- Sağ tərəf: form -->
                     <div class="col-md-6">
                         <div class="card shadow-sm p-4 rounded-4 bg-white-pink">
-                            <form asp-action="Create" method="post">
-                                <div>
-                                    <label asp-for="FullName" class="form-label text-muted">Adınız</label>
-                                    <input asp-for="FullName" class="form-control rounded-3" placeholder="Adınızı daxil edin" />
-                                    <span asp-validation-for="FullName" class="text-danger"></span>
-                                </div>
+                    <form asp-action="CreateReview" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Comment" class="form-label text-muted">Rəyiniz</label>
+                            <textarea asp-for="Comment" class="form-control rounded-3" rows="4" placeholder="Təcrübənizi bizimlə bölüşün 💕"></textarea>
+                            <span asp-validation-for="Comment" class="text-danger"></span>
+                        </div>
 
-                                <div class="mb-3">
-                                    <label asp-for="Comment" class="form-label text-muted">Rəyiniz</label>
-                                    <textarea asp-for="Comment" class="form-control rounded-3" rows="4" placeholder="Təcrübənizi bizimlə bölüşün 💕"></textarea>
-                                    <span asp-validation-for="Comment" class="text-danger"></span>
-                                </div>
-
-                                <div class="text-center mt-4">
-                                    <button asp-action="CreateReview" type="submit" class="btn btn-pink px-4 py-2 rounded-pill">Göndər 💖</button>
-                                </div>
-                            </form>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-pink px-4 py-2 rounded-pill">Göndər 💖</button>
+                        </div>
+                    </form>
                         </div>
                     </div>
                 </div>

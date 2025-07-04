@@ -26,8 +26,10 @@ namespace NailSalon.Controllers
 
             await _likeService.ToggleLikeAsync(userId, productId);
 
-            return RedirectToAction("Index", "Shop"); // və ya geri qaytar
+            // İstifadəçini bəyəndiklər səhifəsinə qaytar
+            return RedirectToAction("Liked");
         }
+
         [HttpGet]
         public async Task<IActionResult> Liked()
         {

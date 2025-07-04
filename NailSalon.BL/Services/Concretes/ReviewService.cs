@@ -1,4 +1,5 @@
 ﻿using NailSalon.BL.Services.Abstractions;
+using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
 using NailSalon.DAL.Repositories.Abstracts;
 using System;
@@ -20,7 +21,17 @@ namespace NailSalon.BL.Services.Concretes
 
         public async Task<List<ReviewVm>> GetAllAsync() => await _repo.GetAllAsync();
 
-        public async Task CreateAsync(ReviewVm vm) => await _repo.CreateAsync(vm);
+        public async Task CreateAsync(ReviewVm vm,string email)
+        {
+            var review = new Review()
+            {
+                Email = email,
+                Comment = vm.Comment,
+
+            };
+
+            await _repo.CreateAsync(review);
+        }
         public async Task DeleteAsync(int id)
         {
             await _repo.DeleteAsync(id);
@@ -36,7 +47,7 @@ namespace NailSalon.BL.Services.Concretes
             return new ReviewVm
             {
                 Id = review.Id,
-                FullName = review.FullName,
+                Email = review.Email,
                 Comment = review.Comment,
                 CreatedAt = review.CreatedAt
             };

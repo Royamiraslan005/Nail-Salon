@@ -25,10 +25,9 @@
         }
 
         h2 {
-            color: #d63384;
+            color: #680427;
             font-weight: 700;
             margin-bottom: 30px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .card {
@@ -38,6 +37,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             background: white;
+            position: relative;
         }
 
             .card:hover {
@@ -46,10 +46,11 @@
             }
 
         .card-img-top {
-            height: 320px; 
+            height: 320px;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
+
         .card:hover .card-img-top {
             transform: scale(1.05);
         }
@@ -61,7 +62,7 @@
         .card-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #d63384;
+            color: #680427;
             margin-bottom: 8px;
         }
 
@@ -71,19 +72,18 @@
             white-space: normal;
         }
 
-
         .price {
             display: block;
             margin-top: 12px;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #e91e63;
+            color: #680427;
         }
 
         .badge-category {
             margin-top: 12px;
             font-size: 0.8rem;
-            background-color: #ff6ec7;
+            background-color: #CC3A6DB2;
             color: white;
             font-weight: 600;
             border-radius: 12px;
@@ -91,20 +91,30 @@
             user-select: none;
         }
 
-        /* Responsive tweaks */
-        @@media (max-width: 576px) {
-            .card-text
-
-        {
-            height: auto;
+        .like-btn-form {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
         }
 
+            .like-btn-form button {
+                border: none;
+                background: transparent;
+                font-size: 22px;
+                color: red;
+            }
+
+        @@media (max-width: 576px) {
+            .card-text {
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center">❤️ Bəyəndiklərim</h2>
+        <h2 class="text-center"> Bəyəndiklərim</h2>
 
         @if (!Model.Any())
         {
@@ -117,6 +127,12 @@
                 {
                     <div class="col">
                         <div class="card h-100">
+                            <!-- Ürək ikonu (form şəklində) -->
+                            <form asp-controller="Like" asp-action="Toggle" method="post" class="like-btn-form">
+                                <input type="hidden" name="productId" value="@item.Id" />
+                                <button type="submit" title="Bəyəndiklərdən çıxar">❤️</button>
+                            </form>
+
                             <img src="~/images/@item.ImageUrl"
                                  alt="@item.Name"
                                  class="card-img-top" />
@@ -135,4 +151,3 @@
     </div>
 </body>
 </html>
-

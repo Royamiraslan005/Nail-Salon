@@ -27,22 +27,17 @@ namespace NailSalon.DAL.Repositories.Concretes
                 .Select(r => new ReviewVm
                 {
                     Id = r.Id,
-                    FullName = r.FullName,
+                    Email = r.Email,
                     Comment = r.Comment,
                     CreatedAt = r.CreatedAt
                 })
                 .ToListAsync();
         }
 
-        public async Task CreateAsync(ReviewVm vm)
+        public async Task CreateAsync(Review vm)
         {
-            var entity = new Review
-            {
-                FullName = vm.FullName,
-                Comment = vm.Comment,
-                CreatedAt = vm.CreatedAt
-            };
-            _context.Reviews.Add(entity);
+            
+            _context.Reviews.Add(vm);
             await _context.SaveChangesAsync();
         }
 
@@ -66,7 +61,7 @@ namespace NailSalon.DAL.Repositories.Concretes
             return new ReviewVm
             {
                 Id = review.Id,
-                FullName = review.FullName,
+                Email = review.Email,
                 Comment = review.Comment,
                 CreatedAt = review.CreatedAt
             };
