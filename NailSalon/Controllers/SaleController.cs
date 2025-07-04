@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NailSalon.BL.Services.Abstractions;
+using NailSalon.BL.Services.Concretes;
 using NailSalon.Core.Models;
 using NailSalon.Core.ViewModels;
 
@@ -10,6 +11,7 @@ namespace NailSalon.Controllers
     {
         private readonly ISaleService _saleService;
         private readonly UserManager<AppUser> _userManager;
+        
 
         public SaleController(ISaleService saleService, UserManager<AppUser> userManager)
         {

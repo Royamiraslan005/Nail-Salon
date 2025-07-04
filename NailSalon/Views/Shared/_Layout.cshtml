@@ -183,7 +183,7 @@
 
         <nav id="primary-header" class="navbar navbar-expand-lg py-3">
             <div class="container-lg">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" asp-action="Index" asp-controller="Home" >
                     <img src="~/Assets/images/main-logo.png" class="logo img-fluid">
                 </a>
                 <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
@@ -326,7 +326,7 @@
             <div class="row ">
                 <div class="col-md-4 my-4 ">
                     <div class="footer-menu">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" asp-action="Index" asp-controller="Home" >
                             <img src="~/Assets/images/main-logo.png" class="logo img-fluid">
                         </a>
                         <p class="mt-4">
@@ -338,27 +338,27 @@
                             <ul class="d-flex  list-unstyled gap-2 m-0">
                                 <li class="social">
                                     <a href="#">
-                                        <iconify-icon class="social-icon" icon="ri:facebook-fill"></iconify-icon>
+                                        <iconify-icon class="social-icon" icon="ri:facebook-fill" style=" color: #C71585;"></iconify-icon>
                                     </a>
                                 </li>
                                 <li class="social">
                                     <a href="#">
-                                        <iconify-icon class="social-icon" icon="ri:twitter-fill"></iconify-icon>
+                                        <iconify-icon class="social-icon" icon="ri:twitter-fill" style=" color: #C71585;"></iconify-icon>
                                     </a>
                                 </li>
                                 <li class="social">
                                     <a href="#">
-                                        <iconify-icon class="social-icon" icon="ri:pinterest-fill"></iconify-icon>
+                                        <iconify-icon class="social-icon" icon="ri:pinterest-fill" style=" color: #C71585;"></iconify-icon>
                                     </a>
                                 </li>
                                 <li class="social">
                                     <a href="#">
-                                        <iconify-icon class="social-icon" icon="ri:instagram-fill"></iconify-icon>
+                                        <iconify-icon class="social-icon" icon="ri:instagram-fill" style=" color: #C71585;"></iconify-icon>
                                     </a>
                                 </li>
                                 <li class="social">
                                     <a href="#">
-                                        <iconify-icon class="social-icon" icon="ri:youtube-fill"></iconify-icon>
+                                        <iconify-icon class="social-icon" icon="ri:youtube-fill" style=" color: #C71585;"></iconify-icon>
                                     </a>
                                 </li>
 
@@ -368,21 +368,21 @@
                 </div>
                 <div class="col-md-2 my-4 ">
                     <div class="footer-menu">
-                        <h6 class="text-uppercase fw-bold  mb-4">Quick Links</h6>
-                        <ul class="menu-list list-unstyled">
-                            <li class="menu-item">
+                        <h6 class="text-uppercase fw-bold  mb-4" style="color: #4A0020;">Quick Links</h6>
+                        <ul class="menu-list list-unstyled" style="color: #4A0020;">
+                            <li class="menu-item" style="color: #4A0020;">
                                 <a href="#" class="footer-link">Home</a>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item" style="color: #4A0020;">
                                 <a href="#" class="footer-link">About us</a>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item" style="color: #4A0020;">
                                 <a href="#" class="footer-link">Offer </a>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item" style="color: #4A0020;">
                                 <a href="#" class="footer-link">Services</a>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item" style="color: #4A0020;">
                                 <a href="#" class="footer-link">Conatct Us</a>
                             </li>
                         </ul>
@@ -390,7 +390,7 @@
                 </div>
                 <div class="col-md-2 my-4 ">
                     <div class="footer-menu">
-                        <h6 class="text-uppercase fw-bold  mb-4">Services</h6>
+                        <h6 class="text-uppercase fw-bold  mb-4" style="color: #4A0020;">Services</h6>
                         <ul class="menu-list list-unstyled">
                             <li class="menu-item">
                                 <a asp-action="Index" asp-controller="Services" class="footer-link">Services</a>
@@ -403,52 +403,59 @@
                     </div>
                 </div>
                 <div class="col-md-2 my-4 ">
+                    <style>
+                        .footer-link {
+                            color: #C71585 !important; /* Dark pink */
+                        }
+                    </style>
+
                     <div class="footer-menu">
-                        <h6 class="text-uppercase fw-bold  mb-4">Help Center</h6>
+                        <h6 class="text-uppercase fw-bold mb-4" style="color: #4A0020;">Help Center</h6>
                         <ul class="menu-list list-unstyled">
                             <li class="menu-item">
                                 <a asp-action="Index" asp-controller="Services" class="footer-link">Services</a>
                             </li>
                             <li class="menu-item">
-                                <a  <a asp-action="Index" asp-controller="NailType" class="footer-link">NailType</a>
+                                <a asp-action="Index" asp-controller="NailType" class="footer-link">NailType</a>
                             </li>
                             <li class="menu-item">
-                                <a  <a asp-action="Create" asp-controller="Reservation" class="footer-link">Reservation </a>
+                                <a asp-action="Create" asp-controller="Reservation" class="footer-link">Reservation</a>
                             </li>
                             <li class="menu-item">
-                                <a <a asp-action="Index" asp-controller="Review" class="footer-link">Comment</a>
+                                <a asp-action="Index" asp-controller="Review" class="footer-link">Comment</a>
                             </li>
                             <li class="menu-item">
-                                <a <a asp-action="Profile" asp-controller="Account" class="footer-link">Profile</a>
+                                <a asp-action="Profile" asp-controller="Account" class="footer-link">Profile</a>
                             </li>
                             <li class="menu-item">
-                                <a <a asp-action="Index" asp-controller="Contact" class="footer-link">Contact</a>
+                                <a asp-action="Index" asp-controller="Contact" class="footer-link">Contact</a>
                             </li>
                         </ul>
                     </div>
+
                 </div>
                 <div class="col-md-2 my-4 ">
                     <div class="footer-menu">
-                        <h6 class="text-uppercase fw-bold  mb-4">Contact Us</h6>
+                        <h6 class="text-uppercase fw-bold  mb-4" style="color: #4A0020;">Contact Us</h6>
                         <ul class="info list-unstyled mt-4">
                             <li class="clock text-capitalize mb-2 align-items-center">
-                                <svg class="text-primary me-1" width="18" height="18">
+                                <svg class="text-pink me-1" width="18" height="18" style=" color: #C71585;">
                                     <use xlink:href="#clock"></use>
                                 </svg>7/24
                             </li>
                             <li class="location text-capitalize mb-2 align-items-center">
-                                <svg class="text-primary me-1" width="18" height="18">
+                                <svg class="text-pink me-1" width="18" height="18" style=" color: #C71585;">
                                     <use xlink:href="#location"></use>
                                 </svg>Baku,Azerbaijan
                             </li>
 
                             <li class="phone text-capitalize mb-2 align-items-center">
-                                <svg class="text-primary me-1" width="18" height="18">
+                                <svg class="text-pink me-1" width="18" height="18" style=" color: #C71585;">
                                     <use xlink:href="#phone"></use>
                                 </svg>55 755 24 00
                             </li>
                             <li class="email text-capitalize mb-2 align-items-center">
-                                <svg class="text-primary me-1" width="18" height="18">
+                                <svg class="text-pink me-1" width="18" height="18" style=" color: #C71585;">
                                     <use xlink:href="#email"></use>
                                 </svg> royamiraslanli@gmail.com
                             </li>

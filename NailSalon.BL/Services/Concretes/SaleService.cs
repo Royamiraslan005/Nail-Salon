@@ -15,28 +15,28 @@ namespace NailSalon.BL.Services.Concretes
     {
         private readonly ISaleRepository _saleRepo;
         private readonly IShopRepository _shopRepo;
+        private readonly IBasketService _basketService;
 
-        public SaleService(ISaleRepository saleRepo, IShopRepository shopRepo)
+        public SaleService(ISaleRepository saleRepo, IShopRepository shopRepo, IBasketService basketService)
         {
             _saleRepo = saleRepo;
             _shopRepo = shopRepo;
+            _basketService = basketService;
         }
 
         public async Task<string> CreateStripeSessionAsync(SaleVm vm, string userId)
         {
-            // Məhsulu verilən Id ilə DB-dən götürürük
+           
             var product = await _shopRepo.GetByIdAsync(vm.ProductId);
             if (product == null)
                 throw new Exception("Məhsul tapılmadı.");
 
-            // Miqdar yoxdursa minimum 1 təyin edirik
             if (vm.Quantity <= 0)
                 vm.Quantity = 1;
 
-            // Qiyməti sentlərə çeviririk (Stripe sentlərlə işləyir)
             var amountInCents = (long)(product.Price * 100);
             if (amountInCents < 1)
-                amountInCents = 100; // Minimum 1 USD sent (1 sent minimal Stripe-də)
+                amountInCents = 100; 
 
             var options = new SessionCreateOptions
             {
@@ -85,8 +85,7 @@ namespace NailSalon.BL.Services.Concretes
 
             var userId = session.Metadata["userId"];
 
-            // Metadata-da neçə məhsul olduğunu tapmaq üçün 
-            // "productId_0", "productId_1" və s. açarları yoxlamalıyıq
+     
             var sales = new List<Sale>();
 
             int index = 0;
@@ -96,7 +95,7 @@ namespace NailSalon.BL.Services.Concretes
                 string quantityKey = $"quantity_{index}";
 
                 if (!session.Metadata.ContainsKey(productIdKey))
-                    break; // Daha məhsul yoxdur
+                    break; 
 
                 int productId = int.Parse(session.Metadata[productIdKey]);
                 int quantity = int.Parse(session.Metadata[quantityKey]);
@@ -104,7 +103,7 @@ namespace NailSalon.BL.Services.Concretes
                 var product = await _shopRepo.GetByIdAsync(productId);
                 if (product == null)
                 {
-                    // Məhsul tapılmadı, istəyə bağlı olaraq ya davam et, ya da exception at
+  
                     index++;
                     continue;
                 }
@@ -125,6 +124,7 @@ namespace NailSalon.BL.Services.Concretes
             {
                 await _saleRepo.CreateAsync(sale);
             }
+            await _basketService.ClearBasketAsync(userId);
         }
 
 
@@ -150,12 +150,12 @@ namespace NailSalon.BL.Services.Concretes
         { "userId", userId }
     };
 
-            // metadata üçün productId və count kimi məlumatları əlavə etmək istəyirsənsə, indexlə əlavə edə bilərsən
+            
             int index = 0;
 
             foreach (var item in basketItems)
             {
-                // DB-dən məhsulu yoxlamaq, qiymət almaq yaxşıdır
+             
                 var product = await _shopRepo.GetByIdAsync(item.ProductId);
                 if (product == null)
                     throw new Exception($"Məhsul tapılmadı: {item.Name}");

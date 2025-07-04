@@ -69,10 +69,10 @@ namespace NailSalon.Controllers
             if (basketItems == null || !basketItems.Any())
                 return RedirectToAction(nameof(Index));
 
-            // SaleService-də basketItems üçün uyğun metod çağırılır
             var sessionUrl = await _saleService.CreateStripeSessionAsync(basketItems, user.Id);
 
-           await _basketService.ClearBasketAsync(user.Id);
+            
+         
 
             return Redirect(sessionUrl);
         }
@@ -83,12 +83,12 @@ namespace NailSalon.Controllers
             if (!User.Identity.IsAuthenticated)
                 return Unauthorized();
 
-            // Email-lə istifadəçini tap
+  
             var user = await _userManager.FindByEmailAsync(User.Identity.Name);
             if (user == null)
                 return NotFound();
 
-            await _basketService.ClearBasketAsync(user.Id); // <-- user.Id istifadə et
+            await _basketService.ClearBasketAsync(user.Id); 
             return RedirectToAction(nameof(Index));
         }
 
@@ -110,7 +110,7 @@ namespace NailSalon.Controllers
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
                             Name = item.Name,
-                            // İstəyə bağlı olaraq Description əlavə et
+                           
                         }
                     },
                     Quantity = item.Count,
@@ -127,8 +127,7 @@ namespace NailSalon.Controllers
                 Metadata = new Dictionary<string, string>
         {
             { "userId", userId }
-            // Diqqət: Məhsulların metadata-da saxlanması məntiqi mürəkkəbləşdirə bilər, 
-            // ona görə adətən ödəniş sonrası bazada səbətə baxılır.
+       
         }
             };
 

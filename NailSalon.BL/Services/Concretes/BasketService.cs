@@ -35,15 +35,14 @@ namespace NailSalon.BL.Services.Concretes
                 AppUserId = userId,
                 ProductId = productId,
                 Quantity = quantity,
-                Name = product.Name,        // Burada mütləq doldurmalısan
-                ImageUrl = product.ImageUrl // Əvvəlki kimi
+                Name = product.Name,       
+                ImageUrl = product.ImageUrl 
             };
 
             await _basketRepo.AddItemAsync(newItem);
         }
 
 
-        // İstifadəçinin səbətində olan məhsulları al
         public async Task<List<BasketItemVm>> GetBasketAsync(string userId)
         {
             var items = await _basketRepo.GetItemsAsync(userId);
@@ -75,7 +74,6 @@ namespace NailSalon.BL.Services.Concretes
         }
 
 
-        // Səbəti təmizlə
         public async Task ClearBasketAsync(string userId)
         {
             await _basketRepo.ClearBasketAsync(userId);
